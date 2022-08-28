@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건문-3</title>
+</head>
+<body>
+    <script>
+        // 짝수 검사 프로그램
+        var value = window.prompt('숫자를 입력해주세요.');
+
+        // 논리연산자
+        // 1) && : 두 개의 조건이 true 인 경우 true 리턴
+        // 2) || : 둘 중의 하나의 조건만 true인 경우 true 리턴
+        
+        if( (parseInt(value % 2) == 0) && (parseInt(value % 3) == 0) ) { 
+            alert(value + '는 2와 3의 공배수가 맞네!') 
+        } else{
+            alert(value + '는 2와 3의 공배수가 아니네!')
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건문(switch)</title>
+</head>
+<body>
+    <script>
+        var rank = window.prompt('직급을 입력해부앙 1: 부장, 2: 차장, 3: 과장, 4: 주임, 5: 사원');
+        switch(rank){
+            case "1" : document.write('<p>부장의 급여는 <strong>700만원</strong>입니다.</p>');
+                break; // 없으면 입력한 조건의 하위 조건 모두 출력됨
+            case "2" : document.write('<p>차장의 급여는 <strong>600만원</strong>입니다.</p>');
+                break;
+            case "3" : document.write('<p>과장의 급여는 <strong>500만원</strong>입니다.</p>');
+                break;
+            case "4" : document.write('<p>주임의 급여는 <strong>350만원</strong>입니다.</p>');
+                break;
+            case "5" : document.write('<p>사원의 급여는 <strong>300만원</strong>입니다.</p>');
+                break;
+            default: alert('잘못 입력하셨슴다?') // 있어도 괜찮, 없어도 괜찮
+        }
+    </script>
+</body>
+</html>

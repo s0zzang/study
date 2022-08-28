@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>string클래스-5 : replace()</title>
+    <script>
+        var str = '반갑소. x님은 자바스크립트 공부중입니다~!';
+        var replaceStr = window.prompt('이름을 입력해주세요');
+        var resultStr = str.replace('x', replaceStr);
+        document.write(str + '<br>') //반갑소. x님은 자바스크립트 공부중입니다~!
+        document.write(resultStr + '<br>') //반갑소. 소정쓰님은 자바스크립트 공부중입니다~!
+
+        // replace : 대체하고자 하는 문자열을 찾아서 대체 문자로 치환하고 새로운 string 인스턴스를 리턴함
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

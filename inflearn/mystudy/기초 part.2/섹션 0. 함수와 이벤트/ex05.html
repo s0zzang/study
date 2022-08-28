@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수의 생명 주기</title>
+</head>
+<body>
+    <script>
+        function localTest(){
+            var value = '강동역';
+            document.write('1. ' + value); // {} 내 지역변수 출력 가능
+        } localTest();
+        document.write('2. ' + value); // {} 밖이라 지역변수 출력 불가능 
+                                       // (오류: value is not defined)
+    </script>
+</body>
+</html>

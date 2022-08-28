@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript Basic Selector</title>
+</head>
+
+<body>
+	<h1 id="title">Javascript Basic Selector</h1>
+	<div class="container">
+		<ul id="list1" class="list">
+			<li>li 1</li>
+			<li>li 2</li>
+			<li>li 3</li>
+			<li>li 4</li>
+			<li>li 5</li>
+		</ul>
+	</div>
+	<div class="container">
+		<ul id="list2" class="list">
+			<li>li 1</li>
+			<li>li 2</li>
+			<li>li 3</li>
+			<li>li 4</li>
+			<li>li 5</li>
+		</ul>
+	</div>
+	<div class="container">
+		<ul id="list3" class="list">
+			<li class="red" name="red">li 1</li>
+			<li>li 2</li>
+			<li>li 3</li>
+			<li>li 4</li>
+			<li id="list3_5">li 5</li>
+			<li>li 6</li>
+		</ul>
+	</div>
+
+	<div class="container">
+		<div id="box">
+			box level1
+			<div>
+				box level2
+				<div>
+					box level3
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil id, corporis, blanditiis quam dicta amet quidem eum impedit harum consequuntur aspernatur ratione nostrum vel culpa fuga! Dolore quibusdam nisi temporibus!
+	</p>
+	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil id, corporis, blanditiis quam dicta amet quidem eum impedit harum consequuntur aspernatur ratione nostrum vel culpa fuga! Dolore quibusdam nisi temporibus!
+	</p>
+	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil id, corporis, blanditiis quam dicta amet quidem eum impedit harum consequuntur aspernatur ratione nostrum vel culpa fuga! Dolore quibusdam nisi temporibus!
+	</p>
+	
+	<br><br>
+
+	<h3>여러 요소 색상 변경</h2>
+	<p>제이쿼리에선, each문 또는 $('.class').css 하면 모든 요소에 적용</p>
+	<p>자바스크립트에선, for문을 사용하여 style 변경을 반복하여 실행하여야만 모든 요소에 적용</p>
+	<p>특정 인덱스에만 적용 : paragraphs[0].style.color = 'yellow';</p>
+	
+<script>
+	for(j=1; j<=9; j++){
+		document.write('3x' + j + '=' + (j*3) + '<br>')
+	}
+
+	var firstTitle = document.getElementById('title'),
+		myList = document.getElementsByClassName('list'),
+		paragraphs = document.getElementsByTagName('p'),
+		red = document.querySelector('.list .red');
+		// querySelector : jquery처럼 첫번째 요소만 선택
+	
+	console.log(firstTitle)
+	console.log(paragraphs)
+	// console.log(red)
+
+	// 색상 변경
+	firstTitle.style.color = 'skyblue';
+	// 요소 삭제
+	myList[2].style.display = 'none';
+	// 색상 변경
+	// paragraphs[0].style.color = 'yellow';
+
+	// 반복문
+	for(var i=0; i<=paragraphs.length; i++){
+		paragraphs[i].style.color = 'gray';
+	}
+
+
+</script>
+
+</body>
+</html>

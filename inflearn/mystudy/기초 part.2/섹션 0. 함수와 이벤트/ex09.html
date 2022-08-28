@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수-6(갤러리)</title>
+    <link rel="stylesheet" href="css/img.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            init();
+            initEvent();
+        });
+        var $img = null;
+
+        function init(){
+            // 배열로 이미지 받기
+            $img = $('#container1 img');
+        }
+
+        function initEvent(){
+            $('#btnStart').click(function(){
+                showImage();
+            })
+        }
+        
+        function showImage(){
+            // 이미지 개수 구하기
+            var length = $img.length;
+            // 이미지 나열
+            for(var i=0; i<length; i++){
+                // eq() 이용하여 인덱스에 해당하는 이미지를 변수에 저장
+                var $image = $img.eq(i);
+                // 위치 값 구하기
+                var x = 100 + ((i % 3) * 200);
+                var y = 100 + (parseInt(i / 3) * 200);
+                var y = 100 + ((i / 3) * 200);
+                console.log(x)
+                console.log(y)
+                // 위치 설정
+                $image.animate({left: x, top: y});
+            }
+        }
+        
+        
+    </script>
+</head>
+<body>
+    <button id="btnStart">시작!</button>
+    <div class="image-container" id="container1">
+        <img src="https://i.ytimg.com/vi/PTsvxh5Q7yA/maxresdefault.jpg">
+        <img src="https://i.ytimg.com/vi/AVRv0uywOV4/maxresdefault.jpg">
+        <img src="https://storage.doopedia.co.kr/upload/_upload/image5/travel/slide/2019/02/08/20190208175004620_thumb_1200.jpg">
+        <img src="https://image.theminda.com/data/tg/image/item/middle/201910/497527176b0f40de761eb3012e4b51b9.jpg">
+        <img src="https://recipe1.ezmember.co.kr/cache/recipe/2020/11/12/16cac9e85f7931b029b09ed48d443cbe1.jpg">
+        <img src="http://s3.ap-northeast-2.amazonaws.com/taling.me/Content/Uploads/Images/aa6183bdb48abadbf46062e56ef221667c4a0131.jpg">
+        <img src="https://cdn.class101.net/images/a3922dea-eda4-477d-8785-d07ce937d17c">
+        <img src="https://i.pinimg.com/originals/3e/a6/36/3ea636196644bafa689b1335d895740a.jpg">
+    </div>
+</body>
+</html>

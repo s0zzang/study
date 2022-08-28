@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas</title>
+    <script>
+        function drawRect(){
+            var myCanvas = document.getElementById('myCanvas');
+            var ctx = myCanvas.getContext('2d'); // 2d 그림 그릴 수 있는 context 준비
+
+            // ctx.fillRect(x좌표, y좌표, 가로길이, 세로길이)
+            ctx.fillRect(25, 25, 100, 100);
+            ctx.clearRect(45, 45, 60, 60);
+            ctx.strokeRect(50, 50, 50, 50);
+        }
+
+        function drawArc(){
+            var myCanvas = document.getElementById('myCanvas');
+            var ctx = myCanvas.getContext('2d');           
+            
+            ctx.beginPath();
+            // ctx.arc(중심점x, 중심점y, 반지름 길이, 시작점의 위치( 0 - 3시 방향), 종료위치, 방향)
+            // Math.PI = 180도 
+            // Math.PI * 0.5 = 270도
+            // true : 시계 반대방향으로 
+            ctx.arc(75, 75, 50, 0, Math.PI * 2, true);
+            
+            ctx.moveTo(110, 75);
+            ctx.arc(75, 75, 35, 0, Math.PI, false);
+            
+            ctx.moveTo(65, 65);
+            ctx.arc(60, 65, 5, 0, Math.PI * 2, true);
+            
+            ctx.moveTo(95, 65);
+            ctx.arc(90, 65, 5, 0, Math.PI * 2, true);
+            
+            ctx.stroke();
+            // ctx.fill();
+        }
+        
+        function drawLine(){
+            var myCanvas = document.getElementById('myCanvas');
+            var ctx = myCanvas.getContext('2d');
+            
+            ctx.beginPath();
+            // 25, 25부터 105, 25까지 선 하나, 105.25부터 25, 105까지 선 하나
+            ctx.moveTo(25, 25);
+            ctx.lineTo(105, 25);
+            ctx.lineTo(25, 105);
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.moveTo(125, 125);
+            ctx.lineTo(125, 45);
+            ctx.lineTo(45, 125);
+            ctx.closePath(); // 완전한 다각형으로
+            ctx.stroke();
+        }
+    </script>
+</head>
+<body>
+    <p>참고한 영상 : https://www.youtube.com/watch?v=9i-iJWA1Gt4</p>
+    <canvas id="myCanvas" width="200" height="200" style="border: 1px solid black"></canvas>
+    <br>
+    <button type="button" onclick="drawRect()">사각형 그리기</button>
+    <button type="button" onclick="drawArc()">원 그리기</button>
+    <button type="button" onclick="drawLine()">선 그리기</button>
+</body>
+</html>

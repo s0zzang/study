@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 클래스 - 정렬(숫자 오름차순)</title>
+    <script>
+        var numbers = [6, 7, 1, 5, 9, 77];
+        document.write('실행 전은요? : ' + numbers.join() + '<br>')
+        numbers.sort()
+
+        document.write('올림차순 정렬후는요? : ' + numbers.join() + '<br>')
+        numbers.sort(function(a, b){
+            if(a>b) return -1;
+            if(a<b) return 1;
+        })
+        // 문자열 기반이기 때문에 6,77,9 순서로 산출
+        document.write('내림차순 정렬후는요? : ' + numbers.join() + '<br>')
+        numbers.sort(function)({
+            if(a>b) return 1;
+            if(a<b) return -1;
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

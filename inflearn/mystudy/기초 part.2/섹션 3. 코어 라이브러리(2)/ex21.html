@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 이미지</title>
+    <style>
+        * {margin: 0; padding: 0;}
+        .arrBanner {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            border-radius: 30px;
+            box-shadow: 5px 5px 15px rgb(0 0 0 / 30%);
+        }
+        #arrBanner1 {
+            top: 100px;
+            left: 100px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            var $arrBanner = $('.arrBanner');
+            var i = 0;
+            var imgList = ['https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcPs9Im%2Fbtrb2k1feQq%2FBW34tbqjtHscUYkgCPyjcK%2Fimg.jpg','https://i.pinimg.com/originals/38/02/aa/3802aae574b1a647b7f3ea26b603ca80.jpg','https://i.pinimg.com/550x/30/78/1c/30781ca943b0aaca8b71813e9b5bd38d.jpg','https://blog.kakaocdn.net/dn/cPs9Im/btrb2k1feQq/BW34tbqjtHscUYkgCPyjcK/img.jpg','http://image.kyobobook.co.kr/images/book/xlarge/355/x9788984374355.jpg','https://cdn.imweb.me/upload/S20201217ff49dfd1962cf/7ca5ea2ce2cfe.jpg','https://i.pinimg.com/originals/1c/55/1d/1c551d510f47bab36c71ce4e15d57262.jpg','https://i.pinimg.com/originals/b4/8c/03/b48c033ce77744cc081c8f2556ca362a.jpg']
+            
+            setInterval(function(){
+                i++;
+                if(i>imgList.length){
+                    i = 0;
+                }
+                console.log(i)
+                var imgName = imgList[i];
+                $arrBanner.attr('src', imgName)
+            }, 1000)
+        })
+    </script>
+</head>
+<body>
+    <img class="arrBanner" id="arrBanner1" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcPs9Im%2Fbtrb2k1feQq%2FBW34tbqjtHscUYkgCPyjcK%2Fimg.jpg">
+</body>
+</html>

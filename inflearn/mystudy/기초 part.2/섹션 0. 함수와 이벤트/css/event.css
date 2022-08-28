@@ -1,0 +1,4 @@
+#item {position: relative; width: 500px; height: auto; padding: 15px 20px; margin: auto;}
+button {background: rgba(255,255,255,.7); padding: 4px 7px; border: 1px solid #000; border-radius: 5px; cursor: pointer;}
+.over {position: absolute; left: 30px; bottom: 30px;}
+.detail {width: 400px; margin: auto; text-align: center; line-height: 1.8; display: none;}

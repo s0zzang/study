@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>물고기게임 - Math.random</title>
+    <style>
+        #start {font-size: 20px; font-weight: bold; letter-spacing: -1px; background: #fff; border: 1px solid #aaa; padding: 5px 10px; border-radius: 10px;}
+        #scoreText {font-size: 20px; font-weight: bold;}
+        #score {font-size: 20px; font-weight: bold; color: red;}
+        .panel {width: 600px; height: 400px; position: relative; border: 4px solid rgb(255, 180, 52); margin-top: 20px;}
+        .panel #fish {position: absolute; left: 240px; top: 150px; width: 120px; cursor: pointer;}
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+    <script>
+        var cnt = 0;
+        var $score = null;
+        var $fish = null;
+        var play = false; //플래그 변수
+        var timerID = 0;
+
+        $(function(){
+            init(); // 요소 초기화
+            initEvent(); // 이벤트 등록
+        })
+        function init(){
+            $score = $('#score');
+            $fish = $('#fish');
+        }
+        function initEvent(){
+            $('#start').click(function(){
+                startGame();
+            })
+            $fish.click(function(){
+                addScore();
+            })
+        }
+        function startGame(){
+            if(!play){
+                // 게임 종료 여부 체크 
+                checkEndGame();
+                play = true;
+                timerID = setInterval(function(){
+                    moveFish();
+                }, 1000)
+            }
+        }
+        function moveFish(){
+            // 물고기 크기 120 * 120
+            // 패널 크기 600 * 400
+            // 물고기 이동 영역 : 0 ~ 480 (600-120)
+            var x = parseInt(Math.random() * 480);
+            var y = parseInt(Math.random() * 280);
+            $fish.css({left: x, top: y})
+        }
+        function addScore(){
+            if(play){
+                cnt ++;
+                $score.html(cnt);
+            }
+        }
+        function checkEndGame(){
+            // 게임 10초 뒤에 종료되게끔 함
+            setTimeout(function(){
+                play = false;
+                clearInterval(timerID);
+                alert('게임 종료쓰');
+                cnt = 0;
+            },10000)
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <button id="start">게임 시작쓰</button>
+        <span id="scoreText">현재점수 : </span>
+        <span id="score">0</span>
+    </div>
+    <div class="panel">
+        <img src="https://img.lovepik.com/element/40136/4832.png_300.png" alt="fish" id="fish">
+    </div>
+</body>
+</html>

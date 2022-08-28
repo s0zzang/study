@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트-1</title>
+    <link rel="stylesheet" href="css/event.css">
+    <script>
+        // 상세설명 보기
+        function showDetail(){
+            document.querySelector('#desc').style.display = 'block';
+            document.querySelector('#open').style.display = 'none';
+        }
+        // 상세설명 닫기
+        function hideDetail(){
+            document.querySelector('#desc').style.display = 'none';
+            document.querySelector('#open').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <div id="item">
+        <img src="https://ilyo.co.kr/contents/article/images/2021/0901/1630489439404046.jpg" alt="">
+        <button class="over" id="open" onclick="showDetail()">상세 설명 보기</button>
+        <div class="detail" id="desc">
+            <h3>김치만두</h3>
+            <p>어디서나 매우 흔하게 보이는 만두로서 아주 맛이 좋다. 어디서나 매우 흔하게 보이는 만두로서 아주 맛이 좋다. 어디서나 매우 흔하게 보이는 만두로서 아주 맛이 좋다.</p>
+            <button id="close" onclick="hideDetail()">상세 설명 닫기</button>
+        </div>
+    </div>
+</body>
+</html>

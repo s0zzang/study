@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>string클래스-7 : 공백제거 (trim)</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+    <script>
+        var str = '   오   늘 은 내 가 최 고 요 리 사 ';
+        var resultStr = str.trim();
+        document.write(str + '<br>') // 오늘은 내가 최고 요리사
+        document.write(resultStr + '<br>') // 오늘은 내가 요리사
+
+        console.log(str)        //   오   늘 은 내 가 최 고 요 리 사 
+        console.log(resultStr)  // 오   늘 은 내 가 최 고 요 리 사
+
+        // trim : jquery 메서드, 앞뒤 공백 제거
+        // 중간에 위치하는 공백은 삭제하지 못함
+    </script>
+</head>
+<body>
+</body>
+</html>

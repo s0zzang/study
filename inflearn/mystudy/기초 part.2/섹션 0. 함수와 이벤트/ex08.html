@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수-5(지구본 움직이기)</title>
+    <style>
+        body {font-size: 14px;}
+        #panel {width: 600px; height: 500px; border: 1px solid #ccc; position: relative;}
+        #gigu {position: absolute; width: 100px; left: 50px; top: 120px; border-radius: 50%;}
+        #nav {text-align: center; width: 600px;}
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+    <script>
+        var $gigu = null;
+        $(function(){
+            initialize();
+            event_gigu();
+        })
+
+        // 전역변수 초기화
+        function initialize(){
+            $gigu = $("#gigu");
+        }
+        function event_gigu(){
+            $('#btnStart').click(function(){
+                var x = parseInt($('#txtX').val());
+                var y = parseInt($('#txtY').val());
+                moveGigu(x, y);
+            })
+        }
+        function moveGigu(x, y){
+            if( (x>0 && x <= 300) && (y>0 && y <= 100)){
+                $gigu.css({left: x, top: y})
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <div id="panel"><img id="gigu" src="https://www.ekn.kr/mnt/file/202110/2021100501000102800003981.jpg" alt=""></div>
+    </div>
+    <div id="nav">
+        <label>X값 입력 : </label>
+        <input type="text" id="txtX"> <br>
+        <label>y값 입력 : </label>
+        <input type="text" id="txtY"> <br>
+        <button id="btnStart">지구본 움직이기</button>
+    </div>
+</body>
+</html>

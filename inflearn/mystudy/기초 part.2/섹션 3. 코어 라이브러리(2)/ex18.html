@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 클래스 - 정렬(문자 오름차순)</title>
+    <script>
+        var descnames = ['참치김밥', '땡초김밥', '묵은지김밥', '치즈김밥', '김치김밥']
+        var ascnames = ['참치김밥', '땡초김밥', '묵은지김밥', '치즈김밥', '김치김밥']
+        document.write('실행 전 ~ : ' + descnames + '<br>')
+        
+        // 한글 ㄱ~ㅎ 오름차순
+        descnames.sort();
+        document.write('오름정렬 후 ~ : ' + descnames + '<br>')
+        
+        // 한글 ㅎ~ㄱ 내림차순
+        ascnames.sort(function(a,b){
+            if(a>b){return -1} // a가 b보다 크면 
+            if(a<b){return 1}
+        });
+        document.write('내림정렬 후 ~ : ' + ascnames + '<br>')
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

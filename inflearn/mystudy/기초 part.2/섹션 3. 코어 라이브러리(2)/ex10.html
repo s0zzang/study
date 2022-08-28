@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>string클래스-10 : 정규표현식을 이용한 공백제거</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        var str = '  공백두개띄고   세개더띄고   ';
+        console.log('원본 문자열!' + str) 
+        //    공백두개띄고   세개더띄고   
+        console.log('전체 공백 제거!' + str.replace(/(\s*)/g, ''))
+        // 공백두개띄고세개더띄고
+        console.log('앞 공백 제거!' + str.replace(/(^\s*)/, ''))
+        // 공백두개띄고   세개더띄고   
+        console.log('뒤 공백 제거!' + str.replace(/(\s*$)/, ''))
+        //   공백두개띄고   세개더띄고
+
+        // // : 그룹으로 묶기
+        // \s : 공백 문자 탐색
+        // \S : 공백 문자가 아닌 문자 탐색
+        // * : 여러차례 실행 / 앞에 오는 문자를 최소 0번 이상 탐색
+        //  ex) zo* 입력하면 zo 또는 zoo
+        // + : 앞에 오는 문자를 1번 이상 탐색
+        //  ex) zo* 입력하면 zo는 찾지 않고 zoo 찾음
+        // ? : 앞에 오는 문자를 0번 이상 탐색
+        //  ex) a?ve?를 입력하면 naver의 ve를 찾음
+        // g : 실행 범위 = 전역
+        // ^ : 입력의 시작을 찾음
+        // $ : 입력의 끝부분을 찾음
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

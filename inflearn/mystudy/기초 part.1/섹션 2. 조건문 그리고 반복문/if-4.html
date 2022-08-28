@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건문-4</title>
+</head>
+<body>
+    <script>
+        // 사용자에게 정보 입력
+        var userID = window.prompt('아이디를 입력하세요?'),
+            userPW = window.prompt('비밀번호를 입력하세요?');
+
+        // 값 비교 (cpu 참조를 가장 적게 받으려면 (프로그램 성능이 좋기 위해선) if-else, if-else 구문 사용하기)
+        if(userID == '소짱' && userPW == '1234'){
+            alert(userID + '님이 로그인 하셨네요?')
+        } else if (userID == '소짱'){
+            alert('비밀번호가 잘못 입력됐어요!')
+        } else {
+            alert('아이디가 잘못 입력됐어요!')
+        }
+    </script>
+</body>
+</html>

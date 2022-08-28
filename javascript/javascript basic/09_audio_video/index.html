@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="robots" content="index, follow">
+    <title></title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+    <!-- onclick="playAudio()" : 웹접근성에 적합하지 않음 -->
+    <!-- <button id="aplay" onclick="playAudio()">Play music</button>
+    <button id="apause" onclick="pauseAudio()">Pause music</button><br> -->
+
+    <button id="aplay">Play music</button>
+    <button id="apause">Pause music</button><br>
+    <hr>
+    <button id="vplay">Play video</button>
+    <button id="vpause">Pause video</button>
+
+    <!-- 컨트롤러가 브우저마다 다르기때문에 controls 사용 안함 -->
+    <video src="video/vivaldi.mp4" id="myvideo" autoplay muted></video>
+    <audio src="audio/Honey_Bee_01_web.mp3" id="myaudio" controls></audio>
+
+    <script>
+        var myAudio = document.getElementById('myaudio');
+        var myVideo = document.getElementById('myaudio');
+        
+        // 1. onclick 방법
+       function playAudio(){
+            myAudio.play();
+        }
+        function pauseAudio(){
+            myAudio.pause(); // 일시정지
+            // myAudio.stop(); // 멈춤
+        }
+       function playVideo(){
+            myvideo.play();
+        }
+        function pauseVideo(){
+            myvideo.pause(); // 일시정지
+            // myAudio.stop(); // 멈춤
+        }
+
+        // 2. 웹접근성에 적합한 방법
+        document.getElementById('aplay').addEventListener('click', playAudio);
+        document.getElementById('apause').addEventListener('click', pauseAudio);
+        document.getElementById('vplay').addEventListener('click', playVideo);
+        document.getElementById('vpause').addEventListener('click', pauseVideo);
+    </script>
+
+</body>
+
+</html>

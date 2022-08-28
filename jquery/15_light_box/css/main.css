@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+/* Base */
+html { font-family: "Ropa Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif; font-size: 16px; line-height: 1.5; }
+body { background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); min-width: 960px; }
+h1, h2, h3, p, ul { margin: 0; }
+ul { padding-left: 0; }
+ul li { list-style-type: none; }
+a { color: inherit; text-decoration: none; }
+img { vertical-align: middle; }
+.clearfix:before, .clearfix:after { content: " "; display: table; }
+.clearfix:after { clear: both; }
+
+
+/*
+ * Work section
+ */
+
+ #lightbox-overlay { opacity:0; pointer-events: none; position: fixed; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(29, 31, 33, .95); transition: opacity .3s ease-in;}
+ #lightbox-overlay.visible {opacity:1; pointer-events: auto;}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연산자</title>
+</head>
+<body>
+    <script>
+        // window가 load 되면 함수 실행
+        window.onload = function(){
+            var list = "";
+            var num = 10;
+
+            // 복합대입 연산자 통해 list 변수에 문자열 누적
+            list += '<ul>';
+            list += "   <li>안녕</li>"
+            list += "   <li>자바스크립트</li>"
+            list += '</ul>';
+            // 정수형도 복합대입 연산자를 통해 값 누적 가능
+            num += 10; num += 10; num += 10; num += 10;
+            
+            // 문서에 출력
+            document.body.innerHTML = list;
+            document.body.innerHTML = num;
+        }
+    </script>
+</body>
+</html>

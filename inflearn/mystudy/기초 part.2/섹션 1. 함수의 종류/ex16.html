@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>콜백함수-5(일반함수 풀이)</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+    <script>
+        $(function(){
+            // 탭메뉴 코드 실행되도록 함수 호출
+            tabmenu('#tabmenu');
+        })
+        function tabmenu(selector){
+            var $tabMenu = null;
+            var $menuItems = null;
+            var $selectedMenuItem = null;
+
+            function init(selector){
+                $tabMenu = $(selector);
+                $menuItems = $tabMenu.find('li');
+            }
+            function initEvent(){
+                $menuItems.click(function(){
+                    setSelectItem($(this));
+                })
+            }
+            function setSelectItem($item){
+                if($selectedMenuItem != null){
+                    $selectedMenuItem.removeClass('on');
+                }
+                $selectedMenuItem = $item;
+                $selectedMenuItem.addClass('on')
+                $('#info').html($selectedMenuItem.index());
+            }
+            init(selector);
+            initEvent();
+        }
+    </script>
+</head>
+<body>
+    <ul id="tabmenu" class="tab-menu">
+        <li class="menuitem1">메뉴</li>
+        <li class="menuitem2">메뉴</li>
+        <li class="menuitem3">메뉴</li>
+        <li class="menuitem4">메뉴</li>
+        <li class="menuitem5">메뉴</li>
+        <li class="menuitem6">메뉴</li>
+    </ul>
+    <div>선택한 인덱스 값인디요 <span id="info"></span></div>
+</body>
+</html>
+<style>
+    * {padding: 0; margin: 0;}
+    .tab-menu {list-style: none; padding: 20px;}
+    li {width: 60px; display: inline-block; height: 40px; border: 1px solid #000; text-align: center; line-height: 40px; color: #000; transition: all .3s; cursor: pointer;} 
+    li.on {color: lightpink; border-color: lightpink;} 
+    li:hover {color: lightpink; border-color: lightpink;} 
+    div {padding: 0 20px;}
+</style>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>터치 게임</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+    <script>
+        // 스위치를 클릭하면 점수가 변하도록 만듬
+        // 단, setInterval 사용하여 5초 동안만 가능
+        $(function(){
+            // 점수 저장 변수
+            var cnt = 0;
+            var $score = $('#score');
+            // 플래그 변수 (특정 조건에 따라 실행 여부를 결정하는 변수)
+            var play = true;
+
+            $('#target').click(function(){
+                if( play == true ){
+                    cnt ++;
+                    $score.html(cnt);
+                }
+            });
+            // 게임 5초 후 종료
+            setTimeout(function(){
+                play = false;
+                alert('게임 끝 !');
+            }, 5000)
+        })
+    </script>
+</head>
+<body>
+    <div id="text">
+        <span class="score">현재 점수 </span><span id="score"> 0</span> <br>
+        5초동안 스위치를 클릭하여 높은 점수를 노려보세요!
+    </div>
+    <div id="container">
+        <img id="target" src="https://w.namu.la/s/b9ce27b32d389af71b0835365001b889838c9cb80c92b0864c82b711720f26cc3512edfcd4a24b122522998de5f5c91089f46140221d92244fc77e925febfd7d31767e29d717063d3f202d08aef4bf74">
+    </div>
+</body>
+</html>
+<style>
+    #container {width: 600px; height: 500px; position: relative; border: 3px solid sandybrown; margin: 30px auto;}
+    #target {width: 250px; top: 250px; left: 150px; position: absolute;}
+    #text {font-size: 15px; font-weight: nolmal; text-align: center; margin-top: 20px;}
+    #score, .score {font-size: 25px; font-weight: bold;}
+</style>

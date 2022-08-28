@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>배너 롤링</title>
+      <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+      <script>
+            $(function(){
+                  // 배열로 이미지 저장
+                  var imgList = ['https://i.pinimg.com/736x/50/98/b0/5098b02e1dd92665144b752f150e36b0.jpg', 'https://i.pinimg.com/236x/27/4e/09/274e096525edaec0cb96b5f9ee87e646.jpg' , 'https://i.pinimg.com/236x/f8/21/0a/f8210a9ab624cd8c2a52ff4002d925d2.jpg', 'https://i.pinimg.com/236x/85/55/a1/8555a1ac952fdff68aef954eb62acbc5.jpg', 'https://i.pinimg.com/236x/50/dd/e0/50dde0f6ac2744f181b61c3bdb89dc67.jpg', 'https://i.pinimg.com/236x/43/30/e0/4330e08369da3f719c3e8a0ec5890bb3.jpg', 'https://i.pinimg.com/564x/63/f8/b3/63f8b34620b4e81e7693545f51e91680.jpg'];
+                  var index = 0;
+                  // 이미지 표시하기 위해 요소 찾기
+                  var $banner = $('.banner');
+                  // 1초 마다 이미지가 롤링 되도록
+                  setInterval(function(){
+                        index ++;
+                        var imgName = imgList[index];
+                        $banner.attr('src', imgName);
+                        if(index >= imgList.length-1){
+                              index = 0;
+                        }
+                  }, 1500)
+            })
+      </script>
+</head>
+<body>
+      <img id="banner1" class="banner" src="https://i.pinimg.com/564x/63/f8/b3/63f8b34620b4e81e7693545f51e91680.jpg" alt="">
+</body>
+</html>
+<style>
+      * {margin: 0; padding: 0;}
+      .banner {width: 400px; position: absolute; border-radius: 30px;}
+      #banner1 {top: 100px; left: 50%; transform: translateX(-50%); box-shadow: 10px 10px 20px 0 rgb(0 0 0 / 30%);}
+</style>

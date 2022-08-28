@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>물고기 게임</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+    <script>    
+        var $fish = null;
+        var step = 50; // 이동할 거리
+        var timerID = 0;
+
+        $(function(){
+            init();
+            initEvent();
+        })
+        // 요소 초기화
+        function init(){
+            $fish = $('.fish');
+        }
+        // 이벤트 등록
+        function initEvent(){
+            $('#btnStart').click(function(){
+                start();
+            })
+            $('#btnStop').click(function(){
+                stop();
+            })
+        }
+        // 물고기 움직이는 타이머 실행
+        function start(){
+            if(timerID == 0){
+                timerID = setInterval(function(){
+                    moveFish();
+                }, 100);
+            }
+        }
+        // 물고기 멈추기
+        function stop(){
+            clearInterval(timerID);
+            timerID = 0;
+        }
+        // 물고기 움직이기
+        function moveFish(){
+            $fish.each(function(){
+                var x = $fish.position().left + step;
+                if(x > 430){
+                    // $('#fish2').hide();
+                    // $('#fish1').show();
+                    step = -50;
+                } 
+                if(x <= 50 ){
+                    // $('#fish1').hide();
+                    // $('#fish2').show();
+                    step = 50;
+                } 
+                $(this).css('left', x)
+            })
+        }
+    </script>
+</head>
+<body>
+    <div id="panel">
+        <div id="bar"></div>
+        <div id="fish-wr">
+            <img id="fish" class="fish" src="https://img.lovepik.com/element/40136/4832.png_300.png" alt="">
+        </div>
+        <div id="nav">
+            <button id="btnStart">시작쓰</button>
+            <button id="btnStop">멈춤쓰</button>
+        </div>
+    </div>
+</body>
+</html>
+<style>
+    #panel {width: 600px; height: 300px; border: 2px solid #ccc; position: relative;}
+    #bar {position: absolute; left: 50px; top: 190px; width: 500px; height: 20px; background: rgb(9, 153, 236);}
+    .fish {position: absolute; left: 50px; top: 70px; width: 120px;}
+    #fish2 {display: none;}
+    #nav {text-align: center; width: 600px; margin-top: 20px;}
+    #btnStart, #btnStop {font-size: 20px; font-weight: bold;}
+</style>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="robots" content="index, follow">
+<title></title>	
+<link rel="stylesheet" href="css/main.css">	
+
+</head>
+<body>
+    <div class="progress-bar">
+        <div class="bar"></div>
+        <div class="rate" data-rate="90.5"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+
+        var progressWrap = $('.progress-bar'),
+            progressBar = progressWrap.find('.bar'),
+            progressText = progressWrap.find('.rate'),
+            progressRate = progressText.attr('data-rate');
+
+            console.log(progressBar)
+
+        // bar 60% 
+        progressBar.stop().animate({width:progressRate+'%'}, 2500);
+
+        /* 1. setInterval 방법 */
+
+        // text 1000/10 0.1s 마다 숫자가 바뀌도록
+        // = 일정시간마다 할 일 = setInterval(할일, 시간)
+        // setInterval( textAnimation, 1000/10);
+        // function textAnimation(){
+        //     // 10/100 * 100 = 실시간 너비 % 환산
+        //     var currentRate = progressBar.width() / progressWrap.width() * 100;
+        //     // 정수로 만들기 Math.ceil
+        //     progressText.text(Math.ceil(currentRate)+'%');
+        // }
+
+        /* 2. animate progress 속성 활용 */
+
+        // animation 풀어서 쓰기
+        // progressBar.animate({width: '60%'}, {
+        //     duration: 2500,
+        //     easing: 'easeInOutQuint',
+        //     complete: function(){}
+        // })
+        $({rate:0}).animate({rate:progressRate},{
+            duration: 2500,
+            progress: function(){
+                var now = this.rate;
+                progressText.text(Math.ceil(now*10)/10 + '%')
+            }
+        })
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

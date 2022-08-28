@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수-8(객체방식으로 함수 정의, 익명함수의 확장으로 함수 정의)</title>
+    <script>
+
+        // 객체 방식으로 함수 정의 (실무에서 거의 사용 안함)
+        var hi = new Function('name', 'document.write(name + " 칼퇴하세요!")');
+        hi('후딱');
+
+        // 익명함수의 확장으로 함수 정의
+        // 재사용 목적이 아닌 다른 함수와의 충돌을 막기 위해 사용
+        (function (ok){
+            document.write('<br>' + ok + '님 칼퇴하세요!');
+        })('리소정');
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

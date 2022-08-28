@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math클래스-2</title>
+    <script>
+        // Math.min(), Math.max()
+        var num1 = window.prompt('숫자입력 해볼텨?', 0);
+        var num2 = window.prompt('숫자입력 해볼텨?', 0);
+        alert('입력한 수 중 작은 값은? ' + Math.min(num1, num2));
+        alert('입력한 수 중 큰 값은? ' + Math.max(num1, num2));
+
+        // Math.ceil(올림), Math.floor(내림)
+        var num = 112; 
+        var page = Math.ceil(num / 10); // 전체 페이지 수는 = 12 (올림)
+        var page = Math.floor(num / 10); // 전체 페이지 수는 = 11 (내림)
+        alert('전체 페이지 수는 = ' + page); 
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

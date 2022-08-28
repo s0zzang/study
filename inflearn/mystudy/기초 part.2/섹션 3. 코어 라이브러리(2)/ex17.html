@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 클래스(배열요소 첫번째/마지막/n번째 삭제하기)</title>
+    <script>
+        var menus = ["menu1","menu2","menu3","menu4"];
+        document.write('실행 전 : ' + menus.join(', ') + '<br>');
+
+        // 배열의 첫번째 삭제
+        menus.shift();
+        document.write('shift() 실행 후 : ' + menus.join(', ') + '<br>');
+
+        // 배열의 마지막 삭제
+        menus.pop()
+        document.write('pop() 실행 후 : ' + menus.join(', ') + '<br>');
+
+        // 배열의 n번째에 삭제 (삭제 시작 인덱스, 삭제할 갯수-0인 경우 추가))
+        menus.splice(1, 5) // 인덱스 1부터 5개 배열 요소 삭제
+        document.write('splice() 실행 후 : ' + menus.join(', ') + '<br>');
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

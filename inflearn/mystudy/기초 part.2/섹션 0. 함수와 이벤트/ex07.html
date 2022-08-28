@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수-4</title>
+</head>
+<body>
+    <script>
+        // 홀, 짝수 검사 프로그램
+        function checkOdd(number){   
+            if(number % 2){
+                document.write(number + '는 홀수네여?');
+            } else {
+                document.write(number + '는 짝수네여?');
+            }
+        }
+        var number = prompt('숫자 입력하라');
+        checkOdd(number);
+
+        number = prompt('숫자 입력하라');
+        checkOdd(number);
+    </script>
+</body>
+</html>

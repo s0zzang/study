@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>string클래스-9 : 공백제거(오른쪽만)</title>
+    <style>
+        body {
+            font-size: 20px;
+        }
+        #input {
+            width: 300px;
+        }
+        #output {
+            width: 600px;
+            height: 200px;
+            border: 2px solid red;
+            text-align-last: left;
+            margin-top: 10px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            var $output = document.querySelector('#output');
+            var $output = $('#output');
+            var $input = document.querySelector('#input');
+            var $input = $('#input');
+            $('#confirm').click(function(){
+                var $val = $input.val();
+                var result = rtrim($val);
+                $output.html(result);
+            })
+        })
+        function rtrim(str){
+            var idx;
+            if(str.length <= 0){
+                return "";
+            }
+            // 뒤쪽 공백 여부 검사
+            var lastChar = str.charAt(str.length-1); // 인덱스 0부터 시작함으로 -1 = 끝문자 검사
+            if( lastChar != ' '){
+                return str;
+            }
+            // 공백 끝나는 위치 탐색
+            for (idx=str.length-1; idx>=0; idx--){ // idx=str.length-1 > 꼭 -1 하기
+                var ch = str.charAt(idx);
+                if (ch != ' '){
+                    idx ++;
+                    break;
+                }
+            }
+            var result = str.slice(0, idx);
+            return result;
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <input type="text" id="input">
+        <button id="confirm">확인</button>
+    </div>
+    <textarea id="output">실행결과</textarea>
+</body>
+</html>

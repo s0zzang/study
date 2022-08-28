@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수-10(중첩함수 변수의 범위)</title>
+    <script>
+        // 전역변수
+        var a = '전역쓰 ' + 100;
+        var b = '전역쓰 ' + 200; 
+        var c = '전역쓰 ' + 300;
+
+        function outter (){
+            // outter함수의 지역변수
+            var b = '내부 outter ' + 2000;
+            var c = '내부 outter ' + 3000;
+
+            // 중첩함수 선언 및 구현
+            function inner(){
+                var c = '내부 inner ' + 30000; // 주석걸면 내부 outter 3000 찍음
+                document.write('1. a = ' + a + '<br>'); // 전역변수 100
+                document.write('2. b = ' + b + '<br>'); // outter 지역변수 2000
+                document.write('3. c = ' + c + '<br>'); // inner 지역변수 30000
+            }
+            inner(); // outter 내부에서 호출해야함
+        }
+        outter();
+
+        // 결론 : 중첩함수는 외부함수의 변수에 쉽게 접근할 수 있는 장점
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

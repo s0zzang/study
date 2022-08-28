@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수-2(매개변수 값으로 함수 이용)</title>
+    <script>
+
+        // 아래 hi1(), hi2()는 일반적 함수
+        function hi1 (){
+            alert('안녕하세요~ 반가워요~ 잘있어요~ 다시 만나요~');
+        }
+        function hi2 (){
+            alert('아침해가 뜨면~ 매일 같은 사람들과~');
+        }
+        // exec()는 매개변수 값으로 함수를 받고 있음
+        function exec (func){ // func = hi1 or hi2;
+            func(); // 매개변수로 받은 함수를 호출
+        }
+        exec(hi1);
+        exec(hi2);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

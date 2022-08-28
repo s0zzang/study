@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>drawer_side_menu</title>
+<link rel="stylesheet" href="./css/normalize.css">
+<link rel="stylesheet" href="./css/main.css">
+
+<script src="./js/vendor/jquery-1.10.2.min.js"></script>
+<script src="./js/vendor/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="./js/main.js"></script>
+</head>
+<body>
+
+<header class="page-header" role="banner">
+    <h1>drawer_side_menu</h1>
+</header>
+
+<div class="page-main" role="main">
+    <aside>
+        <ul>
+            <li><a href="#"><img src="img/01_aside.png"></a></li>
+            <li><a href="#"><img src="img/02_aside.png"></a></li>
+            <li><a href="#"><img src="img/03_aside.png"></a></li>
+        </ul>
+        <button><img src="img/btn_open.png"></button>
+    </aside>
+</div>
+
+<div class="study">
+    <ul>
+        <li>addCLass</li>
+        <li>removeCLass</li>
+        <li>toggleCLass</li>
+        <li>hasCLass : 조건문에서 사용 / a요소에 b 클래스 있으면 true, 없으면 false</li>
+    </ul>
+    <ul>
+        <li>속성 값 가져오기</li>
+        <li>A.attr('b') : a요소의 b라는 속성의 값 가져오기</li>
+        <li>var c = A.attr('b') : a요소의 b라는 속성값을 가져와서 c 변수에 저장</li>
+        <li>예시) $btn.find('img').attr('src')</li>
+    </ul>
+    <ul>
+        <li>속성 값 변경하기</li>
+        <li>A.attr('b','c') : a요소의 b라는 속성을 c로 변경하기</li>
+        <li>var c = A.attr('b') : a요소의 b라는 속성값을 가져와서 c 변수에 저장</li>
+        <li>예시) $btn.find('img').attr('src')</li>
+    </ul>
+</div>
+
+</body>
+</html>

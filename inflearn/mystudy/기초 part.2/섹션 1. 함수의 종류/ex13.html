@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>콜백함수-3(콜백함수 풀이)</title>
+        <script>
+                // 일반적인 함수 선언 및 호출
+                // function add(n1, n2){
+                //         return n1 + n2;
+                // } 
+
+                // 콜백 함수 선언 및 호출
+                function add(n1, n2, callback){
+                        var temp =  n1 + n2;
+                        document.write('add 함수다. ' + temp + '<br>');
+                        callback(temp);
+                } 
+                function result(value){
+                        document.write('result 결과다. ' + value + '<br>');
+                }
+                add(50, 43, result)
+        </script>
+</head>
+<body>
+</body>
+</html>

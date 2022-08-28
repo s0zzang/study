@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>string클래스-3 : indexOf()</title>
+    <script>
+        // 문자열 위치 알아내기
+        var str = window.prompt('문자열 입력쓰');
+        var idx = str.indexOf('yes');
+        if(idx > -1){
+            // 'yes' 존재 O
+            alert('지정된 문자열의 위치는 ' + idx + '입니다!')
+        } else {
+            // 'yes' 존재 X
+            alert('지정된 문자열이 존재하지 않슴다')
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

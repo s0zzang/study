@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>string클래스-8 : 공백제거(왼쪽만)</title>
+    <style>
+        body {
+            font-size: 20px;
+        }
+        #input {
+            width: 300px;
+        }
+        #output {
+            width: 600px;
+            height: 200px;
+            border: 2px solid red;
+            text-align-last: left;
+            margin-top: 10px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            var $output = document.querySelector('#output');
+            var $output = $('#output');
+            var $input = document.querySelector('#input');
+            var $input = $('#input');
+            $('#confirm').click(function(){
+                var $val = $input.val();
+                var result = ltrim($val);
+                $output.html(result);
+            })
+        })
+        function ltrim(str){
+            var idx;
+            if(str.length <= 0){
+                return "";
+            }
+            // 첫번째 공백 여부 검사
+            var firstChar = str.charAt(0);
+            if( firstChar != ' '){
+                return str;
+            }
+            // 공백 끝나는 위치 탐색
+            for (idx=1; idx<str.length; idx++){
+                var ch = str.charAt(idx);
+                if (ch != ' '){
+                    break;
+                }
+            }
+            var result = str.slice(idx, str.length);
+            return result;
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <input type="text" id="input">
+        <button id="confirm">확인</button>
+    </div>
+    <textarea id="output">실행결과</textarea>
+    <script>
+        var sj = document.getElementById('input');
+        console.log(sj)
+        alert('승연아 반가워 열심히 공부해서 부좌되자~!')
+    </script>
+</body>
+</html>

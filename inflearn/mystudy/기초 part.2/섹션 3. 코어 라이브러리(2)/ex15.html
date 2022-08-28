@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 클래스 : split() 이용한 동적 메뉴 만들기</title>
+    <style>
+        ul#menu {
+            list-style: none;
+            border: 2px solid crimson;
+            height: 50px;
+            padding: 20px;
+        }
+        #menu li {
+            display: block;
+            float: left;
+            padding: 10px;
+            background-color: rgb(115, 63, 128);
+            margin-left: 15px;
+            color: #fff;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            var $menu = $('#menu');
+            var menuDate = '메뉴2,메뉴3,메뉴4,메뉴5'
+            var menuItems = menuDate.split(',');
+            // split : 구분자를 기준으로 문자열을 나눠서 배열로 리턴
+            
+            for(var i=0; i < menuItems.length; i++){
+                var newItem = '<li>' + menuItems[i] + '</li>';
+                $menu.append(newItem)
+            }
+        })
+    </script>
+</head>
+<body>
+    <ul id="menu">
+        <li>메뉴</li>
+    </ul>
+</body>
+</html>

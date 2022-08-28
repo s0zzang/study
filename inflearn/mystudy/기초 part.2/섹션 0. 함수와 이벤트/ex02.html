@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수-2</title>
+</head>
+<body>
+    <script>
+        // 가장 기본적인 함수 (매개변수 X)
+        function hello(){
+            document.write('반갑소<br>');
+        }
+        hello();
+        hello();
+        hello(); // 3번 출력됨
+
+        // 매개변수, 리턴값이 있는 함수
+        function add(num1, num2){ // 매개 변수 2개 받음
+            var result = num1 + num2;
+            return result; // 호출한 곳으로 결과값을 넘김
+        }
+        function mul(num1, num2){ // 매개 변수 2개 받음
+            var result = num1 * num2;
+            return result; // 호출한 곳으로 결과값을 넘김
+        }
+        function minus(num1, num2){ // 매개 변수 2개 받음
+            var result = num1 - num2;
+            return result; // 호출한 곳으로 결과값을 넘김
+        }
+        var value = add(100, 200)
+        alert('두 수의 합은 ' + value);
+        var value = mul(100, 200)
+        alert('두 수의 곱은 ' + value);
+        var value = minus(100, 200)
+        alert('두 수의 차는 ' + value);
+
+    </script>
+</body>
+</html>
