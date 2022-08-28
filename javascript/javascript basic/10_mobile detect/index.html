@@ -6,8 +6,39 @@
 
 <div class="mobile">mobile device</div>
 <div class="pc">PC device</div>
-<script></script>
-<script></script>
+<script src="https://cdn.tutorialjinni.com/modernizr/2.8.3/modernizr.min.js"></script>
+<script>
+    // 1) device pixel ratio로 구분
+    // 모바일은 모두 pixel - ratio 2 이상이기 때문에 ratio로 모바일 구분 (but, 맥에선 ratio 2)
+    // 배율이 커지면 모바일로 인식함
+    // var ratio = window.devicePixelRatio;
+    // console.log(ratio);
+    // if (ratio >=2){
+    //     document.querySelector('.pc').style.display = 'none'
+    // } else {
+    //     document.querySelector('.mobile').style.display = 'none'
+    // }
+        
+    // 2) cross browsing
+    if(Modernizr.touchevents){
+        document.querySelector('.pc').style.display = 'none'
+    } else {
+        document.querySelector('.mobile').style.display = 'none'
+    }
+
+    // 3) user Agent
+    var uAgent = navigator.userAgent;
+    const isMobile = (() => {
+        const { userAgent, maxTouchPoints } = window.navigator;
+        const isMac = /Macintosh/i.test(userAgent);
+
+        if (isMac && maxTouchPoints > 0) return true;
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobi|mobi/i.test(
+            userAgent
+        );
+    })();
+</script>
+
 
 </body>
 </html>
