@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Animation</title>
+    <style>
+        .num_animation {
+            width: 100px;
+            padding: 20px;
+            font-size: 3em;
+            margin: 30px auto;
+            border: 1px solid #000;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="num_animation" data-rate="90">0</div>
+    <script>
+        var numAni = document.querySelector('.num_animation');
+        var targetNum = numAni.getAttribute('data-rate');
+        var num = 0;
+        var timer = setInterval(function(){
+            ++num;
+            // num++ : 시간이 지나도 0에서 시작하기 때문에 ++num
+            numAni.innerHTML = '<a>' + num + '</a>'; // innerHTML은 a 태그로 들어감 (not innerText)
+            if(num == targetNum){
+                clearInterval(timer)
+            }
+        }, 30)
+    </script>
+</body>
+</html>
