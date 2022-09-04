@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    list-style: none;
+}
+
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+body {
+    background: #f8cf67;
+    overflow-y: scroll;
+}
+
+header {
+    margin-top: 20px;
+    background: linear-gradient(white 50px, rgba(255, 255, 255, 0.5) 50px, rgba(255, 255, 255, 0.5));
+    height: 50px;
+    overflow: hidden;
+    padding: 0 30px;
+    transition: height .6s ease-in-out;
+    position: absolute;
+}
+
+nav {
+    width: 960px;
+    margin: 0 auto;
+}
+
+nav>ul>li {
+    float: left;
+    line-height: 50px;
+    position: relative;
+    padding: 0 35px;
+}
+
+nav>ul>li ul {
+    width: 100%;
+    opacity: 0;
+    position: absolute;
+    transition: .8s ease-in-out;
+}
+
+nav>ul>li ul {
+    padding-bottom: 10px;
+}
+
+nav>ul>li ul li {
+    white-space: nowrap;
+}
+
+nav>ul>li:hover ul {
+    opacity: 1;
+}
+
+.cont {
+    padding: 100px 30px;
+}
