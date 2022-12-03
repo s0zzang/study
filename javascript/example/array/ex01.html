@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>배열 - 예제 1</title>
+</head>
+<body>
+    <div class="wrap ex">
+        <div class="question_wr">
+            <p>
+                <span class="code">var fruitArray = ["banana", "orange", "apple"];</span>
+                위 배열에서 banana를 찾아서 빼버리는 코드를 만들어 봅시다<br>
+                이 코드는 fruitArray의 데이터들("banana", "orange", "apple")의 순서가 달라져도 잘 작동해야 합니다.
+            </p>
+        </div>
+        <div class="answer_wr">
+            <section class="solve">
+                <h2 class="tit">문제풀이</h2>
+                <div class="textarea_box">
+                    <textarea>
+var fruitArray = ["banana", "orange", 'no-banana' ,"apple", 'banana'];
+
+for(var i = 0; i < fruitArray.length; i++) {
+    if(fruitArray[i] === "banana") {
+        fruitArray.splice(i, 1);
+    }
+}
+
+document.write(fruitArray);
+                    </textarea>
+                </div>
+            </section>
+            <section class="answer">
+                <h1 class="tit">결과</h1>
+            </section>
+        </div>
+    </div>
+    
+    <script>
+        var fruitArray = ["banana", "orange", 'no-banana' ,"apple", 'banana'];
+
+        for(var i = 0; i < fruitArray.length; i++) {
+            if(fruitArray[i] === "banana") {
+                fruitArray.splice(i, 1);
+            }
+        }
+
+        document.write(fruitArray);
+    </script>
+
+</body>
+<script src="../basic.js"></script>
+</html>
