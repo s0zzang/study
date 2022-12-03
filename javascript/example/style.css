@@ -13,7 +13,7 @@
     font-family: 'Maven Pro','NanumSquareNeo-Variable', sans-serif;
     line-height: 1.6;
     box-sizing: border-box;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 300;
     font-style: normal;
     color: #444;
@@ -24,7 +24,7 @@
 body {
     width: 100%;
     max-width: 1400px;
-    margin: 50px auto 0;
+    margin: 30px auto 0;
     padding: 0 30px;
 }
 ul,li {
@@ -33,14 +33,14 @@ ul,li {
 
 /* index */
 .index h1 {
-    font-size: 30px;
+    font-size: 24px;
     font-weight: bold;
 }
 .index .content_wr {
     margin-top: 30px;
 }
 .index h2 {
-    font-size: 24px;
+    font-size: 18px;
 }
 .index ul {
     margin-top: 5px;
@@ -115,7 +115,7 @@ textarea {
 
 }
 .answer_wr {
-    margin-top: 70px;
+    margin-top: 50px;
 }
 .tit {
     color: #999;
