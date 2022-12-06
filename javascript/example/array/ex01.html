@@ -8,7 +8,7 @@
     <title>배열 - 예제 1</title>
 </head>
 <body>
-    <div class="wrap ex">
+    <main class="wrap ex">
         <div class="question_wr">
             <p>
                 <span class="code">var fruitArray = ["banana", "orange", "apple"];</span>
@@ -21,36 +21,40 @@
                 <h2 class="tit">문제풀이</h2>
                 <div class="textarea_box">
                     <textarea>
-var fruitArray = ["banana", "orange", 'no-banana' ,"apple", 'banana'];
+var fruitArray = ["banana?", "orange", 'no-banana' ,"apple", 'banana'];
 
-for(var i = 0; i < fruitArray.length; i++) {
-    if(fruitArray[i] === "banana") {
-        fruitArray.splice(i, 1);
-    }
-}
+// code
+let result = fruitArray.map((item) => item != 'banana')
 
-document.write(fruitArray);
+document.getElementById('a').innerHTML = result
                     </textarea>
                 </div>
             </section>
             <section class="answer">
                 <h1 class="tit">결과</h1>
             </section>
+            <div id="a"></div>
         </div>
-    </div>
-    
-    <script>
-        var fruitArray = ["banana", "orange", 'no-banana' ,"apple", 'banana'];
+        <div class="answer_wr">
+            <section class="solve">
+                <h2 class="tit">문제풀이</h2>
+                <div class="textarea_box">
+                    <textarea>
+var fruitArray = ["banana?", "orange", 'no-banana' ,"apple", 'banana'];
 
-        for(var i = 0; i < fruitArray.length; i++) {
-            if(fruitArray[i] === "banana") {
-                fruitArray.splice(i, 1);
-            }
-        }
+// code
+let result2 = fruitArray.filter((item) => item != 'banana')
 
-        document.write(fruitArray);
-    </script>
-
+document.getElementById('b').innerHTML = result2
+                    </textarea>
+                </div>
+            </section>
+            <section class="answer">
+                <h1 class="tit">결과</h1>
+            </section>
+            <div id="b"></div>
+        </div>
+    </main>
 </body>
 <script src="../basic.js"></script>
 </html>

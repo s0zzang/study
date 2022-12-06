@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>배열 - 예제 2</title>
+</head>
+<body>
+    <main class="wrap ex">
+        <div class="question_wr">
+            <p>
+                <span class="code">var fruitArray1 = ["apple", "orange", "banana"]; <br>
+                    var fruitArray2 = ["pear", "melon", "peach", "cherry"];</span>
+                    위 두 배열에서 각각 마지막 2개의 데이터를 잘라내고 잘라낸 두 배열을 합쳐 새로운 변수 fruitArray3에 대입하는 코드를 만들어 봅시다. <br>
+
+                    이 코드는 fruitArray1, fruitArray2의 데이터가 바뀌더라도 잘 작동해야 합니다. <br>
+                    (fruitArray1, fruitArray2는 항상 2가지 이상의 문자열 데이터를 가지고 있는 배열입니다.)
+            </p>
+        </div>
+        <div class="answer_wr">
+            <section class="solve">
+                <h2 class="tit">문제풀이</h2>
+                <div class="textarea_box">
+                    <textarea>
+// 1. slice, concat 사용
+// arr.slice(start)
+// start 자리에 음수 지정 : 배열의 끝에서부터 요소 추출
+
+var fruitArray1 = ["apple", "orange", "banana"];
+var fruitArray2 = ["pear", "melon", "peach", "cherry"];
+
+var arr1 = fruitArray1.slice(-2)
+var arr2 = fruitArray2.slice(-2)
+var fruitArray3 = arr1.concat(arr2)
+
+document.getElementById('a').innerHTML = fruitArray3;
+
+fruitArray1[0] = 'merong'
+document.getElementById('a-1').innerHTML = fruitArray1;
+document.getElementById('a-2').innerHTML = fruitArray3;
+                    </textarea>
+                </div>
+            </section>
+            <section class="answer">
+                <h1 class="tit">결과</h1>
+            </section>
+            <div id="a"></div>
+            <div id="a-1"></div>
+            <div id="a-2"></div>
+        </div>
+        <div class="answer_wr">
+            <section class="solve">
+                <h2 class="tit">문제풀이</h2>
+                <div class="textarea_box">
+                    <textarea>
+var fruitArray1 = ["apple", "orange", "banana"];
+var fruitArray2 = ["pear", "melon", "peach", "cherry"];
+var arr1 = fruitArray1.splice(-2, 2)
+var arr2 = fruitArray2.splice(-2, 2)
+var fruitArray3 = arr1.concat(arr2)
+document.getElementById('b').innerHTML = fruitArray3;
+                    </textarea>
+                </div>
+            </section>
+            <section class="answer">
+                <h1 class="tit">결과</h1>
+            </section>
+            <div id="b"></div>
+        </div>
+    </main>
+</body>
+<script src="../basic.js"></script>
+</html>

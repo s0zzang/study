@@ -25,7 +25,7 @@ body {
     width: 100%;
     max-width: 1400px;
     margin: 30px auto 0;
-    padding: 0 30px;
+    padding: 0 30px 50px;
 }
 ul,li {
     list-style: none;
