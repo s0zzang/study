@@ -6,7 +6,6 @@ function toTextarea(){
         let text = script.outerText;
         let solve = script.previousElementSibling;
         if(solve.className == 'answer_wr'){
-            console.log(solve)
             let before = solve.firstElementChild.lastElementChild.firstElementChild;
             before.innerHTML = text;
 

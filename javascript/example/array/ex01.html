@@ -20,40 +20,42 @@
             <section class="solve">
                 <h2 class="tit">문제풀이</h2>
                 <div class="textarea_box">
-                    <textarea>
+                    <textarea></textarea>
+                </div>
+            </section>
+            <section class="answer">
+                <h1 class="tit">결과</h1>
+                <div id="a"></div>
+            </section>
+        </div>
+        <script>
 var fruitArray = ["banana?", "orange", 'no-banana' ,"apple", 'banana'];
 
 // code
 let result = fruitArray.map((item) => item != 'banana')
 
 document.getElementById('a').innerHTML = result
-                    </textarea>
-                </div>
-            </section>
-            <section class="answer">
-                <h1 class="tit">결과</h1>
-            </section>
-            <div id="a"></div>
-        </div>
+        </script>
         <div class="answer_wr">
             <section class="solve">
                 <h2 class="tit">문제풀이</h2>
                 <div class="textarea_box">
-                    <textarea>
+                    <textarea></textarea>
+                </div>
+            </section>
+            <section class="answer">
+                <h1 class="tit">결과</h1>
+                <div id="b"></div>
+            </section>
+        </div>
+        <script>
 var fruitArray = ["banana?", "orange", 'no-banana' ,"apple", 'banana'];
 
 // code
 let result2 = fruitArray.filter((item) => item != 'banana')
 
 document.getElementById('b').innerHTML = result2
-                    </textarea>
-                </div>
-            </section>
-            <section class="answer">
-                <h1 class="tit">결과</h1>
-            </section>
-            <div id="b"></div>
-        </div>
+        </script>
     </main>
 </body>
 <script src="../basic.js"></script>

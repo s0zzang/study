@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>배열 - 예제 2</title>
+</head>
+<body>
+    <main class="wrap ex">
+        <div class="question_wr">
+            <p>
+                배열과 Math.random함수를 사용하여 "가위", "바위", "보" 중 하나의 값을 return하는 <br> getRockScissorPapperValue 함수를 만들어 봅시다.
+            </p>
+        </div>
+        <div class="answer_wr">
+            <section class="solve">
+                <h2 class="tit">문제풀이</h2>
+                <div class="textarea_box">
+                    <textarea></textarea>
+                </div>
+            </section>
+            <section class="answer">
+                <h1 class="tit">결과</h1>
+                <div id="a"></div>
+                <div id="a-1"></div>
+                <div id="a-2"></div>
+            </section>
+        </div>
+        <script>
+/* 
+- 1차 시도 : 랜덤으로 뽑아내야함 > 인덱스 랜덤으로, 인덱스에 해당하는 요소만 map으로 추출
+- 2차 시도 : find 사용하여 인덱스 맞는 요소만 추출
+> 정담 : 랜덤으로 인덱스 추출 > 해당 인덱스 변수로 저장
+*/
+
+// start
+let arr = ['가위', '바위', '보']
+let result;
+function getRockScissorPapperValue(){
+    let randomIndex = Math.floor(Math.random()*arr.length);
+    result = arr[randomIndex];
+}
+getRockScissorPapperValue()
+document.getElementById('a').innerHTML = `안내면 진거 가위 ! 바위 !!!  ${result}`;
+        </script>
+    </main>
+</body>
+<script src="../basic.js"></script>
+</html>

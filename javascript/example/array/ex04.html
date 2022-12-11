@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>배열 - 예제 2</title>
+</head>
+<body>
+    <main class="wrap ex">
+        <div class="question_wr">
+            <p>
+                <span class="code">var studentNames = ["쟈니", "태일", "쇼타로", "정우", "런쥔", "마크", "유타", "윈윈", "재현", "지성"];</span>
+                18강에서 goodMorningAllArray 함수와 마찬가지로 출석부의 이름들에게 인사를 하는 함수를 만들어 봅시다. <br>
+                단, 이번에는 출석부의 마지막 이름을 먼저 인사하고, 출석부의 첫번째 이름을 제일 마지막으로 인사합니다.
+            </p>
+        </div>
+        <div class="answer_wr">
+            <section class="solve">
+                <h2 class="tit">문제풀이</h2>
+                <div class="textarea_box">
+                    <textarea></textarea>
+                </div>
+            </section>
+            <section class="answer">
+                <h1 class="tit">결과</h1>
+                <div id="answer"></div>
+            </section>
+        </div>
+        <script>
+/* 
+- 1차 시도 : reverse로 역순, for문으로 인사하기
+- 2차 시도 : for문 > for of (인덱스가 필요 없어서 변경)
+*/
+
+// start
+let studentNames = ["쟈니", "태일", "쇼타로", "정우", "런쥔", "마크", "유타", "윈윈", "재현", "지성"];
+let reversedNames = studentNames.reverse();
+
+function sayHello(){
+    for(let reversedName of reversedNames){
+        document.getElementById('answer').append(`${reversedName} 안녕이잔아 ~~~~~~~~~!`);
+        document.getElementById('answer').append(document.createElement('br'));
+    }
+}
+sayHello()
+        </script>
+    </main>
+</body>
+<script src="../basic.js"></script>
+</html>
