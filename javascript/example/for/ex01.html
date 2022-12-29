@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>반복문(for) - 달력 만들기</title>
+</head>
+<body>
+    <main class="wrap ex">
+        <div class="question_wr">
+            <p>
+                달력을 만들어보자
+            </p>
+        </div>
+        <div class="answer_wr">
+            <section class="solve">
+                <h2 class="tit">문제풀이</h2>
+                <div class="textarea_box">
+                    <textarea></textarea>
+                </div>
+            </section>
+            <section class="answer">
+                <h1 class="tit">결과</h1>
+                <div id="a"></div>
+            </section>
+        </div>
+        <script>
+// 1) 콘솔창에 1부터 30까지 띄어쓰기로 구분해서 한줄로 출력하기
+
+let date = 30;
+for(let i=0; i<=date; i++){
+    document.getElementById('a').append(`${i} `);
+}
+        </script>
+
+        <div class="answer_wr">
+            <section class="solve">
+                <h2 class="tit">문제풀이</h2>
+                <div class="textarea_box">
+                    <textarea></textarea>
+                </div>
+            </section>
+            <section class="answer">
+                <h1 class="tit">결과</h1>
+                <div id="b"></div>
+            </section>
+        </div>
+        <script>
+// 2) 달의 마지막 날짜를 받아와서 출력하기
+
+let year = new Date().getFullYear();
+let month = new Date().getMonth() + 1; // 현재 달 +1
+let lastDay = new Date(year, month, 0).getDate(); 
+
+for(let i=1; i<=lastDay; i++){
+    document.getElementById('b').append(`${i} `);
+}
+        </script>
+
+        <div class="answer_wr">
+            <section class="solve">
+                <h2 class="tit">문제풀이</h2>
+                <div class="textarea_box">
+                    <textarea></textarea>
+                </div>
+            </section>
+            <section class="answer">
+                <h1 class="tit">결과</h1>
+                <div id="c"></div>
+            </section>
+        </div>
+        <script>
+// 3) 2단계에서 출력한 날짜들을, 7칸 출력할 때마다 줄바꿈이 일어나도록 하기
+
+var tag = '';
+for(let i=1; i<=lastDay; i++){
+    tag += "<span class='date n"+i+"'>"+i+" </span>";
+    if(i % 7 == 0){
+       tag += "<br>" 
+    }
+}
+document.getElementById('c').innerHTML = tag;
+        </script>
+        
+        <div class="answer_wr">
+            <section class="solve">
+                <h2 class="tit">문제풀이</h2>
+                <div class="textarea_box">
+                    <textarea></textarea>
+                </div>
+            </section>
+            <section class="answer">
+                <h1 class="tit">결과</h1>
+                <div id="d"></div>
+            </section>
+        </div>
+        <script>
+// 4) 빈칸 만들기
+
+tag = '';
+let firstDay = new Date(year, month-1, 1).getDay();
+for(let i=1; i<=firstDay; i++){
+    tag += "<span class='date blank'> </span>";
+}
+for(let i=1; i<=lastDay; i++){
+    tag += "<span class='date n"+i+"'>"+i+" </span>";
+    if(i % 7 == 0){
+       tag += "<br>" 
+    }
+}
+document.getElementById('d').innerHTML = tag;
+        </script>
+
+    </main>
+</body>
+<script src="../basic.js"></script>
+</html>
