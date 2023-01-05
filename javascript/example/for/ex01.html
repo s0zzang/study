@@ -14,6 +14,50 @@
                 달력을 만들어보자
             </p>
         </div>
+        
+        <div class="answer_wr">
+            <section class="solve">
+                <h2 class="tit">문제풀이</h2>
+                <div class="textarea_box">
+                    <textarea></textarea>
+                </div>
+            </section>
+            <section class="answer">
+                <h1 class="tit">결과</h1>
+                <div id="d-1"></div>
+                <div id="d"></div>
+            </section>
+        </div>
+        <script>
+// 4) 빈칸 만들기
+// 1. for문 안에서 firstDay만큼 중첩 for문 돌리기 > 중첩문 안에서 break, continue 사용
+// 2. 빈칸 만들기 for문 따로, 숫자 for문 따로 & 7로 나누지 말고 일요일 구해와서 나누기
+
+let year = new Date().getFullYear();
+let month = new Date().getMonth()+1; // 인덱스 반환하기 때문에 + 1해줘야 현재 달 반환
+let lastDay = new Date(year, month, 0).getDate(); // 현재 1월이지만 인덱스 1은 2월 = 2월의 일은 1월의 마지막 날
+let firstDay = new Date(year, month-1, 1).getDay(); // 현재 1월 = 인덱스 1 = 2월, 그래서 -1
+var tag = '';
+var today = `<h1>${year}년 ${month}월</h1>`;
+for(let j=1; j<=firstDay; j++){
+    tag += "<span class='date blank'> [] </span>";
+}
+for(let i=1; i<=lastDay; i++){
+    let getDay = new Date(year, month-1, i).getDay();
+    if(getDay == 0){
+        tag += "<br>" 
+    }
+    tag += "<span class='date n"+i+"'>"+i+" </span>";
+}
+let nextMonth = new Date(year,month,1).getDay();
+for(let k=1; k<=nextMonth+1; k++){
+    tag += `<span class="nextMonth n${k}"> ${k} </span>`;
+}
+document.getElementById('d-1').innerHTML = today;
+document.getElementById('d').innerHTML = tag;
+        </script>
+
+
         <div class="answer_wr">
             <section class="solve">
                 <h2 class="tit">문제풀이</h2>
@@ -50,10 +94,6 @@ for(let i=0; i<=date; i++){
         <script>
 // 2) 달의 마지막 날짜를 받아와서 출력하기
 
-let year = new Date().getFullYear();
-let month = new Date().getMonth() + 1; // 현재 달 +1
-let lastDay = new Date(year, month, 0).getDate(); 
-
 for(let i=1; i<=lastDay; i++){
     document.getElementById('b').append(`${i} `);
 }
@@ -83,37 +123,33 @@ for(let i=1; i<=lastDay; i++){
 }
 document.getElementById('c').innerHTML = tag;
         </script>
-        
-        <div class="answer_wr">
-            <section class="solve">
-                <h2 class="tit">문제풀이</h2>
-                <div class="textarea_box">
-                    <textarea></textarea>
-                </div>
-            </section>
-            <section class="answer">
-                <h1 class="tit">결과</h1>
-                <div id="d"></div>
-            </section>
-        </div>
-        <script>
-// 4) 빈칸 만들기
-
-tag = '';
-let firstDay = new Date(year, month-1, 1).getDay();
-for(let i=1; i<=firstDay; i++){
-    tag += "<span class='date blank'> </span>";
-}
-for(let i=1; i<=lastDay; i++){
-    tag += "<span class='date n"+i+"'>"+i+" </span>";
-    if(i % 7 == 0){
-       tag += "<br>" 
-    }
-}
-document.getElementById('d').innerHTML = tag;
-        </script>
 
     </main>
 </body>
 <script src="../basic.js"></script>
 </html>
+
+<style>
+    #d {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        border-top: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        text-align: center;
+    }
+    #d br {
+        display: none;
+    }
+    #d span {
+        border-left: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        padding: 1rem;
+    }
+    #d .nextMonth {
+        color: rgba(0,0,0,.3)
+    }
+    #d-1 h1 {
+        text-align: center;
+        margin: 1rem 0 15px;
+    }
+</style>
