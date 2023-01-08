@@ -29,44 +29,71 @@
             </section>
         </div>
         <script>
-// 4) 빈칸 만들기
 // 1. for문 안에서 firstDay만큼 중첩 for문 돌리기 > 중첩문 안에서 break, continue 사용
 // 2. 빈칸 만들기 for문 따로, 숫자 for문 따로 & 7로 나누지 말고 일요일 구해와서 나누기
 
 let year = new Date().getFullYear();
-let month = new Date().getMonth()+1; // 인덱스 반환하기 때문에 + 1해줘야 현재 달 반환
-let lastDay = new Date(year, month, 0).getDate(); // 현재 1월이지만 인덱스 1은 2월 = 2월의 일은 1월의 마지막 날
-let firstDay = new Date(year, month-1, 1).getDay(); // 현재 1월 = 인덱스 1 = 2월, 그래서 -1
-
+var month = new Date().getMonth(); // 인덱스 반환 = 1월인 경우, 0
 var tag = '';
-var today = `<h1>${year}년 ${month}월</h1>`;
+var today = `<h1>${year}년 ${month+1}월</h1>`;
+today += `<button type="button" class="prevBtn"> < </button>`
+today += `<button type="button" class="nextBtn"> > </button>`
 
-// 이번달의 첫요일만큼 공백 추가
-for(let j=1; j<=firstDay; j++){
-    tag += "<span class='date blank'> [] </span>";
-}
-
-// 이번달 날짜 추가
-for(let i=1; i<=lastDay; i++){
-    let getDay = new Date(year, month-1, i).getDay();
-    if(getDay == 0){
-        tag += "<br>" 
+function makeCalendar(){
+    // 이번달의 첫요일만큼 공백 추가
+    let firstDay = new Date(year, month, 1).getDay(); // 이번달(1월인 경우, 0)의 1일
+    let firstWeek = 7 - firstDay;
+    for(let j=1; j<=firstDay; j++){
+        tag += `<span class='date prevMonth'> ${j} </span>`;
     }
-    tag += "<span class='date n"+i+"'>"+i+" </span>";
+    
+    // 이번달 날짜 추가
+    let lastDay = new Date(year, month+1, 0).getDate(); // 마지막 날짜 구하려면 현재 달 + 1의 0일 구하기
+    for(let i=1; i<=lastDay; i++){
+        if(lastDay == 0){
+            tag += "<br>" 
+        }
+        tag += "<span class='date n"+i+"'>"+i+" </span>";
+    }
+    
+    // 다음달 첫주 추가
+    let nextMonth = new Date(year,month+1,1).getDay();
+    let lastWeek = 7 - nextMonth; // lastWeek + nextMonth = 7
+    for(let k=1; k<=lastWeek; k++){
+        tag += `<span class="nextMonth n${k}"> ${k} </span>`;
+    }
 }
 
-// 다음달 첫주 추가
-let nextMonth = new Date(year,month,1).getDay();
-for(let k=1; k<=nextMonth+1; k++){
-    tag += `<span class="nextMonth n${k}"> ${k} </span>`;
-}
-
+makeCalendar();
 document.getElementById('d-1').innerHTML = today;
 document.getElementById('d').innerHTML = tag;
+
+// 이전달, 다음달 클릭시 할 일
+// document.querySelector('.prevBtn').addEventListener('click', prev)
+// document.querySelector('.nextBtn').addEventListener('click', next)
+// function prev(){
+//     console.log('prev')
+//     document.getElementById('d').innerHTML = '';
+//     tag = '';
+//     month-1;
+//     makeCalendar();
+//     document.getElementById('d').innerHTML = tag;
+// }
+// function next(){
+//     console.log('next')
+//     document.getElementById('d').innerHTML = '';
+//     tag = '';
+//     month+1;
+//     makeCalendar();
+//     document.getElementById('d').innerHTML = tag;
+// }
+// function init(){
+
+// }
         </script>
 
 
-        <div class="answer_wr">
+        <!-- <div class="answer_wr">
             <section class="solve">
                 <h2 class="tit">문제풀이</h2>
                 <div class="textarea_box">
@@ -130,7 +157,7 @@ for(let i=1; i<=lastDay; i++){
     }
 }
 document.getElementById('c').innerHTML = tag;
-        </script>
+        </script> -->
 
     </main>
 </body>
@@ -153,8 +180,15 @@ document.getElementById('c').innerHTML = tag;
         border-bottom: 1px solid #ccc;
         padding: 1rem;
     }
+    #d span:nth-child(7n+1) {
+        color: #e77676;
+    }
+    #d span:nth-child(7n) {
+        color: #695bd5;
+    }
+    #d .prevMonth,
     #d .nextMonth {
-        color: rgba(0,0,0,.3)
+        color: rgba(0,0,0,.2) !important;
     }
     #d-1 h1 {
         text-align: center;
