@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for문을 활용한 스크롤 인터렉션</title>
+</head>
+<style>
+    * {margin: 0; padding: 0;}
+    section {height: 100vh; position: relative; display: flex;
+    justify-content: space-around; align-items: center;}
+    .sec01 {background: skyblue;}
+    .sec02 {background: #ccc;}
+    .sec03 {background: skyblue;}
+    .sec04 {background: #ccc;}
+    .box {width: 100px; height: 100px; background: #ffe9ab; transition: all .5s ease-in-out}
+    .section .box {transform: translateY(50px); opacity: 0;}
+    .section.act .box {transform: translateY(0); opacity: 1;}
+
+    nav {position: fixed; top: 50%; right: 50px; transform: translateY(-50%); z-index: 9999;}
+    nav ul {display: flex; flex-direction: column; row-gap: 10px;}
+    nav li {width: 10px; height: 10px; border-radius: 30px; background: #fff; font-size: 0; cursor: pointer; transition: all .5s ease-in-out}
+    nav li.act {height: 30px;}
+</style>
+<body>
+    <nav>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </nav>
+    <section class="section sec01">
+        <div class="box n1"></div>
+        <div class="box n2"></div>
+        <div class="box n3"></div>
+        <div class="box n4"></div>
+    </section>
+    <section class="section sec02">
+        <div class="box n1"></div>
+        <div class="box n2"></div>
+        <div class="box n3"></div>
+        <div class="box n4"></div>
+    </section>
+    <section class="section sec03">
+        <div class="box n1"></div>
+        <div class="box n2"></div>
+        <div class="box n3"></div>
+        <div class="box n4"></div>
+    </section>
+    <section class="section sec04">
+        <div class="box n1"></div>
+        <div class="box n2"></div>
+        <div class="box n3"></div>
+        <div class="box n4"></div>
+    </section>
+
+    <script>
+        let sections = document.querySelectorAll('section');
+        let dots = document.querySelectorAll('nav li');
+
+        document.addEventListener('scroll', function() {
+            let sct = document.documentElement.scrollTop;
+
+            // for(let section of sections){
+            sections.forEach(function(section, idx){
+                let nextSection = section.nextElementSibling;
+                let ofs1 = section.offsetTop - 100;
+                let ofs2 = nextSection.offsetTop - 100;
+
+                if(sct > ofs1 && sct < ofs2){
+                    section.classList.add('act');
+
+                    // dot 활성화
+                    let sectionArray = Array.from(section.parentElement.children);
+                    let sectionIdx = sectionArray.indexOf(section)-1;
+                    for(let dot of dots){
+                        dot.classList.remove('act');
+                    }
+                    dots[sectionIdx].classList.add('act');
+
+                } else if (idx == sections.length - 1){
+                    section.classList.add('act')
+                } else {
+                    section.classList.remove('act');
+                }
+
+                let boxs = Array.from(section.children);
+                boxs.forEach(function(box, idx){
+                    box.style.transitionDelay = `0.${idx}s`
+                })
+            })
+
+        })
+
+        dots.forEach(function(dot, idx){
+            dot.addEventListener('click', function(){
+                let topPosition = sections[idx].offsetTop;
+                window.scrollTo({top: topPosition, behavior: 'smooth'});
+            })
+        })
+
+    </script>
+</body>
+</html>
