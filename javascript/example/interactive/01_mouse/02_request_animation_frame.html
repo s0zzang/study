@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>requestAnimationFrame (loop, 자연스러운 움직임)</title>
+    <style>
+        body,html {background: #000; position: relative; cursor: none;}
+        h1 {color: #fff;}
+        .cursor_item {position: absolute; width: 100px; height: 100px; background: red; top: 0; left: 0;}
+    </style>
+    <script>
+
+        window.onload = function(){ 
+            let h1 = document.getElementsByTagName('h1')[0];
+            let cursor_item = document.getElementsByClassName('cursor_item')[0];
+            window.addEventListener('mousemove', mouseFunc, false);
+            
+            function mouseFunc(e){
+                h1.innerHTML = `x: ${e.clientX} y: ${e.clientY}`;
+                cursor_item.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`
+            }
+
+            // clientX,Y : 브라우저에서 사용자에게 웹페이지가 보여지는 영역을 기준으로 좌표를 표시
+            // 따라서, 스크롤바가 움직이더라도, 특정 지점의 clientX, clientY의 값은 동일
+            
+            loop();
+        }
+        let i = 0;
+        function loop(){
+            console.log(i++)
+            window.requestAnimationFrame(loop);
+        }
+
+    </script>
+</head>
+<body>
+    <h1>마우스 더 자연스럽게 움직이게 하기</h1>
+    <p>화려한 애니메이션, 캔버스에 많이 사용됨</p>
+    <div class="cursor_item"></div>
+</body>
+</html>

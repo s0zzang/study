@@ -48,6 +48,11 @@ ul,li {
     padding-left: 15px;
     border-radius: 15px;
 }
+.index h3 {
+    padding: 10px 10px 0;
+    font-size: 15px;
+    font-weight: bold;
+}
 .index ul {
     margin-top: 5px;
     margin-left: 10px;

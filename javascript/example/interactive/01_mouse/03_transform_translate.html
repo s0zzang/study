@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transform, translate 값 변경</title>
+    <style>
+        body,html {background: #000; position: relative;}
+        h1 {color: #fff;}
+        .cursor_item {position: absolute; width: 100px; height: 100px; background: red; top: 0; left: 0;}
+    </style>
+    <script>
+        let x = 0;
+        let y = 0;
+        let h1;
+        let cursor_item;
+        let mouseX = 0;
+        let mouseY = 0;
+        let speed = .05;
+
+        window.onload = function(){ 
+            h1 = document.getElementsByTagName('h1')[0];
+            cursor_item = document.getElementsByClassName('cursor_item')[0];
+            window.addEventListener('mousemove', mouseFunc, false);
+            
+            function mouseFunc(e){
+                x = e.clientX;
+                y = e.clientY;
+
+                h1.innerHTML = `x: ${x} y: ${y}`;
+            }
+
+            // clientX,Y : 브라우저에서 사용자에게 웹페이지가 보여지는 영역을 기준으로 좌표를 표시
+            // 따라서, 스크롤바가 움직이더라도, 특정 지점의 clientX, clientY의 값은 동일
+            
+            loop();
+        }
+
+        function loop(){
+            // 있어보이게 움직이는 꿀팁 공식
+            mouseX += (x - mouseX) * speed;
+            mouseY += (y - mouseY) * speed;
+
+            h1.innerHTML = `x : ${x}, mouseX : ${mouseX}`;
+
+            cursor_item.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+            window.requestAnimationFrame(loop);
+        }
+
+    </script>
+</head>
+<body>
+    <h1>마우스 더 자연스럽게 움직이게 하기</h1>
+    <p>화려한 애니메이션, 캔버스에 많이 사용됨</p>
+    <div class="cursor_item"></div>
+</body>
+</html>
