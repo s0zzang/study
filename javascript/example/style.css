@@ -55,6 +55,8 @@ ul,li {
     padding: 10px 10px 0;
     font-size: 15px;
     font-weight: bold;
+    
+    padding-top: 20px;
 }
 .index ul {
     margin-top: 5px;
