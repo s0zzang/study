@@ -47,6 +47,9 @@ ul,li {
     padding: 5px 0;
     padding-left: 15px;
     border-radius: 15px;
+    
+    font-size: 17px;
+    padding: 10px 0;
 }
 .index h3 {
     padding: 10px 10px 0;
