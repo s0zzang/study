@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>세로 스크롤</title>
+    <style>
+        body {
+            height: 10000px;
+            background: linear-gradient(150deg, red, orange, yellow, green, indigo, purple, black);
+        }
+        h1 {
+            color: #fff;
+        }
+        .progress {
+            width: 4px;
+            height: 140px;
+            position: fixed;
+            top: 40%;
+            left: 10px;
+            background: #333;
+            z-index: 10;
+        }
+        .bar {
+            position: absolute;
+            width: 4px;
+            height: 0;
+            top: 0;
+            left: 0;
+            background: #fff;
+            z-index: 11;
+            transition: all .3s ease;
+        }
+    </style>
+    <script>
+        let scrollTop = 0;
+        let bar;
+        
+        window.onload = function(){
+            bar = document.getElementsByClassName('bar')[0];
+        }
+
+        window.addEventListener('scroll', function(e){
+            scrollTop = document.documentElement.scrollTop;
+            
+            // 프로그레스바 만들기
+            let per = Math.ceil(scrollTop / (document.body.scrollHeight - window.outerHeight) * 100); // window.outerHeight 값을 빼줘야 100까지 가능
+            console.log(per)
+
+            // 스타일 지정
+            bar.style.height = `${per}%`
+
+        }, false)
+    </script>
+</head>
+<body>
+    <h1>스크롤</h1>
+    <div class="progress">
+        <span class="bar"></span>
+    </div>
+</body>
+</html>
