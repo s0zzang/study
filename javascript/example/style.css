@@ -50,6 +50,7 @@ ul,li {
     
     font-size: 17px;
     padding: 10px 0;
+    padding-left: 15px;
 }
 .index h3 {
     padding: 10px 10px 0;
@@ -57,10 +58,23 @@ ul,li {
     font-weight: bold;
     
     padding-top: 20px;
+    line-height: 1;
+}
+.index h3 p {
+    background: #ddd;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-right: 10px;
+    margin-left: -5px;
 }
 .index ul {
-    margin-top: 5px;
+    margin-top: 15px;
     margin-left: 10px;
+}
+.index ul + h3 {
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
 }
 .index li {
     position: relative;

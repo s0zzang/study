@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 돌림판</title>
+    <style>
+        body {
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 20px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 30px;
+            cursor: pointer;
+        }
+        .arrowWrap {
+            background: url(https://play-lh.googleusercontent.com/T_j8uSwZAPCDR5hOWCszGQYn66Yj7E2DfzGgaLYcFdGKkVmcPQxQ2kPLyPx880si4Tc=w240-h480-rw) no-repeat center;
+            padding: 100px 0;
+            width: 240px;
+            text-align: center;
+        }
+        .arrowWrap img {
+            transition: transform 1s cubic-bezier(1.000, -0.010, 0.175, 0.970);
+            width: 30%;
+        }
+    </style>
+    <script>
+        // 랜덤, transform, rotate
+
+        window.onload = function(){
+            let resetBtn = document.querySelector('.resetBtn');
+            let startBtn = document.querySelector('.startBtn');
+            let h1 = document.querySelector('h1');
+            let arrow = document.querySelector('.arrow');
+            let rotateNum = 0;
+
+            resetBtn.addEventListener('click', function(){
+                rotateNum = 0;
+                h1.innerHTML = `${rotateNum}deg`;
+                arrow.style.transform = `rotate(${rotateNum}deg)`;
+            })
+
+            startBtn.addEventListener('click', function(){
+                rotateNum = Math.round(Math.random() * 360);
+                h1.innerHTML = `${rotateNum}deg`;
+                arrow.style.transform = `rotate(${rotateNum}deg)`;
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <button type="button" class="resetBtn">리셋</button>
+    <button type="button" class="startBtn">회전</button>
+    <h1>0deg</h1>
+    <div class="arrowWrap">
+        <img src="./image/up-arrow.svg" alt="arrow" class="arrow">
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보 게임</title>
+    <style>
+        h1 {
+          font-size : 100px;
+          font-weight: bold;
+        }
+        button {
+          font-size: 20px;
+          padding : 10px 30px;
+          cursor : pointer;
+        }
+    </style>
+    <script>
+        // 배열, 랜덤, 변수
+
+        window.onload = function(){
+            let button = document.querySelector('.startBtn');
+            let h1 = document.querySelector('h1');
+            let handArr = ['가위', '바위', '보'];
+            
+            button.addEventListener('click', function(){
+                // let num = Math.round(Math.random() * 2); // 2 = 전체 길이 =1
+                let num = Math.round(Math.random() * (handArr.length -1));
+                h1.innerHTML = handArr[num]
+            })
+        }
+    </script>
+</head>
+<body>
+    <button class="startBtn">리셋</button>
+    <h1>가위</h1>
+</body>
+</html>
