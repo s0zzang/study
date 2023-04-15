@@ -2,7 +2,7 @@ let x = 0;
 let y = 0;
 let mx = 0;
 let my = 0;
-let speed = 0.03;
+let speed = 0.09;
 let scrollTop = 0;
 let parallax_0,
     parallax_1,
@@ -46,8 +46,8 @@ function scrollFunc(e) {
         "translate3d(0px ," + -scrollTop * 0.12 + "px , 0px)";
     parallax_3.style.transform =
         "translate3d(0px ," + -scrollTop * 0.16 + "px , 0px)";
-    parallax_4.style.transform = "translate3d(0px ," + -scrollTop * .22 +"px , 0px)";
-    parallax_5.style.transform = "translate3d(0px ," + -scrollTop * .25 +"px , 0px)";
+    // parallax_4.style.transform = "translate3d(0px ," + -scrollTop * .22 +"px , 0px)";
+    // parallax_5.style.transform = "translate3d(0px ," + -scrollTop * .25 +"px , 0px)";
 }
 
 function stageResize() {
