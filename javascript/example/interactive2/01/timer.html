@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타이머 및 연봉계산기</title>
+</head>
+<body>
+    <style>
+        button {
+            font-size: 20px;
+            padding: 8px 20px;
+        }
+    </style>
+    <script>
+        // 타이머, setInterval
+        window.onload = function(){
+            let num = document.querySelector('.num');
+            let button = document.querySelector('.startBtn');
+            let timer;
+
+            button.addEventListener('click', function(){
+                interval();
+            })
+
+            function interval(){
+                clearInterval(timer); 
+                // clear 하지 않으면 타이머가 쌓이기 때문에 1 2 3 ... 5 1 ... 10 6 ... 
+
+                let secNum = 0;
+                timer = setInterval(function(){
+                    secNum ++;
+                    num.innerHTML = secNum;
+                }, 10)
+            }
+        }
+    </script>
+    <div class="contWrap">
+        <button type="button" class="startBtn">더하기 시작</button>
+        <h1 class="num">0</h1>
+    </div>
+</body>
+</html>

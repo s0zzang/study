@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연봉 계산기</title>
+</head>
+<body>
+    <style>
+        body {height: 100vh;}
+        .contWrap {
+            position: relative;
+            width: 400px;
+            background: #eee;
+            padding: 20px;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            border-radius: 20px;
+        }
+        input {
+            padding: 10px 20px;
+            font-size: 20px;
+            text-align: center;
+            max-width: 170px;
+        }
+        button {
+            font-size: 20px;
+            padding: 8px 20px;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            let input = document.querySelector('input');
+            let sec = document.querySelector('.sec');
+            let button = document.querySelector('.startBtn');
+            let timer;
+
+            button.addEventListener('click', function(){
+                interval();
+            })
+
+            function interval(){
+                clearInterval(timer);
+
+                value = input.value * 10000;
+                secValue = value / 365 / 24 / 60 / 60;
+                dayValue = value / 365;
+                
+                let secNum = 0;
+                timer = setInterval(function(){
+                    secNum ++;
+                    sec.innerHTML = secValue * secNum;
+                    sec.innerHTML = `당신은 하루에 ${dayValue.toFixed(0)}원 벌고, ${secNum}초에 ${(secValue * secNum).toFixed(0)}원 벌고 있습니다.`
+                    // toFixed : 소수점 자르기
+                }, 1000)
+            }
+        }
+    </script>
+    <div class="contWrap">
+        <h3>연봉을 입력해보세요 (만)</h3>
+        <input type="number" value="5000">
+        <button type="button" class="startBtn">확인</button>
+        <p class="sec">당신은 1초에 얼마를 벌고 있을까요?</p>
+    </div>
+</body>
+</html>

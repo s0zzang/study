@@ -42,7 +42,7 @@
             button.addEventListener('click', () => resultFunc())
 
             let resultArr = ['UP !', 'DOWN ~', '정답 !!!!!!!'];
-            let randomNum = Math.round(Math.random()*10);
+            let randomNum = returnNum(10);
 
             function resultFunc(){
                 let value = Number(input.value);
@@ -62,10 +62,15 @@
                 //                 : value > randomNum ? resultArr[1]
                 //                 : (setTimeout(resultFunc, 1000), resultArr[2])
             }
+            
             function resetFunc(){
                 input.value = 1;
-                result.innerHTML = "한 번 더 ! (1부터 10까지의 정수)"
-                randomNum = Math.round(Math.random()*10)
+                result.innerHTML = "한 번 더 ! (1부터 10까지의 정수)";
+                randomNum = returnNum(10);
+            }
+
+            function returnNum(num){
+                return Math.round(Math.random()*num)
             }
         }
 
