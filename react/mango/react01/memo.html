@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>node_modules</h3>
+    <ul>
+        <li>모듈이 모여서 리액트 문법으로 작성된 코드를 자스로 변환시켜줌</li>
+        <li>node를 관리하는 프로그램은 npm</li>
+    </ul>
+
+    <h3>src</h3>
+    <ul>
+        <li>소스 폴더</li>
+        <li>html 파일이 하나도 없음 - js도 html을 기반으로 해석됨</li>
+        <li>src 내용을 컴파일 하여 public 폴더 내에 html 생성</li>
+    </ul>
+
+    <h3>public</h3>
+    <ul>
+        <li>node modules 내에 있는 바벨이 src 내에 있는 파일을 public 내 파일로 변환</li>
+        <li>public 파일을 수정하는 것이 아님 !!</li>
+    </ul>
+
+    <h3>package.json</h3>
+    <ul>
+        <li>dependencies : 의존성 - 라이브러리/플러그인 버전 관리</li>
+        <li>scripts : 명령어</li>
+        <li>package.json에 작성하면 node modules를 통해 촤작 세팅해줌</li>
+    </ul>
+
+    <h3>필요한 파일</h3>
+    <ul>
+        <li>src/App.css</li>
+        <li>src/App.js</li>
+        <li>src/index.css</li>
+        <li>src/App.js</li>
+        <li>나머지는 테스트를 위한 파일이라 필요 없음</li>
+        <li>index.js 내에서도 역시 삭제</li>
+    </ul>
+
+    <h3>컴포넌트</h3>
+    <ul>
+        <li>function App에서 div태그를 반환 => App() : 컴포넌트</li>
+        <li>컴포넌트는 대문자로 만듦</li>
+        <li>index.js : return값 없음</li>
+        <li>두 번 이상 재사용 되는 것</li>
+        <li>종류 : 클래스형, 함수형</li>
+        <li>클래스형 : 16.8 이전</li>
+        <li>함수형 : 16.8 이후</li>
+    </ul>
+
+    <h3>render</h3>
+    <ul>
+        <li>react 문법으로 작성된 코드를 변환해서 그리는 함수</li>
+        <li>index.js 에서 root.render로 전달되어 index.html 문서로 그려짐</li>
+    </ul>
+
+    <p>
+        
+    </p>
+    
+    <hr>
+    <h3>jsx 문법 알아보기</h3>
+    <p>
+        - App.js 펑션 안에서 <ExpenseItem />로 호출하기 <br>
+        - 주석 : { /* 주석 */ } <br>
+        - js : { 1 + 1 } - 중괄호 안에 작성 <br>
+        - 날짜 값 받아오기 : {expenseDate.toISOString()}
+    </p>
+</body>
+</html>
+
+
+ 
