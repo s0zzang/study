@@ -60,11 +60,6 @@
         <li>index.js 에서 root.render로 전달되어 index.html 문서로 그려짐</li>
     </ul>
 
-    <p>
-        
-    </p>
-    
-    <hr>
     <h3>jsx 문법 알아보기</h3>
     <p>
         - App.js 펑션 안에서 <ExpenseItem />로 호출하기 <br>
@@ -72,6 +67,51 @@
         - js : { 1 + 1 } - 중괄호 안에 작성 <br>
         - 날짜 값 받아오기 : {expenseDate.toISOString()}
     </p>
+    
+    <hr>
+    <h2>2주차</h2>
+    <h3>React Developer Tools</h3>
+    <ul>
+        <li>React Developer Tools 크롬 확장 프로그램 추가</li>
+        <li>설정 - 일반 탭 : highlight updates 체크</li>
+        <li>설정 - 컴포넌트 탭 : Always parse 체크</li>
+    </ul>
+    <h3>날짜 컴포넌트 분리</h3>
+    <ol>
+        <li>년, 월, 일로 날짜 구분</li>
+        <li>{props.date.toISOString()} : 년, 월, 일 한 번에 받아오는 방법</li>
+    </ol>
+    <h3>자릿수 맞추기</h3>
+    <ul>
+        <li>string.padStart(맞출 자리수, 채울 문자)</li>
+    </ul>
+    <h3>조건부 랜더링</h3>
+    <ul>
+        <li>자바스크립트 표현식 안에서 삼항연산자로 사용</li>
+    </ul>
+    <h3>컴포넌트 쪼개기</h3>
+    <ul>
+        <li>하나의 컴포넌트 : 하나의 dom 요소</li>
+        <li>컴포넌트 요소가 div처럼 많아짐 </li>
+        <li>컴포넌트를 어떻게 쪼개고, 네이밍 하는지가 상당히 중요함</li>
+        <li>App: 데이터 공급 담당 (div 태그 없음)</li>
+        <li>ExpenseItem: 목록을 출력하는 단순한 UI, 금액, 타이틀 담당</li>
+        <li>ExpenseDate: 날짜를 출력하는 컴포넌트, app과 ExpenseItem을 거쳐 전달받은 날짜 데이터를 분해하여 출력하는 비교적 복잡한 구조 담당</li>
+        <li>호출하는 쪽에서 값 전달, 호출 받는 쪽에선 값을 받아야 함</li>
+    </ul>
+    <h3>리턴문 아래 최상위 div는 무조건 하나만</h3>
+    <ul>
+        <li>최상위 요소가 두개 이상이라면 빈 꺽쇠로 감싸기</li>
+        <li>빈 꺽쇠 '<></>'</li>
+    </ul>
+    <h3>app 컴포넌트</h3>
+    <ul>
+        <li>expenseItem 4개를 작성한 내용을 컴포넌트로 추가 분리</li>
+    </ul>
+    <h3>컴포넌트 합치기: 컴포지션</h3>
+    <ul>
+        <li></li>
+    </ul>
 </body>
 </html>
 

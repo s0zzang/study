@@ -1,20 +1,17 @@
 import "./ExpenseItem.css"
+import ExpenseDate from "./ExpenseDate";
+import Card from "./Card";
 
 function ExpenseItem (props){
-    console.log(props)
-    // const expenseDate = new Date(2023, 5, 5);
-    // const expenseTitle = '자동차 보험';
-    // const expenseAmount = '290,000';
-
     return (
-        <div className="expense-item">
-            <div>{props.date.toISOString()}</div>
+        <Card className="expense-item">
+            <ExpenseDate date={props.date} /> {/* 값 전달 */}
             <div className="expense-item__description">
                 <h2>{props.title}</h2>
                 <div className="expense-item__price">{props.amount}원</div>
             </div>
-        </div>
-        // return 값이 태그인 경우 === 컴포넌트
+        </Card>
+        // return 값이 태그인 경우 === 컴포넌트 (함수로 만든 태그)
     )
 }
 
