@@ -1,5 +1,5 @@
 import './App.css';
-import Expenses from "./components/Expenses"; // App.js의 자식
+import Expenses from "./components/Expenses/Expenses"; // App.js의 자식
 
 const expenses = [
   {id: 'e1', title: '화장지', amount: 39900, date: new Date(2023, 4, 5)}, // 0
