@@ -5,7 +5,6 @@ import Card from "./UI/Card";
 
 function ExpenseItem (props){
     let [title, setTitle] = useState(props.title);
-    console.log(title)
     // let title = props.title;
     const click = () => { 
         // title = '📞📞📞'
@@ -66,7 +65,7 @@ export default ExpenseItem;
 - set함수(1) // 변수명 = 1, 컴포넌트 리랜더
 4. 반환값 : [값, 함수]
 
-* use로 시작하는 리액트 내장함수 = hook
+* use로 시작하는 리액트 내장함수 = hook || 라이브러리
 - 함수형 컴포넌트에만 사용
 - 컴포넌트 선언문 내에, 리턴문 밖에 작성
 

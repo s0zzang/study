@@ -1,5 +1,6 @@
 import './App.css';
 import Expenses from "./components/Expenses/Expenses"; // App.js의 자식
+import NewExpense from './components/NewExpense/NewExpense';
 
 const expenses = [
   {id: 'e1', title: '화장지', amount: 39900, date: new Date(2023, 4, 5)}, // 0
@@ -17,6 +18,7 @@ function App() {
     <div className="App"> 
       <h1>App😅</h1>
       {/* jsx 문법 */}
+      <NewExpense />
       <Expenses items={expenses}/>
       {/* js: Expenses(itexpensesems) */}
     </div>
