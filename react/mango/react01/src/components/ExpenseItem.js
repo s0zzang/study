@@ -52,6 +52,7 @@ export default ExpenseItem;
 /*
 // useState : 값 변경 추적하여 컴포넌트 재호출
 
+- 상태 관리를 도와주는 리액트 함수
 - js 함수의 특징 : 호출해야만 실행됨, 한 번 실행하면 끝, 함수 내 값을 업데이트하려면 계속 호출해야함
 - ExpenseItem 의 return 문은 이미 태그를 그리고 종료됨 => 값이 변경될 때 컴포넌트를 다시 호출하도록 하는 함수가 필요함
 - import { useState } from 'react'; 호출하여 사용
@@ -59,6 +60,7 @@ export default ExpenseItem;
 * 문법
 1. import useState
 2. let [상태값 저장 변수, 상태값 갱신 함수] = useState(상태 초기값)
+- 갱신 함수로 상태값 저장 변수를 업데이트 해줌
 3. 호출 
 - let [변수명, set함수] = useState(0)
 - 변수명 = 0
@@ -68,6 +70,5 @@ export default ExpenseItem;
 * use로 시작하는 리액트 내장함수 = hook || 라이브러리
 - 함수형 컴포넌트에만 사용
 - 컴포넌트 선언문 내에, 리턴문 밖에 작성
-
 
 */

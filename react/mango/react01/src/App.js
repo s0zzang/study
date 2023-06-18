@@ -10,19 +10,22 @@ const expenses = [
 ]
 
 function App() {
-  // 리턴 문 안은 jsx, 리턴문 밖은 js
-  // { console.log('여긴 js 영역이다') } => 오류
-  // console.log('여긴 js 영역이다')
+    // 리턴 문 안은 jsx, 리턴문 밖은 js
+    // { console.log('여긴 js 영역이다') } => 오류
+    // console.log('여긴 js 영역이다')
+    const addExpenseFn = (expenses) => {
+        console.log(expenses)
+    }
 
-  return ( 
-    <div className="App"> 
-      <h1>App😅</h1>
-      {/* jsx 문법 */}
-      <NewExpense />
-      <Expenses items={expenses}/>
-      {/* js: Expenses(itexpensesems) */}
-    </div>
-  );
+    return ( 
+        <div className="App"> 
+        <h1>App😅</h1>
+        {/* jsx 문법 */}
+        <NewExpense onAddExpense={addExpenseFn}/>
+        <Expenses items={expenses}/>
+        {/* js: Expenses(itexpensesems) */}
+        </div>
+    );
 }
 
 export default App;
