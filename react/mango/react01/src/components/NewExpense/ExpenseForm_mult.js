@@ -29,8 +29,10 @@ const ExpenseForm = () => {
         })
     };
 
-    const submitFn = () => {
-        return
+    const submitFn = (e) => {
+        e.preventDefault();
+        console.log(userInput);
+        setUserInput({ inputTitle: '', inputNum: '', inputDate: "" }) // 다중 속성 관리인 경우 초기화 방법
     }
 
   return (

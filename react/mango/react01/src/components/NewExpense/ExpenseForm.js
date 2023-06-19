@@ -26,7 +26,7 @@ const ExpenseForm = (props) => {
         // 값 초기화하기 == 화면에 보여지는 값 변경은 무조건 useState ! > set어쩌구 사용해야함
         setTitle('')
         setNum(0)
-        setDate('') // + input value 연결
+        setDate('') 
     }
 
   return (
@@ -35,7 +35,8 @@ const ExpenseForm = (props) => {
             <div className="new-expense__controls">
             <div className="new-expense__control">
                 <label>제목</label>
-                <input type="text" onChange={titleFn} value={title}/>
+                <input type="text" onChange={titleFn} value={title}/> 
+                {/* input으ㅣ value 속성을 통해 양방향 바인딩이 가능해짐(onSubmit 이벤트 발생시) = input 요소들을 state와 연결 */}
             </div>
             <div className="new-expense__control">
                 <label>금액</label>
