@@ -1,15 +1,14 @@
-import { useState } from 'react';
 import "./ExpenseItem.css"
 import ExpenseDate from "./ExpenseDate";
 import Card from "./UI/Card";
 
 function ExpenseItem (props){
-    let [title, setTitle] = useState(props.title);
+    let title = props.title;
     // let title = props.title;
-    const click = () => { 
-        // title = '📞📞📞'
-        setTitle('📞📞📞') // 리랜더
-    }
+    // const click = () => { 
+    //     // title = '📞📞📞'
+    //     setTitle('📞📞📞') // 리랜더
+    // }
 
     return (
         <Card className="expense-item">
@@ -19,7 +18,7 @@ function ExpenseItem (props){
                 <h2>{title}</h2>
                 <div className="expense-item__price">{props.amount}원</div>
             </div>
-            <button onClick={click}>클릭</button>
+            {/* <button onClick={click}>클릭</button> */}
         </Card>
         // return 값이 태그인 경우 === 컴포넌트 (함수로 만든 태그)
     )

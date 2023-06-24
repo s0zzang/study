@@ -1,12 +1,20 @@
+import { useState } from 'react';
 import './NewExpense.css'
 import ExpenseForm from './ExpenseForm'
 
 const NewExpense = (props)=>{
     // form 에서 데이터 받기
+    const [edit, setEdit] = useState(false);
+    const EditFn = () => {
+        setEdit(!edit);
+    }
     const saveExpenseFn = (data) => {
         // 반복되는 div에 id가 없으면 오류남
         const expense = data;
-        const expenseData = {...expense, id:Math.random().toString()}
+        const expenseData = {
+            ...expense, 
+            id:Math.random().toString(),
+        }
         props.onAddExpense(expenseData) // app.js로 올리기
     }
 
@@ -14,6 +22,8 @@ const NewExpense = (props)=>{
         <div className='new-expense'>
             {/* ExpenseForm(onSaveExpense) : saveExpenseFn 값을 넘기며 함수 실행 */}
             <ExpenseForm onSaveExpense={saveExpenseFn}/>
+            {edit === false && <button onClick={EditFn}>지출추가</button>}
+            {edit === true && <ExpenseForm onSaveExpenses={saveExpenseFn} onCancle={EditFn}/>}
         </div>
     );
 };
