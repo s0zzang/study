@@ -1,0 +1,14 @@
+.nav {
+    display: flex;
+    min-width: 80%;
+    margin: auto;
+    list-style: none;
+    gap: 2rem;
+}
+.nav a {
+    color: black;
+}
+.nav .active {
+    color: green;
+    background: beige;
+}
