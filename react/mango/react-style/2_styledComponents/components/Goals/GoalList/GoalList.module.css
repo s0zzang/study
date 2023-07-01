@@ -1,0 +1,11 @@
+.goal_list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    filter: drop-shadow(2px 4px 6px rgba(128,123,211,.2));
+}
+
+/*
+* ~.module.css
+- npm 환경에서 사용 가능
+*/

@@ -1,42 +1,6 @@
 import React, { useState } from "react";
-import styled from 'styled-components';
 import Button from "../../UI/Button/Button";
-import "./GoalInput.css";
-
-const FormControlStyle = styled.div`
-margin: 0.5rem 0;
-
-    label {
-        font-weight: bold;
-        display: block;
-        margin-bottom: 0.5rem;
-        color: ${(props) => { 
-            return props.invalid ? 'red' : 'true' 
-        }} ;
-        // js 표현식 사용하는 방법 : 콜백 함수 사용
-    }
-
-    input {
-        display: block;
-        width: 100%;
-        border: 1px solid ${(props) => { 
-            return props.invalid ? '#ff8585' : '#ccc' 
-        }} ;
-        background: ${(props) => { 
-            return props.invalid ? '#ffb4b4' : '#fff' 
-        }} ;
-        font: inherit;
-        line-height: 1.5rem;
-        padding: 0.3rem 0.25rem;
-        border-radius: .5rem;
-    }
-
-    input:focus {
-        outline: none;
-        background: #b9c8de;
-        border-color: #4171b9;
-    }
-`;
+import styles from './GoalInput.module.css'
 
 const Input = (props) => {
     const [enteredValue, setEnteredValue] = useState("");
@@ -61,15 +25,10 @@ const Input = (props) => {
 
     return (
         <form onSubmit={formSubmitFn}>
-            <FormControlStyle invalid={ !isValid }>
-            {/* 삼항연산 <FormControlStyle className={`form_control ${ !isValid ? 'invalid' : ''}`}> */}
-            {/* 단항연산 <FormControlStyle className={ !isValid && "invalid" }> */}
-                {/* <label style={{color:'red'}}> 목표달성앱 - 인라인 css</label>  */}
-                {/* <label style={{color: isValid ? 'black' : 'red' }}> 목표달성앱</label>
-                <input style={{background: isValid ? '#fff' : '#ffb4b4', borderColor: isValid ? '#ccc' : '#ff8585'}}type="text" onChange={goalInputChangeFn} placeholder={ isValid ? '' : '목표를 작성해주세요' } value={enteredValue}/> */}
+            <div className={`${styles.form_control} ${!isValid && styles.invalid}`}>
                 <label>목표달성앱</label>
                 <input type="text" onChange={goalInputChangeFn} placeholder={ isValid ? '' : '목표를 작성해주세요' } value={enteredValue}/>
-            </FormControlStyle>
+            </div>
             <Button type="submit">목표등록</Button>
         </form>
     );
@@ -131,5 +90,9 @@ export default Input;
 - npm에 자동으로 설치되어 있어서 라이브러리 따로 설치하지 않아도 됨
 - goalList.js 참고
 - 생성된 클래스 : class="GoalList_goal_list__ysabG"
+- > 컴포넌트이름_지정한클래스__모듈시스템이지정한암호
+- 클래스 동적 + 정적인 클래스 동시에 작성하기 : <div className={`${styles.form_control} ${!isValid && styles.invalid}`}>
+- invalid (동적) 클래스 넣을 때도 styled. 를 붙여야함
+- 미디어 쿼리 넣기 : media로 그냥 넣으면 됨
 
 */

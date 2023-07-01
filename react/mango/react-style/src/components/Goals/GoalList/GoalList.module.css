@@ -4,8 +4,19 @@
     padding: 0;
     filter: drop-shadow(2px 4px 6px rgba(128,123,211,.2));
 }
+@media screen and (min-width: 768px) {
+    .goal_list {
+        display: flex;
+        justify-content: space-around;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .goal_list {
+        display: block;
+    }
+}
 
 /*
 * ~.module.css
-- npm 환경에서 사용 가능
+- npm 개발 환경에서 사용 가능
 */

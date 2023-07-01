@@ -1,11 +1,11 @@
 import React from 'react';
 
 import GoalItem from '../GoalItem/GoalItem';
-import './GoalList.css';
+import styles from './GoalList.module.css';
 
 const GoalList = props => {
   return (
-    <ul className="goal_list">
+    <ul className={styles.goal_list}>
       {props.items.map(goal => (
         <GoalItem key={goal.id} id={goal.id} onDelete={props.onDeleteItem}>
           {goal.text}
@@ -16,3 +16,10 @@ const GoalList = props => {
 };
 
 export default GoalList;
+
+/*
+
+- 기존 : className="goal_list"
+- 변경 : className={styles.goal_list}
+
+*/

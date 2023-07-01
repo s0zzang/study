@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Button from "../../UI/Button/Button";
 import "./GoalInput.css";
 
+// 스타일만 담은 컴포넌트 생성
 const FormControlStyle = styled.div`
 margin: 0.5rem 0;
 
@@ -11,6 +12,7 @@ margin: 0.5rem 0;
         display: block;
         margin-bottom: 0.5rem;
         color: ${(props) => { 
+            console.log(props.invalid)
             return props.invalid ? 'red' : 'true' 
         }} ;
         // js 표현식 사용하는 방법 : 콜백 함수 사용
@@ -61,7 +63,7 @@ const Input = (props) => {
 
     return (
         <form onSubmit={formSubmitFn}>
-            <FormControlStyle invalid={ !isValid }>
+            <FormControlStyle invalid={ !isValid }> {/* formcontrol의 styled는 props로 전달 받음 */}
             {/* 삼항연산 <FormControlStyle className={`form_control ${ !isValid ? 'invalid' : ''}`}> */}
             {/* 단항연산 <FormControlStyle className={ !isValid && "invalid" }> */}
                 {/* <label style={{color:'red'}}> 목표달성앱 - 인라인 css</label>  */}
@@ -103,7 +105,9 @@ export default Input;
 - 동적2(단항연산) : className={ !isValid && "invalid" }
 - 정적으로 추가되어야 하는 클래스는 백틱 내 문자열로 작성
 
-* styled Components
+-----
+
+* styled Components (src_styledComponents)
 - Css-in-JS : js 확장자에서 css 문법을 사용할 수 있도록 만들어진 모듈
 - 웹팩 : 웹 리소스(html, css 등)를 js로 사용할 수 있도록 패키지화된 것
 - 라이브러리 설치 시 개발 서버 끊고 설치 진행 (control + c)
@@ -123,5 +127,11 @@ export default Input;
 * sc 장점
 - css 파일이 삭제되어 관리해야하는 파일이 줄어듦
 
+-----
+
+* style module
+- npm에 자동으로 설치되어 있어서 라이브러리 따로 설치하지 않아도 됨
+- goalList.js 참고
+- 생성된 클래스 : class="GoalList_goal_list__ysabG"
 
 */

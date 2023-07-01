@@ -1,6 +1,5 @@
 import styled from 'styled-components' // export default인 경우, 중괄호 없이 import
 import React from "react";
-
 // import "./Button.css";
 
 // const Button = (props) => {
@@ -10,8 +9,8 @@ import React from "react";
 //     </button>
 //   );
 // };
-const Button = styled.button`
 
+const Button = styled.button`
     font: inherit;
     padding: 0.5rem 1.5rem;
     border: 1px solid #0b49a6;
@@ -38,7 +37,7 @@ const Button = styled.button`
     }
 `
 
-export default Button; // default 사용하는 경우 Button만 내보내기 때문에 임포트 시 이름을 아무렇게나 불러도 됨
+export default Button; // default 사용하는 경우 Button만 내보내기 때문에 임포트 시 이름을 아무렇게나 불러도 호출 가능
 
 /*
 
