@@ -7,7 +7,7 @@ const Navigation = (props)=>{
             <nav>
                 <ul className={styles.nav}>
                     <li>
-                        <NavLink to='/' className={({isActive})=>{
+                        <NavLink to='..' className={({isActive})=>{
                             // return isActive ? 'a' : 'b'
                             return isActive && styles.active
                         }} 
@@ -16,7 +16,7 @@ const Navigation = (props)=>{
                         }} end>HOME</NavLink>
                     </li>
                     <li>
-                        <NavLink to='/products' className={({isActive})=>{return isActive && styles.active}}>PRODUCKS</NavLink>
+                        <NavLink to='products' className={({isActive})=>{return isActive && styles.active}}>PRODUCTS</NavLink>
                     </li>
                 </ul>
             </nav>
