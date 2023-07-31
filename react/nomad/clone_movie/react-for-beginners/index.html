@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script>
+    // 사람들이 사용하지 않는 방식 - 어려운 방식
+    const span = React.createElement(
+        'span', // tag
+        {id:'sexy-span', style: {color: 'red'}}, // property
+        "Hello I'm a span" // content
+    );
+
+    // react : 어플리케이션이 인터렉티브 하도록 만들어주는 라이브러리 / 엔진
+    // react-dom : 모든 리액트 엘리먼트가 HTML body에 둘 수 있도록 만들어주는 라이브러리/패키지 
+    const root = document.getElementById('root')
+    ReactDOM.render(span, root) // root 안에 생성한 span 배치 
+</script>
+</html>
