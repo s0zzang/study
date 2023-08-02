@@ -12,23 +12,23 @@
 <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-<script type="text/babel"> // 바벨로 jsx를 번역, 스크립트 타입 설정해야 가능
-    /*
-        jsx : js를 확장한 문법 
-        ㄴ html과 유사한 문법으로 react 요소를 만들 수 있게 함
-    */
+<script type="text/babel"> 
     const root = document.getElementById('root');
-    const Title = () => <h3 id="title" onMouseEnter={() => console.log("mouse enter")}> Hello I'm a title </h3>;
-    const Button = () => <button style={{backgroundColor: 'tomato'}} onClick={() => console.log("I'm clicked")}>Click me</button>;
-
-    // const container = React.createElement('div', null, [h3, btn])
+    let counter = 0;
+    function counterUp(){
+        counter = counter + 1;
+        render() 
+    }
+    function render(){
+        ReactDOM.render(<Container/>, root)
+    }
     const Container = () => (
         <div>
-            <Title />
-            <Button />    
+            <h3>Total clicks: {counter}</h3>
+            <button onClick={counterUp}>Click me</button>
         </div>
     );
 
-    ReactDOM.render(<Container />, root) 
+    render()
 </script>
 </html>
