@@ -17,7 +17,11 @@
     const App = () => {
         const [counter, setCounter] = React.useState(0);
         const onClick = () => {
-            setCounter(counter+1)
+            // setCounter(counter+1) 
+            setCounter((current) => current + 1);
+            // 1. setState로 원하는 특정값 설정 setCounter('lalala')
+            // 2. setCounter(counter+1) : 이전 값 참조하여 설정
+            // 3. setCounter((current) => current + 1); : 원하는 정확한 값 반영 가능, 항상 현재 state 값을 참조하여 예상치 못한 업데이트 방지 가능
         }
         // console.log(data) // (2) [undefined, f]
         return (
@@ -38,5 +42,8 @@
     const second = data[1];
 
     === const [first, second] = data;
+
+    * useState
+    ㄴ modifier 함수를 사용하면 자동으로 리렌더링이 발생하고 변경된 내역만 html에 업데이트 된다.
 
 -->
