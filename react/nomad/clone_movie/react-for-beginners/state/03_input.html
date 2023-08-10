@@ -15,18 +15,30 @@
 <script type="text/babel"> 
     const root = document.getElementById('root');
     const App = () => {
-        const [minutes, setMiinutes] = React.useState();
+        const [amount, setAmount] = React.useState();
+        const [flipped, setFlipped] = React.useState(false);
         const onChange = (e) => {
-            setMiinutes(e.target.value)
+            setAmount(e.target.value)
         }
+        const reset = () => setAmount(0) // reset
+        const onFlip = () => {
+            reset()
+            setFlipped((current) => !current)
+        }
+        // const onFlip = () => setFlipped(!flipped) // flipped를 이용하면 원하는 값을 정확하게 참조할 수  있음
         return (
             <div>
                 <h1 className="hi">Super Converter</h1>
-                <label htmlfor="minutes">Minutes</label>
-                <input value={minutes} id="minutes" placeholder="Minutes" type="number" onChange={onChange}/>
-                <h4>You want to convert {minutes}</h4>
-                <label htmlfor="hours">Hours</label>
-                <input id="hours" placeholder="Hours" type="number"/>
+                <div>
+                    <label htmlfor="minutes">Minutes</label>
+                    <input value={flipped ? amount * 60 : amount} id="minutes" placeholder="Minutes" type="number" onChange={onChange} disabled={flipped}/>
+                </div>
+                <div>
+                    <label htmlfor="hours">Hours</label>
+                    <input value={flipped ? amount : Math.round(amount/60)} id="hours" placeholder="Hours" type="number" onChange={onChange} disabled={!flipped}/>
+                </div>
+                <button onClick={reset} >Reset</button>
+                <button onClick={onFlip} >Flip</button>
             </div>
         )
     };
