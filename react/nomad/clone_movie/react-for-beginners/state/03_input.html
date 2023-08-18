@@ -14,7 +14,7 @@
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script type="text/babel"> 
     const root = document.getElementById('root');
-    const App = () => {
+    const MinutesToHours = () => {
         const [amount, setAmount] = React.useState();
         const [flipped, setFlipped] = React.useState(false);
         const onChange = (e) => {
@@ -28,7 +28,6 @@
         // const onFlip = () => setFlipped(!flipped) // flipped를 이용하면 원하는 값을 정확하게 참조할 수  있음
         return (
             <div>
-                <h1 className="hi">Super Converter</h1>
                 <div>
                     <label htmlfor="minutes">Minutes</label>
                     <input value={flipped ? amount * 60 : amount} id="minutes" placeholder="Minutes" type="number" onChange={onChange} disabled={flipped}/>
@@ -39,6 +38,29 @@
                 </div>
                 <button onClick={reset} >Reset</button>
                 <button onClick={onFlip} >Flip</button>
+            </div>
+        )
+    };
+    const KmToMiles = () => {
+        return (
+            <h3>KM to Miles</h3>
+        )
+    }
+    const App = () => {
+        const [index, setIndex] = React.useState('0');
+        const onSelect = (event) => {
+            setIndex(event.target.value)
+        }
+        return (
+            <div>
+                <h1 className="hi">Super Converter</h1>
+                <select value={index} onChange={onSelect}>
+                    <option value="0">Minutes & Hours</option>    
+                    <option value="1">Km & Miles</option>
+                </select>
+                <hr/>
+                {index === '0' ? <MinutesToHours /> : null}
+                {index === '1' ? <KmToMiles /> : null}
             </div>
         )
     };
