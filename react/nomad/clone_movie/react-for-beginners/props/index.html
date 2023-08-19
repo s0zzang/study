@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel"> 
+    const root = document.getElementById('root');
+    // function Btn(props){
+    function Btn({ btnTxt, onClick, fontSize }){ // shortcut
+        console.log(btnTxt, 'was rendered')
+        return <button 
+            onClick={onClick} // 이렇게 props를 받아줘야만 onClick 이벤트가 연결됨
+            style={{
+            background: 'tomato', 
+            color: "#fff", 
+            border: 'none', 
+            padding: '10px', 
+            fontSize,
+            borderRadius: '10px'}}>{btnTxt}</button>
+    }
+    const MemorizedBtn = React.memo(Btn);
+    MemorizedBtn.propTypes = {
+        btnTxt: PropTypes.string.isRequired,
+        fontSize: PropTypes.number,
+    }
+    const App = () => {
+        const [value, setValue] = React.useState('Save Changes');
+        const changeValue = () => setValue("Revert Change")
+        return (
+            <div>
+                <MemorizedBtn btnTxt={value} onClick={changeValue}/>
+                <MemorizedBtn btnTxt="Confirm" fontSize={18}/>
+                <MemorizedBtn fontSize={'Continue'}/>
+            </div>
+        )
+    };
+    ReactDOM.render(<App />, root)
+</script>
+</html>
+
+<!-- 
+
+shortcut
+ㄴ props를 { banana } 로 받아, 호출할 때 props.banana > banana 만 작성해도 됨
+
+onClick={}
+ㄴ function Btn (){ <button here !> } : eventListiner
+ㄴ const App = () => { <Btn/ here !> } : props
+ㄴ 온클릭이 아닌 프롭스로 전달해주는 값일 뿐, 
+* 컴포넌트에 프롬스를 전달할 경우, 버튼에서 받아 작성해야만 함 !!!
+
+function Btn 내부 콘솔창
+1. 로드될 때 콘솔 1번
+2. 버튼1 onClick 될 때 1번
+ㄴ onClick={changeValue}로 value 값이 업데이트 되어 App 컴포넌트 리렌더 되기 때문에
+ㄴ 컨티뉴 버튼도 다시 레더링 되는 이유 
+    - 부모 app이 state를 변경했기 때문에
+    - props가 변경되지 않으면 리렌더 되지 않도록 memo 남기기
+    ㄴ 페이지 속도 느려지는 것 방지 가능
+
+propTypes
+ㄴ 리액트의 props는 원하는 타입을 제대로 작성했는지 검사해주지 않음
+ㄴ 예시) fontSize
+ㄴ propTypes 를 호출 후 아래와 같이 작성
+ㄴ Btn.propTypes = { fontSize: PropTypes.number } 
+
+-->
