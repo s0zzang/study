@@ -1,0 +1,20 @@
+.btn {
+    color: #fff;
+    background: tomato;
+    border: none;
+    padding: 7px 10px;
+    border-radius: 10px;
+}
+
+/* 
+
+* styles.css 를 사용할 경우, 모든 button은 해당 스타일이 적용됨
+
+* css module
+ㄴ css 코드를 작성하면 리액트가 css를 javascript object로 변환시킴
+ㄴ Button 컴포넌트에서 className={styled.btn} 으로 스타일 지정 
+ㄴ 이렇게 사용할 경우, Button_btn__F4YlC등의 랜덤 클래스 이름이 지정됨
+ㄴ .title 스타일 작성, 컴포넌트 내 클래스네임 지정시, .title span 도 자동으로 스타일 적용됨
+ㄴ App.module.css, Button.module.css에서 동일한 클래스 이름(.title)으로 스타일을 설정해도 각각 스타일이 설정됨
+
+*/

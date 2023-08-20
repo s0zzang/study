@@ -1,0 +1,8 @@
+.title {
+    font-size: 50px;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+.title span {
+    color: #ccc;
+}
