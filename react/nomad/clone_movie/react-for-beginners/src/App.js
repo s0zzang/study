@@ -5,7 +5,7 @@ import Detail from "./routes/Detail";
 function App() {
   return <Router>
     <Switch>
-      <Route path="/movie">
+      <Route path="/movie/:id">
         <Detail />
       </Route>
       <Route path="/">
@@ -37,9 +37,11 @@ export default App;
 ㄴ path에 url 작성
 
 4. 루트 > 루트 이동
-ㄴ <h2><a href="/movie">{title}</a></h2>
+- <h2><a href="/movie">{title}</a></h2>
 ㄴ 작성시 페이지 재실행
-ㄴ <h2><a Link="/movie">{title}</a></h2>
+- <h2><a Link="/movie">{title}</a></h2>
+- 영화별 id 값으로 이동시키기
+ㄴ path="/movie/:id"
 
 -----------------------
 

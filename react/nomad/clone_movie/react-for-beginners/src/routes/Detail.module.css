@@ -1,0 +1,40 @@
+.detail {
+  text-align: center;
+}
+.detail h1 {
+  margin: 100px 0 0;
+  font-style: italic;
+  font-size: 60px;
+}
+.detail .flex {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+  margin-top: 30px;
+}
+.detail img {
+  width: 300px;
+}
+.detail dl {    
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 500px;
+  margin: 10px auto;
+  text-align: left;
+}
+.detail dl * {
+  font-size: 20px;
+}
+.detail dl dt {
+  width: 30%;
+  font-weight: bold;
+}
+.detail dl dd {
+  max-width: 70%;
+  margin: 0;
+}
+.detail dl dd + dd {
+  padding-left: 10px;
+}
