@@ -37,14 +37,11 @@ h1 {
   display: inline-block;
   line-height: 1;
 }
-.cont-wr {
+p {
   background: #f6f6f6;
   border: 1px solid #ccc;
-  margin-top: 20px;
+  margin: 20px 0 0;
   border-radius: 15px;
   padding: 15px;
   word-break: keep-all;
-}
-p {
-  margin: 0;
 }
