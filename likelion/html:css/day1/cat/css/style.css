@@ -1,0 +1,50 @@
+body {
+  background: url(../images/bg2.png);
+}
+.wrap {
+  width: 350px;
+  background: #fff;
+  text-align: center;
+  border-radius: 20px 20px 0 0;
+  border: 3px solid #8d6548;
+  border-bottom-width: 30px;
+  padding: 30px;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.img-wr {
+  position: relative;
+}
+img {
+  width: 70%;
+}
+.img-wr:before {
+  content: '멍';
+  display: block;
+  position: absolute;
+  top: 8%;
+  left: 60%;
+  border: 3px solid #8d6548;
+  border-radius: 30%;
+  padding: 5px 10px;
+  font-size: 26px;
+  background: #fff;
+}
+h1 {
+  margin: 30px auto 0;
+  border-bottom: 5px solid #8d6548;
+  display: inline-block;
+  line-height: 1;
+}
+.cont-wr {
+  background: #f6f6f6;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+  border-radius: 15px;
+  padding: 15px;
+  word-break: keep-all;
+}
+p {
+  margin: 0;
+}
