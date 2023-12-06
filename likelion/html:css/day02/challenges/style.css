@@ -25,7 +25,7 @@ body {
   padding: 50px;
 }
 .img-box {
-  border: 5px solid #fff;
+  border: 5px solid;
   display: inline-block;
   font-size: 0;
   border-radius: 100px / 50px;
@@ -39,5 +39,5 @@ p {
   margin-top: 15px;
   display: inline-block;
   padding: 10px;
-  border-top: 3px solid #fff;
+  border-top: 3px solid;
 }
