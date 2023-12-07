@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>html, css - 3일차</title>
+  <link rel="stylesheet" href="../../reset.css">
+</head>
+<body>
+  <section class="wrap">
+    <h1>html, css 3일차 강의</h1>
+    <dl>
+      <dt>상대경로와 절대경로</dt>
+      <dd>내 위치 : ./ (생략가능)</dd>
+      <dd>상위폴더 : ../ </dd>
+      <dd>절대경로 : / (document route) - 최상위 폴더에서 경로 탐색</dd>
+      <dd>권장되는 방식 : 적재적소에 맞춰 사용</dd>
+    </dl>
+    <dl>
+      <dt>reset 관련</dt>
+      <dd>UA 스타일을 초기화하기 위해 initial이 더 권장됨</dd>
+      <dd>ex) body { margin: 0 } => body { margin: initial }</dd>
+      <dd>initial : 개발자의 의도가 분명하여 reset시 권장되나, 익스플로러 지원이 안되기 때문에 주로 0을 사용함</dd>
+      <dd>unset : 사용시 프로퍼티의 상속 여부에 따라 다른 값을 지정해줌</dd>
+      <dd>- 프로퍼티가 상속 O : inherit 지정</dd>
+      <dd>- 프로퍼티가 상속 X : initial 지정</dd>
+    </dl>
+    <dl>
+      <dt>시멘틱 태그</dt>
+      <dd>main: h1과 같이 문서에 한번만 작성 가능</dd>
+      <dd>header, footer 등은 여러번 사용 가능</dd>
+    </dl>
+    <dl>
+      <dt>마진 병합 현상</dt>
+      <dd>이미지 하단 여백 생기는 현상</dd>
+    </dl>
+    <dl>
+      <dt>Class Selector</dt>
+      <dd>(*).class_name { ... } : 클래스 선택자 앞 * 가 생략되어 있음</dd>
+      <dd>combinator : 결합자, 셀렉터 사이에서 새로운 가치를 만들어 내는 역할 (' ', >, +) </dd>
+      <dd>하위 셀렉터: 상위요소 하위요소 (띄어쓰기 : descendant combinator)</dd>
+      <dd>자식 셀렉터: 부모 > 자식 (> : child combinator)</dd>
+      <dd>인접 형제 셀렉터: 형제 + 형제 (> : sibling combinator)</dd>
+      <dd>일반 형제 셀렉터: 형제 ~ 형제 (> : sibling combinator)</dd>
+    </dl>
+  </section>
+</body>
+</html>
+
+폰트 바꾸기
+작업의 순서 정하기
+다중 클래스의 활용
+CSS Specificity, 적용 우선순위
