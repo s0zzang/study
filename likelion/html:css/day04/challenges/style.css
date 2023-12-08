@@ -1,0 +1,100 @@
+/* Reset */
+:root {
+	font-family: 'arial';
+}
+* {
+  font-size: inherit;
+  padding: unset;
+  margin: unset;
+  box-sizing: border-box;
+}
+ul, li {
+  list-style: none;
+}
+
+/* Components */
+body {
+  background: url(images/background.png) no-repeat center / cover;
+  backdrop-filter: blur(3px);
+  height: 100vh;
+  color: #fff;
+}
+.wrap {
+  background: #fff;
+  width: 70%;
+  max-width: 1000px;
+  margin: 30px auto;
+  text-align: center;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+/* header */
+.header {
+  text-transform: uppercase;
+  background: url(images/cover06.png) no-repeat center / cover;
+  padding: 50px;
+}
+.header img {
+  border: 5px solid;
+  display: inline-block;
+  font-size: 0;
+  border-radius: 100px / 50px;
+  overflow: hidden;
+}
+.header h1 {
+  font-size: 70px;
+  margin-top: 10px;
+}
+.header p {
+  margin-top: 15px;
+  display: inline-block;
+  padding: 10px;
+  border-top: 3px solid;
+  letter-spacing: 3px;
+}
+
+/* main */
+.contents {
+  color: #333;
+  text-align: left;
+  line-height: 1.5;
+  padding: 20px;
+}
+.contents .sec {
+  background: #f6f6f6 url(images/icon-information.png) no-repeat center right 20px;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+.contents .sec + .sec {
+  margin-top: 20px;
+  background-image: url(images/icon-skills.png);
+}
+.contents h2 {
+  font-size: 20px;
+  text-transform: capitalize;
+}
+.contents ul {
+  margin-top: 10px;
+}
+.contents ul li {
+  border-left: 3px solid #ccc;
+  padding-left: 10px;
+  transition: all .3s;
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+}
+.contents ul li:hover {
+  /* color: #60abcb;
+  border-color: inherit; */
+  filter: blur(0);
+  -webkit-filter: blur(0);
+}
+
+/* footer */
+.footer {
+  background: #60abcb;
+  padding: 10px;
+  font-size: 12px;
+  letter-spacing: 5px;
+}
