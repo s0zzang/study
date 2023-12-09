@@ -15,36 +15,63 @@ ul, li {
 /* Components */
 body {
   background: url(images/background.png) no-repeat center / cover;
-  backdrop-filter: blur(3px);
-  height: 100vh;
   color: #fff;
+  background: #fff1e4;
 }
 .wrap {
   background: #fff;
-  width: 70%;
+  width: 90%;
   max-width: 1000px;
   margin: 30px auto;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 15px;
   overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
 }
 
 /* header */
 .header {
   text-transform: uppercase;
-  background: url(images/cover06.png) no-repeat center / cover;
+  background: #d0af8f;
   padding: 50px;
+  position: relative;
 }
-.header img {
-  border: 5px solid;
-  display: inline-block;
+.header:before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 200px;
+  aspect-ratio: 278 / 240;
+  top: 41%;
+  left: 22%;
+  background: url(images/header_img_02.png) no-repeat center / 100%;
+  transform: rotate(-6deg);
+  z-index: 1;
+}
+.header:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 150px;
+  aspect-ratio: 240 / 208;
+  top: 45px;
+  left: 60%;
+  background: url(images/header_img_01.png) no-repeat center / 100%;
+  transform: rotate(30deg);
+}
+.header .img-box {
+  border: 11px dashed rgba(255,255,255,.4);
   font-size: 0;
-  border-radius: 100px / 50px;
+  border-radius: 100px 100px 0 0;
   overflow: hidden;
+  display: inline-block;
+  padding: 35px 30px 0;
+  position: relative;
 }
 .header h1 {
   font-size: 70px;
   margin-top: 10px;
+  letter-spacing: 3px;
 }
 .header p {
   margin-top: 15px;
@@ -58,43 +85,44 @@ body {
 .contents {
   color: #333;
   text-align: left;
-  line-height: 1.5;
-  padding: 20px;
+  line-height: 1.6;
+  padding: 30px;
+  font-size: 17px;
 }
 .contents .sec {
-  background: #f6f6f6 url(images/icon-information.png) no-repeat center right 20px;
-  padding: 10px 15px;
+  background: url(images/main_img_01.jpg) no-repeat center right 30px / 150px;
+  padding: 20px 30px;
   border-radius: 5px;
+  border: 1px solid #dfe1e6;
+  transition: all .3s;
+}
+.contents .sec:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
 }
 .contents .sec + .sec {
-  margin-top: 20px;
-  background-image: url(images/icon-skills.png);
+  margin-top: 30px;
 }
 .contents h2 {
-  font-size: 20px;
+  font-size: 26px;
   text-transform: capitalize;
 }
 .contents ul {
-  margin-top: 10px;
+  margin-top: 15px;
 }
 .contents ul li {
-  border-left: 3px solid #ccc;
+  border-left: 3px solid #dfe1e6;
   padding-left: 10px;
   transition: all .3s;
-  filter: blur(2px);
-  -webkit-filter: blur(2px);
 }
 .contents ul li:hover {
-  /* color: #60abcb;
-  border-color: inherit; */
-  filter: blur(0);
-  -webkit-filter: blur(0);
+  color: #d0af8f;
+  border-color: inherit;
 }
 
 /* footer */
 .footer {
-  background: #60abcb;
-  padding: 10px;
+  background: #ccbfb3;
+  padding: 15px;
   font-size: 12px;
   letter-spacing: 5px;
 }
