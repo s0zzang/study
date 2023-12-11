@@ -16,15 +16,48 @@
       <dd>익스플로러, 파이어폭스 이전 버전을 지원하지 않아서 고려해야함</dd>
     </dl>
     <dl>
-      <dt>object</dt>
+      <dt>object 관련 프로퍼티</dt>
       <dd>object-fit</dd>
       <dd>object-position</dd>
+    </dl>
+    <dl>
+      <dt>Selector Specificity, 스타일 적용 우선순위</dt>
+      <dd>아이디 - 금메달, 클래스 - 은메달, 타입 - 동메달(1점)</dd>
+      <dd>디스코드 이미지 참고</dd>
+      <dd>vs코드, 개발자 도구(크롬) - 선택자에 마우스 호버하면 계산된 값 확인 가능</dd>
+      <dd>작성된 순서와 상관없이 Selector Specificity이 우선 적용됨</dd>
+      <dd>.wow < .wow.wow (가능함;)</dd>
+      <dd>!important : 임포턴트가 겹칠 경우, 특이도에 따라 결정됨 (하위에 작성한 X)</dd>
+      <dd>.wow { color:#000 !important; } div{ color: #111 !important }</dd>
+    </dl>
+    <dl>
+      <dt>캐스케이딩 Cascading</dt>
+      <dd>위에서 아래로 떨어지는, 폭포</dd>
+      <dd>스타일링(최종 결과물)에 적용되는 일련의 과정, 모든 알고리즘 = css의 근간 (Cascading Style Sheet)</dd>
+      <dd>Selector Specificity 정도, 상속 여부, ...</dd>
+    </dl>
+    <dl>
+      <dt>width: auto, width: 100%</dt>
+      <dd>width: auto : 컨테이닝 블록 기준으로 가득 채워지짐 - 보더, 마진, 패딩 등을 브라우저가 계산하여 가득 채워짐</dd>
+      <dd>width: 100% : 컨테이닝 블록 기준으로 100%가 꽉 채워지짐 - 보더, 마진, 패딩 등이 고려되지 않고 옆으로 밀림, 튀어나감</dd>
+    </dl>
+    <dl>
+      <dt>inline-block 요소간 줄바꿈(띄어쓰기) 관리</dt>
+      <dd>극단적-비추) 부모: font-size:0, 자식: font-size:16px</dd>
+      <dd>추천) 플렉스 박스</dd>
+    </dl>
+    <dl>
+      <dt>line-height</dt>
+      <dd>font-size * line-height = 컨텐츠 높이</dd>
+      <dd>initial value = normal : 폰트 종류에 종속됨 (폰트 만드는 사람들이 만드는 것)</dd>
+      <dd>텍스트 기준 상하 여백(Half Leading area)이 생김</dd>
+      <dd>Half Leading area - lead 납 = 줄 간격, 활자에서 상하 여백을 주기 위해 끼워넣던 lead(납) 용어가 그대로 이어짐</dd>
+    </dl>
+    <dl>
+      <dt>IR 기법</dt>
+      <dd>Image Replacement : 이미지를 볼 수 없는 사용자에게 대체 텍스트를 제공하는 기법</dd>
+      <dd>text-indent: -9999px</dd>
     </dl>
   </section>
 </body>
 </html>
-
-캐스케이딩 Cascading
-Selector Specificity, 스타일 적용 우선순위
-Typography: em과 rem
-Typography: line-height와 vertical-align
