@@ -1,0 +1,80 @@
+:root {
+	font-family: 'arial';
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+ul, li {
+  list-style: none;
+}
+
+/* Components */
+body {
+  min-height: 100vh;
+  background: url(images/bg.png) no-repeat center / cover;
+  padding: 0 15px;
+}
+.wrap {
+  max-width: 1000px;
+  margin: 50px auto;
+  display: flex;
+  background: #fff;
+}
+
+/* header */
+.header {
+  color: #ccc;
+  background: #333 url(images/profile-bg.png) no-repeat top center / contain;
+  flex-basis: 260px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.header .profile {
+  border-radius: 50%;
+  border: 5px solid #fff;
+  overflow: hidden;
+  margin: 30px auto;
+  width: 130px;
+  object-fit: contain;
+}
+.header .nav {
+  background: #222;
+  margin-left: 10px;
+  padding: 15px;
+  text-align: left;
+  line-height: 2.5;
+}
+
+/* main */
+.contents {
+  flex-grow: 1;
+  padding: 30px;
+  background: url(images/icon-info.png) no-repeat right 15px bottom 15px;
+}
+.contents h1 {
+  color: #1e247a;
+}
+.contents .txt {
+  margin-top: 15px;
+  line-height: 1.4;
+  color: #999;
+}
+.contents .link-box {
+  margin-top: 20px;
+  display: flex;
+  gap: 8px;
+}
+.contents .link-box li {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #ededed url(images/sprite-btn.png) no-repeat center left / 150px;
+  text-indent: -9999px;
+}
+.contents .link-box li.n2 {
+  background-position: center;
+}
+.contents .link-box li.n3 {
+  background-position: center right;
+}

@@ -69,3 +69,6 @@ table {
   background: #333;
   border-radius: 50%;
 }
+.wrap dd.mt {
+  margin-top: 10px;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>html, css - 6일차</title>
+  <link rel="stylesheet" href="../../reset.css">
+</head>
+<body>
+  <section class="wrap">
+    <h1>html, css 6일차 강의</h1>
+    <dl>
+      <dt>시맨틱 태그</dt>
+      <dd>h1, p도 시맨틱 태그일까? 맞음.</dd>
+    </dl>
+    <dl>
+      <dt>vertical-algin</dt>
+      <dd>inline-block 기준점 : 내부 텍스트끼리 정렬됨 = baseline</dd>
+      <dd>inline-block 컨텐츠의 상단, 하단 모두 아님</dd>
+      <dd>텍스트 없으면 혼자 위로 돌출됨 (이미지 포함)</dd>
+      <dd>원인: vertical-algin 초기값 = baseline</dd>
+      <dd>그렇기 때문에 이전 회사 reset 파일엔 이미지 버티컬 얼라인 탑이 기본이었음</dd>
+    </dl>
+    <dl>
+      <dt>letter-spacing 가운데 정렬</dt>
+      <dd>letter-spacing을 주면 t(여백)e(여백)x(여백)t(여백) 임</dd>
+      <dd>그래서 text-indent 값을 레터스페이싱과 동일하게 부여하면 진정한 가운데 정렬</dd>
+    </dl>
+    <dl>
+      <dt><img> vs background-image</dt>
+      <dd>img 요소 : 문서의 목적에 적합한, 사용자에게 전달되어야 하는 정보 (웹접근성, 마크업)</dd>
+      <dd>background-image : 문서의 목적과 상관없는 꾸밈 요소</dd>
+      <dd>실무의 다양한 환경에선, 물론 위의 기준에 올바르지 않지만 사용될 수 있음.</dd>
+    </dl>
+    <dl>
+      <dt>class 작명 (강사님 스타일)</dt>
+      <dd>- : 하위 요소 선택 (list-item)</dd>
+      <dd>_ : 상태 설명 (type_joy)</dd>
+    </dl>
+    <dl>
+      <dt>Flexbox 동작 방식 이해</dt>
+      <dd>정렬을 희망하는 요소의 부모에게 display: flex</dd>
+      <dd>부모 : flex Container</dd>
+      <dd>자식 : flex items</dd>
+      <dd>가로 배치가 되어도, inline / inline-block 요소가 아님 (마진 가능, 띄어쓰기 없음)</dd>
+      <dd>block 레벨의 가용 공간을 auto 값으로 활용할 수 있는 것처럼 flex도 하숙생들끼리 가능함</dd>
+      <dd>flex items는 인라인 요소라도 block처럼 사용할 수 있음</dd>
+    </dl>
+    <dl>
+      <dt>flex-grow flex-shrink flex-basis(기초) 이해하기</dt>
+      <dd>위의 프로퍼티는 flex-item에 사용함</dd>
+      <dd>flex-basis (아이템 크기 관련) : 컨텐츠 크기 만큼 / 초기값 - auto</dd>
+      <dd>ㄴ flex-basis: 200px > 200px 위드의 상자가 됨</dd>
+      <dd>ㄴ flex-basis: 0 > 내부 컨텐츠와 관계없이 n등분 가능</dd>
+      <dd>ㄴ auto, fit-contents, px 등 width 처럼 사용 가느</dd>
+      <dd>200px 작성할 경우, 컨텐츠가 많아서 200px을 차지하지 못할 경우 안될 경우 줄어듦</dd>
+
+      <dd class="mt">flex-grow (아이템 크기 관련) : 할당 가능한 공간의 정도 설정, 여백 없이 방 사이즈 증가 / 초기값 - 0</dd>
+      <dd>flex-grow: 1; = 1:1:1 > 비율을 의미함</dd>
+      <dd>ㄴ flex-item에 직접 작성하면 0:1:0 으로 남은 여백이 모두 grow 적용한 요소에 방사이즈로 편입됨</dd>
+      <dd>이때 비율은, 컨텐츠 크기 + (가용공간/n) 으로 증가함 == 무조건 정확한 n등분이 아님</dd>
+      <dd>비율 설정시 (예시 1:2:3)인 경우 각각의 flex-item에 flex-grow:1; flex-grow:2; flex-grow:3; 부여</dd>
+
+      <dd class="mt">두개 같이 활용하기</dd>
+      <dd>flex-basis: 200px, 2번째 요소만 flex-grow: 1;</dd>
+      <dd>ㄴ 양옆 상자는 200px 고정, 2번째 요소는 남은 가용 여백 모두 차지</dd>
+      <dd>
+        <div class="flex">
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+        </div>
+      </dd>
+      <dd>두개 활용하는 경우, 200px & calc(100% - 400px) 보다 정확하게 200px을 차지함</dd>
+      
+      <dd class="mt">flex-shrink (수축) : 수축이 되는 비율 / 초기값 : 1</dd>
+      <dd>basis값이 언제든 보장되지 않고 더 작아질 수 있음. 그때 작아지는 비율 관련 설정</dd>
+      <dd>flex-item은 내부 컨텐츠보다 작아질 수 없음. Container을 뚫고 나감</dd>
+      <dd>flex-shrink: 0 = 난 수축 안하겠다 이거야 난 절대 안줄어들ㅇㅓ ~ > basis 보장</dd>
+      <dd>ㄴ 나머지 다른 요소가 줄어들어야 하는 크기를 균등 분배</dd>
+    </dl>
+    
+    <style>
+      .flex {display: flex; gap: 10px; text-align: center;}
+      .flex span {background: antiquewhite; flex-basis: 200px; height: 30px; line-height: 30px;}
+      .flex span:nth-child(2) {flex-grow: 1;}
+    </style>
+  </section>
+</body>
+</html>
