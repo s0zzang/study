@@ -71,4 +71,5 @@ table {
 }
 .wrap dd.mt {
   margin-top: 10px;
+  font-weight: 600;
 }

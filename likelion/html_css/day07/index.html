@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>html, css - 7일차</title>
+  <link rel="stylesheet" href="../../reset.css">
+</head>
+<body>
+  <section class="wrap">
+    <h1>html, css 7일차 강의</h1>
+    <dl>
+      <dt>background-origin: content-box</dt>
+      <dd>bg image 배치시, 여백을 컨텐츠 박스의 여백을 따라가는 명령어</dd>
+      <dd>bg-position: right 40px bottom 40px; > right bottom</dd>
+      <dd>bg-origin: content-box</dd>
+    </dl>
+    <dl>
+      <dt>image sprite</dt>
+      <dd>사용하는 이유 : 성능</dd>
+      <dd>호버시 이미지가 변하는 경우 미리 이미지가 다운되어 효율적임</dd>
+      <dd>게임에서 사용되던 기법을 웹 성능 개선을 위해, 사용자가 많은 웹사이트에서 차용하여 사용함</dd>
+      <dd class="mt">svg vs 스프라이트 이미지</dd>
+      <dd>사실 비교 대상이 아님</dd>
+      <dd>svg : 용량 대비 다양한 표현, 깨지지 않음 - 게임에서 나온 기법</dd>
+      <dd>스프라이트 이미지 : svg로 요청도 가능함, 요청을 덜 하는 것이 좋은 것!</dd>
+    </dl>
+    <dl>
+      <dt>min-width: auto의 의미</dt>
+      <dd>flex-basis 설정값보다 이미지(내부 컨텐츠)가 클 때 이미지가 커지면서 부모도 커짐</dd>
+      <dd>이유 : flex item은 내부 컨텐츠보다 더 작아질 수 없음 (4번 반복함)</dd>
+      <dd>ㄴ min-width : minimum width 최소 너비 | 이니셜 : auto = 내부 컨텐츠 크기 = 이것보다 더 못작아짐</dd>
+      <dd>ㄴ 기본으로 설정되어 있음</dd>
+      <dd class="mt">결국 자식의 컨텐츠 크기가 부모 컨테이닝 블럭 크기를 결정함</dd>
+      <dd>min-width:auto = 자식 컨텐츠 크기 = 부모 컨텐츠 크기가 됨 =/= flex-basis</dd>
+      <dd>min-width:0 = flex-basis =/= 자식 컨텐츠 크기</dd>
+      <dd class="mt">즉, flex-basis 설정값을 따라가되, 컨텐츠가 basis로 설정한 값보다 크면 min-width:auto로 인해 내부 컨텐츠보다 작아질 수가 없음</dd>
+      <dd>내부 컨텐츠 크기만큼이 아닌, basis 설정값대로 표현되려면 min-width:0 필요</dd>
+      <dd>flex-basis:0 > 0 안됨 > min-width: 0 > 추가하면 0 됨</dd>
+    </dl>
+    <dl>
+      <dt>flex-basis vs width</dt>
+      <dd>width:200px; 하면 컨텐츠보다 작아짐 - 이유 : width 설정시 min-width까지 설정됨</dd>
+      <dd>width도 shrink 영향 받음</dd>
+      <dd>basis보다 width 사용하는게 편함</dd>
+      <dd>width 때리면 basis도 영향받고 basis 값으로 전달된 것.</dd>
+      <dd>width도 역시 flex-grow 적용 받음 - 싫으면 grow:0</dd>
+    </dl>
+    <dl>
+      <dt>flex-direction, flex-wrap</dt>
+      <dd>Flex container에 사용</dd>
+      <dd>flex-wrap: flex-basis 보장 - 수축할 필요가 없어서 (shrink:1 그대로있음)</dd>
+    </dl>
+    <dl>
+      <dt>justify-content와 align-items</dt>
+      <dd>flex-container 에게 주는 값</dd>
+      <dd>flex item을 정렬하기 위한 프로퍼티</dd>
+      <dd class="mt">justify-content</dd>
+      <dd>justify-content : text-align 느낌 / flex-start, flex-end, center, ...</dd>
+      <dd class="mt">align-items</dd>
+      <dd>flex item 한개의 높이가 커짐 = 부모 높이 커짐 = 다른 item 높이 커짐</dd>
+      <dd>초기값 : normal = stretch</dd>
+      <dd>stretch된 요소에 margin: auto 주면 가용 영역이 여백으로 적용됨 (flex container 한테 크기 지정했을 경우)</dd>
+      <dd>ㄴ stretch(부모)보다 margin(자식)이 더 우선됨</dd>
+      <dd>ㄴ flex item은 상하 마진 auto 도 가능함 !! 이햐 ~</dd>
+      <dd class="mt">align-content도 있긴 함 ~</dd>
+    </dl>
+    <dl>
+      <dt>사이드바, 컨텐츠 레이아웃 관련</dt>
+      <dd>컨텐츠 내부 컨텐츠가 클 경우, shrink:1 > 부모 관점에서 수축되어, 내부 컨텐츠 줄바꿈됨</dd>
+      <dd>방법1 - 첫날) 사이드바 : basis 200, shrink 0 | 컨텐츠 : basis auto, shrink 1</dd>
+      <dd>방법2 - 오늘) 사이드바 : basis 200, shrink 1 | 컨텐츠 : basis 0, shrink 1, grow: 1</dd>
+      <dd>ㄴ basis : 0 - 콘텐츠 너비만큼만 자리 차지하기 때문</dd>
+      <dd>ㄴ shrink : 1 - 줄바꿈 </dd>
+      <dd>ㄴ grow : 1 - 가용여백 몰빵</dd>
+    </dl>
+    <dl>
+      <dt>Main-axis와 Cross-axis</dt>
+      <dd>main-axis: 주축 - justify-content</dd>
+      <dd>cross-axis: 교차축 - align-items</dd>
+    </dl>
+  </section>
+</body>
+</html>
+
+
+
