@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>html, css - 8일차</title>
+  <link rel="stylesheet" href="../../reset.css">
+</head>
+<body>
+  <section class="wrap">
+    <h1>html, css 8일차 강의</h1>
+    <dl>
+      <dt>폰트 설정</dt>
+      <dd>텍스트 스타일링시 폰트 세팅이 우선</dd>
+      <dd>이상적 : 1-2개 정도 사용</dd>
+      <dd>css 상단 typography 추가</dd>
+      <dd>font-family : 상속 됨 > * 이 아닌 :root(html) 에 주는 것이 바람직함</dd>
+      <dd>:root - 가장 최상위 요소에 설정하겠다는 의도 투영</dd>
+      <dd>시스템 폰트 : 맥/윈도우 모두 이미 설치되어 있는 폰트</dd>
+      <dd>ㄴ 시스템 폰트가 아닌 내 컴퓨터에만 존재하는 폰트는 사용하면 안됨</dd>
+      <dd>작성 순서대로 적용됨</dd>
+      <dd>폰트 특징 : 브라우저별, 운영체제 별 같은 폰트도 다르게 보일 수 있음</dd>
+    </dl>
+    <dl>
+      <dt>웹폰트</dt>
+      <dd>폰트 파일 자체를 웹에 업로드, 사용자가 웹을 통해 다운로드 받음 = 모든 사용자가 동일한 폰트 확인 가능</dd>
+      <dd>단점 : 용량, 변환 과정을 거쳐 다른 확장자가 필요함</dd>
+      <dd>용량으로 인해, 원래는 안되지만 인터넷 속도가 빨라져서 가능함</dd>
+      <dd>google font : 최적화된 웹폰트 사용 가능</dd>
+      <dd>ㄴ 장바구니 담을 때 폰트 두께 추가할 때마다 용량 커짐</dd>
+    </dl>
+    <dl>
+      <dt>min-height</dt>
+      <dd>높이를 시안과 동일하게 만들되, 컨텐츠 추가를 고려함</dd>
+    </dl>
+    <dl>
+      <dt>픽셀 퍼펙션</dt>
+      <dd>시안이 1920만 주어지고 반응형을 잡는다면, 사실 픽셀퍼펙션은 1920 기준에서만 적용이 되는 것 아닌지 ?</dd>
+      <dd>우선 순위 1. 픽셀 퍼펙션 2. 텍스트 넘침 고려 3. 웹접근성 고려 ? 4. ... 뭐더라</dd>
+    </dl>
+    <dl>
+      <dt>flex-direction으로 만들 수 있는 다양한 사례</dt>
+      <dd>column 열 세로</dd>
+      <dd>row 행 가로</dd>
+      <dd class="mt">flex-direction: column 일 때</dd>
+      <dd>justify-content: center; > align-items:stretch로 늘어남</dd>
+      <dd>align-items: center 여야 늘어나지 않고 수직 중앙정렬됨</dd>
+      <dd>basis, grow 모두 너비가 아닌 높이가 됨</dd>
+      <dd class="mt">column 사용 예시</dd>
+      <dd>gap 사용을 위해 - wrap을 사용하면 item 100% 줘야만 하니까 컬럼이 더 편함 (좀 과한 ~ 대응)</dd>
+      <dd>flex item이 이미지인 경우, 상하좌우 중앙정렬을 위해</dd>
+      <dd>flex item이 이미지인 경우2, 이미지+텍스트 가운데정렬 / anger 하단 정렬 = 얼라인센터 이미지 마진탑 오토 텍스트 마진바텀 오토</dd>
+    </dl>
+    <dl>
+      <dt>가상선택자</dt>
+      <dd class="mt">nth-child</dd>
+      <dd>.item:nth-child = .item의 nth-child가 아닌, .item의 부모의 첫번째 자식을 의미</dd>
+      <dd class="mt">nth-of-type</dd>
+      <dd>타입셀렉터 중에 몇번재 요소 ! 를 의미함</dd>
+      <dd>class가 달라도 타입이 같으면 됨!</dd>
+    </dl>
+  </section>
+</body>
+</html>

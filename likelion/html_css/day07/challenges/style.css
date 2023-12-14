@@ -1,0 +1,46 @@
+/* Reset */
+:root {
+  font-family: Arial, sans-serif;
+  line-height: 1.15;
+}
+
+* {
+  margin: unset;
+  padding: unset;
+  box-sizing: border-box;
+}
+
+img {
+  vertical-align: top;
+}
+
+/* Component */
+body {
+  background: url(images/bg.png) no-repeat center / cover;
+  min-height: 100vh;
+  display: flex;
+}
+
+.wrap {
+  width: 300px;
+  margin: auto;
+}
+
+.animal {
+  text-align: center;
+}
+
+.ground {
+  background: #9b5f35 url(images/green.png) no-repeat top / contain;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 10px 0 #45260f;
+  padding: 20px;
+  padding-top: 60px;
+  color: #fff;
+}
+
+.ground p {
+  margin-top: 10px;
+  color: #e8bc9c;
+
+}
