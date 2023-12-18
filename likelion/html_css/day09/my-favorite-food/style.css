@@ -24,6 +24,7 @@ img {
   max-width: 960px;
   padding: 0 30px;
   margin: 0 auto;
+  box-sizing: content-box;
 }
 .header {
   background: #fff;
@@ -41,6 +42,7 @@ img {
 .contents ul {
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
   gap: 30px;
 }
 .contents ul .card {
@@ -48,7 +50,15 @@ img {
   overflow: hidden;
   background: #fff;
   box-shadow: 0 4px 6px rgba(0,0,0,.2);
+  flex-basis: 300px;
+  flex-grow: 1;
   color: #f60;
+}
+.contents ul .card-cover {
+  text-align: center;
+}
+.contents ul .card-cover img {
+  width: 100%;
 }
 .contents ul .card-desc h2 {
   font-size: 24px;
@@ -61,6 +71,10 @@ img {
   width: fit-content;
   position: relative;
   z-index: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
 }
 .contents ul .card-desc .txt {
   padding: 20px;
@@ -108,4 +122,9 @@ img {
 .contents ul .card.type_blue .card-tag span {
   background: #0075FF;
 }
-
+.footer {
+  font-size: 12px;
+  color: #aaa;
+  letter-spacing: .3em;
+  padding-bottom: 26px;
+}
