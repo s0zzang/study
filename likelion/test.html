@@ -7,7 +7,7 @@
   <title>Document</title>
   <style>
     .wrap {
-      max-width: 300px; 
+      max-width: 1000px; 
       margin: 50px auto; 
       text-align: center;
       background: #f7f7d5;
@@ -21,6 +21,7 @@
     }
     img {
       vertical-align: top;
+      width: 30%;
     }
     .flex {
       display: flex;
@@ -33,13 +34,27 @@
       line-height: 50px;
       flex-basis: 100px;
     }
+    section {
+      background: #efefef;
+    }
+    section {
+      line-height: 3;
+    }
+    section + section {
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
-  <div class="wrap flex">
-    <div class="box">
-      <img src="html_css/day04/challenges/images/profile.png" alt="" width="300">
-    </div>
+  <!-- <div class="wrap flex">
+    <div class="box"></div>
+    <img src="html_css/day04/challenges/images/profile.png" alt="">
+  </div> -->
+
+  <div class="wrap">
+    <section class="n1">content</section>
+    <section class="n2">content</section>
+    <section class="n3">content</section>
   </div>
 </body>
 </html>
