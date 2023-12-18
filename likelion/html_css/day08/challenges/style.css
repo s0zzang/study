@@ -9,21 +9,22 @@
   font-family: 'Montserrat', sans-serif;
   line-height: 1.5;
 }
-
 body {
   min-height: 100vh;
   background: #ebebeb;
 }
-
 h1, h2 {
   font-size: unset;
   font-weight: unset;
+}
+img {
+  vertical-align: top;
 }
 
 /* Components */
 .header {
   background: url(images/insideout-bg.png) no-repeat center / cover;
-  padding: 100px 0;
+  padding: 70px 0;
   text-align: center;
   color: #fff;
 }
@@ -39,12 +40,9 @@ h1, h2 {
 .wrap {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 0 15px;
-}
-
-.contents {
   padding: 30px;
 }
+
 .contents .card {
   display: flex;
   align-items: bottom;
@@ -56,14 +54,13 @@ h1, h2 {
   margin-top: 30px;
 }
 .contents .card .img-box {
-  width: 300px;
-  aspect-ratio: 1/1;
+  width: 32%;
 }
-.contents .card .txt-box {
+.contents .card .txt-wr {
   padding: 40px;
   text-align: right;
 }
-.contents .card .txt-box h2 {
+.contents .card .txt-wr h2 {
   display: inline-block;
   font-size: 24px;
   font-weight: bold;
@@ -73,49 +70,41 @@ h1, h2 {
   position: relative;
   padding-bottom: 7px;
 }
-.contents .card .txt-box h2:after {
+.contents .card .txt-wr h2:after {
   content: '';
   display: inline-block;
   position: absolute;
   width: 100%;
-  height: 10px;
+  height: 0.4em;
   left: 0;
   bottom: 0;
   border-radius: 5px;
   opacity: .8;
+  background: currentColor;
 }
-.contents .card .txt-box .txts {
+.contents .card .txt-wr .txt-box {
   margin-top: 20px;
-  display: flex;
-  gap: 30px;
+  columns: 2;
+  column-gap: 2vw;
   font-size: 14px;
 }
 
 .contents .card:nth-child(even) {
   flex-direction: row-reverse;
 }
-.contents .card:nth-child(even) .txt-box {
+.contents .card:nth-child(even) .txt-wr {
   text-align: left;
 }
 
 .contents .card.n1 {
   align-items: flex-start;
 }
-.contents .card.n1 .txt-box h2 {
+.contents .card.n1 .txt-wr h2 {
   color: #efde31;
 }
-.contents .card.n1 .txt-box h2:after {
-  background-color: #efde31;
-}
-.contents .card.n2 .txt-box h2 {
+.contents .card.n2 .txt-wr h2 {
   color: #66a1d8;
 }
-.contents .card.n2 .txt-box h2:after {
-  background-color: #66a1d8;
-}
-.contents .card.n3 .txt-box h2 {
+.contents .card.n3 .txt-wr h2 {
   color: #fb622d;
-}
-.contents .card.n3 .txt-box h2:after {
-  background-color: #fb622d;
 }
