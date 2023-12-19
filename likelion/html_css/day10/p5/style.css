@@ -1,0 +1,167 @@
+/* Reset */
+* {
+  margin: unset;
+  padding: unset;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1 {
+  font-size: unset;
+  font-weight: unset;
+}
+
+li {
+  list-style: none;
+}
+
+/* typography */
+:root {
+  font-family: Arial;
+}
+
+/* Component */
+body {
+  background: #d9d9d9;
+}
+
+.container {
+  padding: 160px 0 30px;
+}
+
+.l_wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.header {
+  background: #F4F4F4;
+  min-height: 160px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.header-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 160px;
+}
+
+.header h1 {
+  color: #F60;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.header-img {
+  width: 124px;
+}
+
+.section {
+  padding: 30px 0;
+}
+
+.section-layout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.section .card {
+  flex-basis: 300px;
+  flex-grow: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.card-img img {
+  width: 100%;
+}
+
+.card-description {
+  position: relative;
+  padding: 20px;
+}
+
+.card-description h2 {
+  color: #F60;
+  font-size: 24px;
+  font-weight: 700;
+  padding: 10px 20px; 
+  background: rgba(0, 0, 0, 0.8);
+  width: fit-content;
+  border-radius: 0 12px 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+}
+
+.card-text {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.card-strong {
+  color: #F60;
+}
+
+.card-hashtags {
+  background: #F4F4F4;
+  padding: 26px 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.card-hashtag {
+  color: #FFF;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  border-radius: 48px;
+  background: #F60;
+  padding: 2px 8px 4px;
+}
+
+.card-hashtag:before {
+  content: '# ';
+  opacity: 0.5;
+}
+
+.card.type_green .card-description h2,
+.card.type_green .card-strong {
+  color: #17A651;
+}
+
+.card.type_green .card-hashtag {
+  background: #17A651;
+}
+
+.card.type_blue .card-description h2,
+.card.type_blue .card-strong {
+  color: #0075FF;
+}
+
+.card.type_blue .card-hashtag {
+  background: #0075FF;
+}
+
+.footer {
+  color: #AAA;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.24em;
+}

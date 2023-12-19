@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>html, css - 10일차</title>
+  <link rel="stylesheet" href="../../reset.css">
+</head>
+<body>
+  <section class="wrap">
+    <h1>html, css 10일차 강의</h1>
+    <dl>
+      <dt>레이아웃, 클래스 잡기</dt>
+      <dd>전체 큰 틀, 가운데 정렬용, 실제 기능(bucketlist) div 1개씩 생성</dd>
+      <dd>이렇게 되면 안에 내용물을 다른 곳에 떼어다 쓸 때 다른 작업 없이 이동 가능</dd>
+      <dd>.app, .app-center, .bucketlist</dd>
+      <dd>실무에서도 그렇게 만들라고 했었지 .. ~</dd>
+    </dl>
+    <dl>
+      <dt>가상 선택자도 flex item이 될 수 있음</dt>
+      <dd>이럴수가 !</dd>
+      <dd>정렬이 되어야하는 요소의 부모 가상 선택자로 넣기 !</dd>
+      <dd>다만 너비가 절대 줄어들지 않으려면 shrink: 0; - 가상 요소를 flex item으로 사용한다면 웬만하면 shrink 0 주자</dd>
+      <dd>이렇게 되면, 가상 클래스에 필수로 주던 3세트는 content만 사용해도 됨</dd>
+    </dl>
+    <dl>
+      <dt>box-sizing</dt>
+      <dd>박스 모델의 사이즈가 결정되는 방식</dd>
+      <dd>padding 으로 콘텐츠 크기 커지는 거 방지</dd>
+      <dd>reset에 넣지 않은 이유 : 강사님 취향 ㅎ</dd>
+    </dl>
+    <dl>
+      <dt>position 속성의 입문과 활용</dt>
+      <dd>전체 창 viewport (not body)</dd>
+      <dd class="mt">negative margin과 같은 역할: transform: translateX(-50%)</dd>
+      <dd>negative margin : 공간 자체가 줄어듦</dd>
+      <dd>transform: translate : 공간은 그대로, 위치 이동만</dd>
+      <dd>posr, left : 공간은 그대로, 위치 이동만</dd>
+      <dd class="mt">기본값 position: static (정적인)</dd>
+      <dd>relative 상대적인 - 렐러티브라면 직관성을 위해 top, left 사용 권장</dd>
+      <dd>absolute 절대적인 - 공간 차지 X, left/top - offset이 아닌 뷰포트 기준, 조상 중 static 아닌 애가 컨테이닝 블록이 됨</dd>
+      <dd>t0 b0 l0 r0 늘어남</dd>
+      <dd>l0 r0 w200 > 가용공간 확보 = margin: 0 auto 가능</dd>
+      <dd>t0 b0 h200 > 가용공간 확보 = margin: auto 0 가능</dd>
+      <dd>t0 b0 l0 r0 컨테이닝 블록을 최대한 사용 (margin auto 사용 가능)</dd>
+    </dl>
+    <dl>
+      <dt>컨테이닝 블럭 containing block</dt>
+      <dd>일반적 : 부모가 제공해주는 콘텐츠 영역</dd>
+      <dd>posa t0 l0 : 뷰포트 기준 / 조상 중 position static 아닌 애가 기준이 됨</dd>
+    </dl>
+    <dl>
+      <dt>inset속성의 활용</dt>
+      <dd>posa) inset0 = l0 r0 t0 b0 을 한번에 준 것과 같음</dd>
+    </dl>
+  </section>
+</body>
+</html>
