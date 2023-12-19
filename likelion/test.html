@@ -14,9 +14,9 @@
       padding: 50px;
     }
     p {
-      padding: 50px;
+      padding: 20px;
       display: inline-block;
-      background: rgba(221, 83, 83, 0.1);
+      background: rgb(87 83 221 / 70%);
       margin: 0;
     }
     img {
@@ -28,20 +28,38 @@
       gap: 5px;
     }
     .box {
-      /* width: 50px;  */
-      /* height: 50px; */
       background: #ccc;
       line-height: 50px;
       flex-basis: 100px;
     }
     section {
-      background: #efefef;
+      background: #333;
+      color: #fff;
     }
     section {
-      line-height: 3;
+      height: 300px;
+      position: relative;
+    }
+    section:before {
+      content: '부모';
+      position: absolute;
+      top: 0; right: 0;
+      padding: 15px;
     }
     section + section {
       margin-top: 10px;
+    }
+    .abs {
+      position: absolute;
+      inset: 0;
+      line-height: 300px;
+      padding: 0;
+    }
+    .child { 
+      position: absolute; 
+      background: rgb(87 83 221 / 70%); 
+      inset: 0; 
+      margin: 60px;
     }
   </style>
 </head>
@@ -52,9 +70,9 @@
   </div> -->
 
   <div class="wrap">
-    <section class="n1">content</section>
-    <section class="n2">content</section>
-    <section class="n3">content</section>
+    <section class="n1">
+      <p class="abs">자식</p>
+    </section>
   </div>
 </body>
 </html>
