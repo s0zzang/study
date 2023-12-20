@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>html, css - 11일차</title>
+  <link rel="stylesheet" href="../../reset.css">
+</head>
+<body>
+  <section class="wrap">
+    <h1>html, css 11일차 강의</h1>
+    <dl>
+      <dt>포토샵 시안 헤더 만들기</dt>
+      <dd>min-height : vw 단위로 만들기</dd>
+      <dd>padding-top</dd>
+    </dl>
+    <dl>
+      <dt>inset 0 vs w100 h100</dt>
+      <dd>w100 h100 : padding 부여시 w,h 커짐</dd>
+      <dd>inset : negativa margin 사용 가능</dd>
+    </dl>
+    <dl>
+      <dt>background-size: cover와 contain</dt>
+      <dd>cover : 너비 또는 높이 중 더 짧은 쪽에 맞춰서 '늘림' / 무난한 방법 / 양옆, 위아래가 짤리더라도 요소에 꽉 차게 이미지 노출</dd>
+      <dd>contain : 너비 또는 높이 중 더 긴 쪽에 맞춰서 무조건 '다 보이게' 함 / 아무리 커도, 비율이 어떻든 전체 이미지 노출</dd>
+    </dl>
+    <dl>
+      <dt>span</dt>
+      <dd>드디어 나온 inline 요소</dd>
+      <dd>한뼘의</dd>
+    </dl>
+    <dl>
+      <dt>쌓임맥락 이해하기 stacking context</dt>
+      <dd>z-index : flex item인 경우, position static 제외 값(레이어가 구분되는 개념) 적용 가능</dd>
+      <dd>trnasform 역시 쌓임 맥락 우위 - 별개의 레이어로 취급됨</dd>
+      <dd>그 밖의 쌓임 맥락 : opacity가 1보다 작은 요소 ...</dd>
+      <dd>쌓임맥락 1) 마크업 순서 2) 포지션 3) z-index</dd>
+      <dd>body보다 뒤로가진 않음 : 
+        <body> 태그의 디폴트 위치 설정은 정적(static)입니다. 그리고 정의에 따르면 정적 위치 설정은 모든 위치 설정 지침을 무시합니다.
+        즉, z-index 속성은 위치가 있는 요소에는 적용되지 않기 때문에 위치가 기본적으로 정적이므로 본문에는 적용되지 않습니다        
+        그러면 body {position:relative}에서 작동하지 않는 이유는 뭔가요?        
+        body는 쌓임 맥락이기 때문입니다. z-index를 가진 요소는 형제들에 대해 상대적으로만 뒤로 가거나 앞으로 나갈 수 있지만 부모 뒤로는 절대 뒤로 갈 수 없습니다. body는 부모 요소이기 때문에 자식에게 z-index를 음수로 설정하는 것은 몸 뒤로 넘어가지 않습니다.
+      </dd>
+      <dd>header z1 bgimage 있음 + before z-1 (딤) > before 보임</dd>
+    </dl>
+    <dl>
+      <dt>vw와 vh활용하기</dt>
+    </dl>
+    <dl>
+      <dt>좌우 정렬 레이아웃 만들기 width padding</dt>
+      <dd>box-sizing: border-box</dd>
+      <dd>calc(50% - 80px)</dd>
+      <dd>좌측정렬 : margin-right 50%, 우측정렬 : margin-left 50%</dd>
+      <dd>html 구조 변경 50% > padding</dd>
+    </dl>
+    <dl>
+      <dt>비율이 유지되는 요소 만들기</dt>
+      <dd>오늘 만든 헤더 !</dd>
+      <dd>1 min-height vw 단위로 만들기</dd>
+      <dd>padding-top : % 단위 = 컨테이닝 블럭의 너비 기준으로 %가 잡힘 -> 굳이 vw를 안써도 됨</dd>
+    </dl>
+  </section>
+</body>
+</html>
+
