@@ -31,6 +31,16 @@
       background: #ccc;
       line-height: 50px;
       flex-basis: 100px;
+      width: 100px;
+      height: 100px;
+      display: inline-block;
+    }
+    .box:nth-child(1) {
+      will-change: width;
+    }
+    .box:nth-child(2) {
+      margin-left: -30px;
+      background: orange;
     }
     section {
       background: #333;
@@ -64,13 +74,17 @@
   </style>
 </head>
 <body>
-  <!-- <div class="wrap flex">
-    <div class="box"></div>
-    <img src="html_css/day04/challenges/images/profile.png" alt="">
-  </div> -->
+
+  <div id="n1"></div>
+  <div id="n2"></div>
+  <div id="n3">
+    <div id="n4"></div>
+    <div id="n5"></div>
+    <div id="6"></div>
+  </div>
 
   <div class="wrap">
-    <div class="box"></div>
+    <div class="1box"></div>
     <div class="box"></div>
   </div>
 </body>
