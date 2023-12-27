@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>html, css - 14일차</title>
+  <link rel="stylesheet" href="../../reset.css">
+</head>
+<body>
+  <section class="wrap">
+    <h1>html, css 14일차 강의</h1>
+    <dl>
+      <dt>인크레더블 예제 풀이</dt>
+      <dd class="mt">br*2 vs p*3</dd>
+      <dd>웹 반응형을 고려하여 br 사용 지양 권장</dd>
+      <dd>white-space: pre-line; 사용 가능 - html 마크업 그대로</dd>
+      <dd class="mt">별점 백그라운드 중복 코드 제거</dd>
+      <dd>1. 같은 요소는 inherit로 상속받기</dd>
+      <dd>2. , 로 공통 분모 묶기</dd>
+      <dd class="mt">css 선택자 잘 선택해라 ~</dd>
+      <dd class="mt">desc 내용이 없어도 레이아웃 유지되게 만들기</dd>
+    </dl>
+    <dl>
+      <dt>mask-image</dt>
+      <dd>마크업 이미지를 그라데이션 형태로 넣을 수 있음</dd>
+      <dd>익스 불가</dd>
+    </dl>
+    <dl>
+      <dt>em과 rem</dt>
+      <dd>em - p 문단 사이 여백을 줄 때도 활용</dd>
+      <dd>예시) line-height: 1.6; margin-top: 1.6em;</dd>
+    </dl>
+    <dl>
+      <dt>word-break와 overflow-wrap</dt>
+      <dd class="mt">word-break: keep-all</dd>
+      <dd>보통 root 요소에 부여</dd>
+      <dd>영문 : 단어, 어절이 유지되어 줄바꿈시 짤리지 않음</dd>
+      <dd>한글 : 단어, 어절이 줄바꿈시 짤림</dd>
+      <dd>cjk ... 중국어 일본어는 띄어쓰기가 없어서 어절 유지되면 안됨. 우리는 걍 따라감 ... ㅠ</dd>
+      <dd class="mt">overflow-wrap: break-word</dd>
+      <dd>띄어쓰기 없이 글자가 위드를 넘을 때, keep-all이 설정되면 줄바꿈 없이 넘침</dd>
+    </dl>
+    <dl>
+      <dt>attribute selector</dt>
+      <dd>속성 선택자</dd>
+    </dl>
+    <dl>
+      <dt>데이터 연동 관리하기</dt>
+      <dd>1. class 추가</dd>
+      <dd>2. data-score 어트리뷰트 사용</dd>
+      <dd>3. CSS variables 사용 - width: var(--score)</dd>
+    </dl>
+    <dl>
+      <dt>CLS : Cumulative Layout Shift</dt>
+      <dd>로딩이 늦은 이미지가 누적되어 생기는 성능 저하</dd>
+      <dd>방지하기 위해선 aspect-ratio css로 설정 필요 = 이미지 로드 전에도 공간 확보</dd>
+    </dl>
+  </section>
+</body>
+</html>
