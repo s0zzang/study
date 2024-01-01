@@ -1,0 +1,238 @@
+/* Resets */
+* {
+  margin: unset;
+  padding: unset;
+}
+h2 {
+  font-size: unset;
+  font-weight: unset;
+}
+button {
+  border: unset;
+  cursor: pointer;
+  background: unset;
+  font: unset
+}
+li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+  max-width: 100%;
+}
+
+/* Layouts */
+.l_wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 15px 100px;
+}
+.l_row {
+	display: flex;
+	flex-wrap: wrap;
+  margin: 0 -15px;
+  row-gap: 30px;
+}
+.l_col {
+  box-sizing: border-box;
+  padding: 0 15px;
+}
+.l_col_12_12 { width: 100%; }
+.l_col_11_12 { width: 91.66666667%; }
+.l_col_10_12 { width: 83.33333333%; }
+.l_col_9_12  { width: 75%; }
+.l_col_8_12  { width: 66.66666667%; }
+.l_col_7_12  { width: 58.33333333%; }
+.l_col_6_12  { width: 50%; }
+.l_col_5_12  { width: 41.66666667%; }
+.l_col_4_12  { width: 33.33333333%; }
+.l_col_3_12  { width: 25%; }
+.l_col_2_12  { width: 16.66666667%; }
+.l_col_1_12  { width: 8.33333333%; }
+
+/* typography */
+:root {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Variables */
+:root {
+  --c-purple-01: #6230A2;
+  --c-purple-02: #C89DFF;
+  --c-purple-03: #EBDBFF;
+  --c-orange-01: #FF4500;
+  --c-orange-02: #F98173;
+  --c-orange-03: #FFF5ED;
+  --c-black-01: #111;
+  --c-black-02: #333;
+  --c-gray-01: #999;
+  --c-gray-02: #eee;
+}
+
+/* Components */
+.section.type_purple {
+  --section-bg: var(--c-purple-01);
+  --header-txt-color: #fff;
+  --header-highlight: var(--c-orange-01);
+}
+.section.type_orange { 
+  --section-bg: var(--c-orange-03);
+  --header-txt-color: var(--c-orange-02);
+  --header-highlight: #fff;
+}
+
+/* section */
+.section {
+  background: var(--section-bg);
+}
+
+/*** header ***/
+.header {
+  padding: 90px 0 100px;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 20px red;
+}
+.header h2 {
+  flex-shrink: 0;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--header-txt-color);
+}
+.header .type_strong {
+  font-weight: 700;
+  position: relative;
+  z-index: 0;
+}
+.header .type_strong::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: .6em;
+  background: var(--header-highlight);
+  z-index: -1;
+}
+.header-txt {
+  margin-left: 22px;
+  padding-left: calc(90px + 32px);
+  position: relative;
+  font-size: 14px;
+  line-height: 1.3;
+  color: var(--c-purple-02);
+  max-width: 460px;
+}
+.header-txt::before {
+  content: '';
+  width: 90px; height: 1px;
+  background: var(--c-purple-02);
+  position: absolute;
+  top: 50%; left: 0;
+  transform: translateY(-50%);
+}
+.header-btn {
+  margin-left: auto;
+  background: var(--c-orange-01);
+  color: #fff;
+  padding: 0 14px;
+  line-height: 2.7;
+  border-radius: 4px;
+  border-bottom: 4px solid rgba(0, 0, 0, 0.10);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/*** contents ***/
+.zigzag {
+  display: flex;
+  background: #fff;
+}
+.zigzag.type_rtl {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+.zigzag + .zigzag {
+  margin-top: 30px; 
+}
+.zigzag-cover {
+  position: relative;
+  width: 280px;
+  flex-shrink: 0;
+}
+.zigzag-cover::after {
+  content: '';
+}
+.zigzag-src {
+  width: 100%;
+  aspect-ratio: 280/148;
+  object-fit: cover;
+  background: var(--c-gray-02);
+}
+.zigzag-txts {
+  padding: 20px;
+  flex-grow: 1;
+}
+.zigzag-tit {
+  color: var(--c-purple-01);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.zigzag-list {
+  margin-top: 12px;
+}
+.zigzag-list li {
+  position: relative;
+  color: var(--c-black-01);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 14px;
+  color: var(--c-black-01);
+}
+.zigzag-list li::before {
+  content: '';
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--c-purple-02);
+}
+.zigzag-list li + li {
+  margin-top: 10px;
+}
+.card {
+  box-shadow: inset 0 0 20px seagreen;
+  background: #fff;
+  position: relative;
+}
+.card-cover {
+  aspect-ratio: 340/255;
+  border-bottom: 4px solid var(--c-black-01);
+  background: var(--c-gray-02);
+}
+.card-contents {
+  padding: 20px;
+}
+.card-tag {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.card-tag li {
+  color: var(--c-purple-01);
+  background: var(--c-purple-03);
+  padding: 2px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 12px;
+}
+.card-tit {
+  margin-top: 20px;
+  font-size: 24px;
+  color: var(--c-black-01);
+}
+.card-txt {
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--c-black-02);
+  line-height: 1.57;
+}
