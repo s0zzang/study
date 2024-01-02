@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>html, css - 15일차</title>
+  <link rel="stylesheet" href="../../reset.css">
+</head>
+<body>
+  <section class="wrap">
+    <h1>html, css 15일차 강의</h1>
+    <dl>
+      <dt>과제 피드백</dt>
+      <dd>soldout 마크업으로</dd>
+      <dd>line-clamp 말고 다른걸로 작업해보기 - height 필요 없음</dd>
+      <dd>5줄에 해당하는 height값으로 설정해보기</dd>
+    </dl>
+    <dl>
+      <dt>overscroll-behavior</dt>
+      <dd>스크롤 상자 안에서만 스크롤 되도록 설정 가능</dd>
+    </dl>
+    <dl>
+      <dt>animation</dt>
+      <dd>반복시키기 : alternate forwards</dd>
+      <dd>0% 생략 가능, 하지만 기존 값 무시될 수 있음</dd>
+    </dl>
+    <dl>
+      <dt>transform: 작성 순서 중요함 - 다르게 작동</dt>
+      <dd>누적 개념 !</dd>
+      <dd>이유 : transform - 레이어가 하나 깔리고, 요소가 아닌 레이어가 transform 되는 것으로 생각해야 함 (animation만 인가 ... ? 살펴보기)</dd>
+      <dd>특히 rotate는 판 자체가 회전하는거라, 축이 달라지니 주의 !</dd>
+      <dd>translate로 위치 이동 후 > scale과 scale 후 > translate 위치 이동 다름 </dd>
+    </dl>
+  </section>
+</body>
+</html>

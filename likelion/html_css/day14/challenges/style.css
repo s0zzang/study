@@ -25,7 +25,7 @@ img {
 .l_wrap {
   max-width: 1080px;
   margin: 0 auto;
-  padding: 0 15px 100px;
+  padding: 0 30px 100px;
 }
 .l_row {
 	display: flex;
@@ -74,11 +74,13 @@ img {
   --section-bg: var(--c-purple-01);
   --header-txt-color: #fff;
   --header-highlight: var(--c-orange-01);
+  --dim-bg: var(--c-purple-01);
 }
 .section.type_orange { 
   --section-bg: var(--c-orange-03);
   --header-txt-color: var(--c-orange-02);
   --header-highlight: #fff;
+  --dim-bg: var(--c-orange-03);
 }
 
 /* section */
@@ -91,7 +93,7 @@ img {
   padding: 90px 0 100px;
   display: flex;
   align-items: center;
-  box-shadow: inset 0 0 20px red;
+  gap: 22px;
 }
 .header h2 {
   flex-shrink: 0;
@@ -114,7 +116,6 @@ img {
   z-index: -1;
 }
 .header-txt {
-  margin-left: 22px;
   padding-left: calc(90px + 32px);
   position: relative;
   font-size: 14px;
@@ -143,34 +144,55 @@ img {
 }
 
 /*** contents ***/
+.type_dim::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--dim-bg);
+  opacity: 0.5;
+  z-index: -1;
+}
 .zigzag {
   display: flex;
   background: #fff;
+  height: 100%;
+  position: relative;
+}
+.zigzag + .zigzag {
+  margin-top: 30px; 
 }
 .zigzag.type_rtl {
   flex-direction: row-reverse;
   justify-content: space-between;
 }
-.zigzag + .zigzag {
-  margin-top: 30px; 
-}
 .zigzag-cover {
   position: relative;
   width: 280px;
+  aspect-ratio: 280/148;
   flex-shrink: 0;
 }
-.zigzag-cover::after {
-  content: '';
+.zigzag-dim {
+  position: absolute;
+  inset: 0; 
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 32px;
+  font-weight: 500;
+  text-align: center;
 }
 .zigzag-src {
   width: 100%;
-  aspect-ratio: 280/148;
+  height: 100%;
   object-fit: cover;
   background: var(--c-gray-02);
 }
 .zigzag-txts {
   padding: 20px;
   flex-grow: 1;
+  min-width: 0;
 }
 .zigzag-tit {
   color: var(--c-purple-01);
@@ -185,29 +207,44 @@ img {
   position: relative;
   color: var(--c-black-01);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 14px;
   font-size: 14px;
-  color: var(--c-black-01);
 }
 .zigzag-list li::before {
   content: '';
-  width: 10px; height: 10px;
+  width: 10px; 
+  height: 10px;
+  margin-top: 0.3em;
   border-radius: 50%;
   background: var(--c-purple-02);
+  flex-shrink: 0;
 }
 .zigzag-list li + li {
   margin-top: 10px;
 }
 .card {
-  box-shadow: inset 0 0 20px seagreen;
   background: #fff;
+  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.1);
   position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.card-status {
+  text-indent: -9999px;
+  position: absolute;
+  top: -10px; 
+  left: -10px;
+  background: url(images/badge.png) no-repeat center;
+  width: 110px;
+  height: 110px;
 }
 .card-cover {
   aspect-ratio: 340/255;
   border-bottom: 4px solid var(--c-black-01);
-  background: var(--c-gray-02);
+  position: relative;
+  z-index: 0;
 }
 .card-contents {
   padding: 20px;
@@ -229,10 +266,86 @@ img {
   margin-top: 20px;
   font-size: 24px;
   color: var(--c-black-01);
+  min-height: 2.42em;
 }
 .card-txt {
   margin-top: 20px;
   font-size: 14px;
   color: var(--c-black-02);
   line-height: 1.57;
+}
+.card-footer {
+  margin-top: auto;
+  position: relative;
+  padding: 15px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.card-footer::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  right: 0;
+  top: 0;
+  height: 4px;
+  background: var(--c-gray-02);
+}
+.card-member {
+  color: var(--c-gray-01);
+  font-size: 14px;
+  line-height: 2.2;
+}
+.member-list {
+  display: flex;
+  margin-left: auto;
+}
+.member-list li {
+  margin-right: -6px;
+  width: 30px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Responsible */
+@media (max-width: 768px) {
+  .l_wrap {
+    padding-bottom: 50px;
+  }
+
+  .header {
+    flex-wrap: wrap;
+    padding: 50px 0;
+  }
+  .header-txt {
+    padding: 0;
+  }
+  .header-txt::before {
+    display: none;
+  }
+
+  .l_col_12_12,
+  .l_col_4_12 {
+    width: 50%;
+  }  
+  .zigzag,
+  .zigzag.type_rtl {
+    flex-direction: column;
+  }
+  .zigzag-cover {
+    width: 100%;
+    aspect-ratio: 3/2;
+  }
+}
+
+@media (max-width: 500px) {
+  .l_col_12_12,
+  .l_col_4_12 {
+    width: 100%;
+  }
+  .card-tit {
+    min-height: unset;
+  }
 }
