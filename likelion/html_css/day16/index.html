@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>html, css - 16일차</title>
+  <link rel="stylesheet" href="../../reset.css">
+</head>
+<body>
+  <section class="wrap">
+    <h1>html, css 16일차 강의</h1>
+    <dl>
+      <dt>지그재그 과제</dt>
+      <dd>1. 레이아웃 잡기 - .section(공통 상하 padding), .l_wrapper(max-width, margin auto, 좌우 padding-완충제 역할z)</dd>
+      <dd>2. .section에 다른 스타일 부여를 위한 클래스 부여 : type_purple - 섹션의 플러스 알파 개념으로 type_ 접두어를 붙임</dd>
+      <dd>3. variables 활용 : root에 설정 - gap도 설정 가능 (하지만 모든 간격을 배리어블? 반대)</dd>
+      <dd>4. .section > .section-header + .section-contents : 상위에 있을 수 있는 .header와 구분하기 위해 .section- 붙임 - 클래스 작명 고민 타임 ~ / 하위 선택자 성능 좋지 않은거 언급하기</dd>
+      <dd>5. 공간 차지 확인 : reset을 위해</dd>
+      <dd>6. 공통 스타일을 가지고 있는 .section-header 마크업 : 1) 왼쪽 덩어리가 같음 2) 오른쪽은 다르니 다른 클래스 부여 3) 두번째 섹션은 오른쪽 사이드로 붙었으니 . : .section-aside > .button</dd>
+      <dd>7. 공간 차지 확인 - 마크업 - 리셋 - 타이포그래피 설정</dd>
+      <dd>8. 헤더 스타일링 - 포트폴리오 프로젝트 한번에 감쌈 : 가상요소가 아닌 리니어 그라디언트 활용 (시점 50%) / box shadow 활용 - 원하는 em으로 설정 가능, 가상요소보다 트랜지션 주기도 쉬움 (경우의 수가 여러개임. 시의적절하게 사용)</dd>
+      <dd>9. 헤더 스타일링 - 변수 활용하기 : color-section-accent 변수 만들어서 각각 값 적용</dd>
+      <dd>10. 헤더 스타일링 - min-width, max-width, flex-shrink 설정</dd>
+      <dd>11. 섹션 덩어리 잡기 : .section-하위-하위 > .하위-하위 - section 밖에 있어도 사용가능하게, 클래스가 너무 길어지지 않게</dd>
+      <dd>card, pannel 등 (콘텐츠에 종속적인 클래스 사용 금지, 시각적 특징에 초점 맞추기, list같이 너무 평범하면 금지)</dd>
+      <dd>12. .plate-cover 너비 잡기 - 고정너비 width280 잡기 (min-width 280 아님) 고정 width여도 컨텐츠가 위드보다 작으면 수축 가능하기 때문에 shrink0 또는 contents에 basis0,grow1 필수 _ 7일차 flex(2) 1. 참고_</dd>
+      <dd>13. plate 왼쪽 스타일링</dd>
+      <dd>14. 지그재그 리스트 > 범용성을 위해 .lists | .lists.type_circle | .listsCard : 타입으로 안될 때 마지막 수</dd>
+      <dd>15. 리스트 닷 : 1) 플렉스 2) 앱솔 3) 인라인블럭 + text-indent-20 paddingleft20</dd>
+    </dl>
+    <dl>
+      <dt>button 태그</dt>
+      <dd>1) 링크 이동 없이 클릭 요소, 2) 폼 태그에서 제출의 의미</dd>
+      <dd>2번이 아니라면, type="button" 필수 지정</dd>
+      <dd>tab focus 적용됨</dd>
+      <dd>브라우저 스타일 리셋 : appearance(기기마다 조금씩 달라서 리셋 필수) 등 all: unset 필요 + </dd>
+      <dd>버튼은 기본적으로 텍스트가 중앙 정렬됨 = 높이만 주면 됨 (all:unset해도 적용됨)</dd>
+    </dl>
+  </section>
+</body>
+</html>
