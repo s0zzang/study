@@ -1,52 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans&family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap&family=Inconsolata:wght@400;600&display=swap');
 
-* {
-  font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
-  margin: 0;
-	padding: 0;
-	border: 0;
+:root {
+  font-family: 'Inconsolata', 'Noto Sans KR', sans-serif;
   line-height: 1.6;
 }
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+* {
+  margin: unset;
+	padding: unset;
+	border: none;
 }
-body {
-	line-height: 1;
-}
-ol, ul {
+li {
 	list-style: none;
 }
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
+img {
+  vertical-align: top;
+  max-width: 100%;
 }
 
 /* basic style */
 .wrap {
-  padding: 15px;
+  padding: 30px;
   max-width: 1600px;
   margin: 0 auto;
 }
 .wrap h1 {
   font-size: 30px;
   font-weight: bold;
-  padding: 20px 0;
+  padding: 0 0 10px;
   text-transform: uppercase;
 }
-.wrap dl {
+.wrap dl,
+.wrap ul {
   margin-bottom: 20px;
 }
-.wrap dt {
+.wrap dt,
+.wrap h2 {
   background: #f6f6f6;
   padding: 10px 20px;
   border-radius: 15px;
@@ -54,22 +42,30 @@ table {
   font-weight: 500;
   margin-bottom: 10px;
 }
-.wrap dd {
-  margin-left: 20px;
-  padding-left: 10px;
+.wrap dd,
+.wrap li {
+  margin-left: 22px;
+  padding-left: 20px;
   position: relative;
   color: #333;
 }
-.wrap dd:before {
+.wrap dd::before,
+.wrap li::before {
   content: '';
   display: block;
   position: absolute;
-  top: 11px; left: 0;
-  width: 2px; height: 2px;
-  background: #333;
-  border-radius: 50%;
+  top: 12px; left: 0;
+  width: 6px; 
+  height: 2px;
+  background: #aaa;
 }
-.wrap dd.mt {
+.wrap dd.mt,
+.wrap li.mt {
   margin-top: 10px;
+  margin-left: 0;
   font-weight: 600;
+}
+.wrap dd.mt::before,
+.wrap li.mt::before {
+  display: none;
 }
