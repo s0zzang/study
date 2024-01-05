@@ -6,95 +6,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    .wrap {
-      max-width: 1000px; 
-      margin: 50px auto; 
-      text-align: center;
-      background: #f7f7d5;
-      padding: 50px;
-    }
-    p {
-      padding: 20px;
-      display: inline-block;
-      background: rgb(87 83 221 / 70%);
-      margin: 0;
-    }
-    img {
-      vertical-align: top;
-      width: 30%;
-    }
-    .flex {
-      display: flex;
-      gap: 5px;
-    }
-    .box {
-      background: #ccc;
-      line-height: 50px;
-      flex-basis: 100px;
-      width: 100px;
-      height: 100px;
-      display: inline-block;
-    }
-    .box:nth-child(1) {
-      will-change: width;
-    }
-    .box:nth-child(2) {
-      margin-left: -30px;
-      background: orange;
-    }
-    section {
-      background: #333;
-      color: #fff;
-    }
-    section {
-      height: 300px;
-      position: relative;
-    }
-    section:before {
-      content: '부모';
-      position: absolute;
-      top: 0; right: 0;
-      padding: 15px;
-    }
-    section + section {
-      margin-top: 10px;
-    }
-    .abs {
-      position: absolute;
-      inset: 0;
-      line-height: 300px;
-      padding: 0;
-    }
-    .child { 
-      position: absolute; 
-      background: rgb(87 83 221 / 70%); 
-      inset: 0; 
-      margin: 60px;
+    body {
+      background: midnightblue;
     }
 
-    .mask {
-      mask-image: url(mask.png)
+    .grid {
+      max-width: 300px;
+      margin: 50px auto;
+      aspect-ratio: 1/1;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      gap: 4px;
+      border: 1px solid #fff;
     }
-    .mask p {
-      font-size: 50px;
-      background: #87cefa;
-      color: #FFDF4B;
+    .grid-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: lightgray;
+      font-size: 20px;
+    }
+    .grid-item:nth-child(even) {
+      background: lightyellow;
+    }
+
+    .grid-item:nth-child(1) {
+      /* grid-row: 1 / span 2; */
+      /* grid-column: 1 / span 2; */
+      /* grid-column-end: span 2;  */
+      /* span2로 작성하면 start 생략 가능 */
+      /* grid-row-end: span 2;  */
+      /* span2로 작성하면 start 생략 가능 */
+      /* grid-column-start: 1;
+      grid-column-end: 3;
+      grid-row-start: 1;
+      grid-row-end: 3; */
+    }
+    .grid-item:nth-child(5) {
+      /* grid-column-start: 4;
+      grid-row-start: 2;
+      grid-row-end: 5; */
+      /* grid-row: span 3; */
+    }
+    .grid-item:nth-child(7) {
+      /* background: red; */
+      /* grid-column-end: span 2; */
+      /* grid-column: span 2; */
+      /* grid-row: 3 / 4; */
+      grid-column: 2 / 5;
     }
   </style>
 </head>
 <body>
 
-  <div id="n1"></div>
-  <div id="n2"></div>
-  <div id="n3">
-    <div id="n4"></div>
-    <div id="n5"></div>
-    <div id="6"></div>
+  <div class="grid">
+    <div class="grid-item">1</div>
+    <div class="grid-item">2</div>
+    <div class="grid-item">3</div>
+    <div class="grid-item">4</div>
+    <div class="grid-item">5</div>
+    <div class="grid-item">6</div>
+    <div class="grid-item">7</div>
+    <div class="grid-item">8</div>
+    <div class="grid-item">9</div>
+    <div class="grid-item">10</div>
   </div>
 
-  <div class="mask">
-    <!-- <img src="https://velog.velcdn.com/images/s0zzang/post/56433b9a-02a0-4744-b833-8dcb031d2211/image.png" alt=""> -->
-    <p>아이스크림이다</p>
-  </div>
 </body>
 </html>

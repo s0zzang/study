@@ -9,7 +9,7 @@
 	padding: unset;
 	border: none;
 }
-li {
+ul li {
 	list-style: none;
 }
 img {
@@ -43,14 +43,14 @@ img {
   margin-bottom: 10px;
 }
 .wrap dd,
-.wrap li {
-  margin-left: 22px;
+.wrap ul li {
+  /* margin-left: 22px; */
   padding-left: 20px;
   position: relative;
   color: #333;
 }
 .wrap dd::before,
-.wrap li::before {
+.wrap ul li::before {
   content: '';
   display: block;
   position: absolute;
@@ -60,12 +60,17 @@ img {
   background: #aaa;
 }
 .wrap dd.mt,
-.wrap li.mt {
+.wrap li.mt,
+.wrap ol > li {
   margin-top: 10px;
   margin-left: 0;
-  font-weight: 600;
+  /* font-weight: 600; */
 }
 .wrap dd.mt::before,
 .wrap li.mt::before {
   display: none;
+}
+.wrap ol {
+  padding-left: 45px;
+  text-indent: -5px;
 }
