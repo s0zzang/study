@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>html, css - 18일차</title>
+  <link rel="stylesheet" href="../../reset.css">
+</head>
+<body>
+  <section class="wrap">
+    <h1>html, css 18일차 강의</h1>
+    <h2>em & rem</h2>
+    <ol>
+      <li>em
+        <ul>
+          <li>현재 폰트 사이즈의 배수</li>
+        </ul>
+      </li>
+      <li>rem
+        <ul>
+          <li>루트 폰트 사이즈의 배수</li>
+          <li>:root { font-size:10px; } body { font-size: 1.4rem; } .txt { font-size: 1.4rem; }</li>
+          <li>rem 계산편의를 위해 10px 지정 후 글씨가 너무 작으니 body에 14px 지정</li>
+        </ul>
+      </li>
+      <li>사용하는 이유
+        <ul>
+          <li>em : 폰트 사이즈 기준 유연한 상대기준 작성 > 일괄 수정 가능</li>
+          <li>rem : 루트 기준의 유연한 상대기준 작성 > 일괄 수정 가능</li>
+        </ul>
+      </li>
+      <li>:root { font-size: 62.5%; }
+        <ul>
+          <li>브라우저 설정값(16) 기준 10px</li>
+          <li>사용자가 브라우저에서 설정한 폰트 크기 사용 가능</li>
+          <li>브라우저 폰트 사이즈 업 > 다른 요소도 em, rem을 사용하여 전체적으로 커지도록 설정 필요</li>
+          <li>하지만 과연 필요할까? 62.5%와 10px에 대해 고민 필요</li>
+        </ul>
+      </li>
+    </ol>
+    <h2>display grid 입문 II</h2>
+    <ol>
+      <li>그리드 진도
+        <ul>
+          <li>다음주엔 활용 위주</li>
+        </ul>
+      </li>
+      <li>grid-template-columns/rows (그리드 컨테이너)
+        <ul>
+          <li>100px 100px 이라고 작성하면 세번째 셀부턴 스트레치됨 (캡쳐 참고)</li>
+          <li>스트레치 : 기본값 =/= 1fr</li>
+          <li>양방향 레이아웃 : 체스판 말처럼 위치 지정 가능</li>
+        </ul>
+      </li>
+      <li>위치 변경 grid-row/column (그리드 아이템)
+        <ul>
+          <li>개발자 도구 그리드 버튼 활용 !!!</li>
+          <li>grid-row-start : 2 - 1x2 위치로 이동</li>
+          <li>grid-column-start : 2 - 2x1 위치로 이동</li>
+          <li>(바둑판 안에서) 자유도가 높음 !</li>
+          <li>grid-row-end : 2 - 원래 1번 위치</li>
+          <li>grid-row-end : 3 - 시작1 끝나는3 으로 아래로 2칸을 차지함</li>
+          <li>grid-column-end : 3 - 시작1 끝나는3 으로 옆으로 2칸을 차지함</li>
+          <li>grid-column-end : span 2 - 3과 같음(셀 2개)</li>
+          <li>공간이 커진 나머지 애들의 위치는 자동으로 재정렬됨 (변경 가능)</li>
+          <li>단축) grid-row: 1(start) / 3(end)</li>
+          <li>단축) grid-coulumn: 1(start) / 3(end)</li>
+          <li>grid-row: span 3; 이렇게 작성하면 적용 가능 > start가 적용된 것 !</li>
+        </ul>
+      </li>
+      <li>grid-auto
+        <ul>
+          <li>grid-auto-flow: column - 방향이 아래</li>
+          <li>grid-auto-flow: row - 기본 / 방향이 오른쪽</li>
+          <li>column 사용 : 흐름이 왼쪽 박스) 1 2 3 오른쪽 박스) 4 5 6 이런식으로 쌓일 때</li>
+        </ul>
+      </li>
+      <li>
+        디저트 예제 만들기
+        <ul>
+          <li>이미지를 마크업으로 넣으면 = 콘텐츠 크기가 커지면 그리드 템플릿 세팅 값 무시됨 (?)</li>
+          <li>z-index 애니메이션 됨</li>
+        </ul>
+      </li>
+    </ol>
+  </section>
+</body>
+</html>
