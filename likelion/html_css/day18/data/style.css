@@ -1,0 +1,48 @@
+/* CSS Resets */
+ul {
+    margin: unset;
+    padding: unset;
+    list-style-type: none;
+}
+
+.wrapper {
+    max-width: 960px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.grid {
+    aspect-ratio: 1/1;
+    font-size: 30px;
+    text-align: center;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 20px;
+}
+.grid-item {
+  background: url() no-repeat center / cover;
+}
+
+.grid-item:nth-child(1)  { background-image: url(images/crepe.png); }
+.grid-item:nth-child(2)  { background-image: url(images/candy.png); }
+.grid-item:nth-child(3)  { background-image: url(images/cheeze.png); }
+.grid-item:nth-child(4)  { background-image: url(images/chili.png); }
+.grid-item:nth-child(5)  { background-image: url(images/cake.png); }
+.grid-item:nth-child(6)  { background-image: url(images/cream.png); }
+.grid-item:nth-child(7)  { background-image: url(images/coke.png); }
+.grid-item:nth-child(8)  { background-image: url(images/cookie.png); }
+.grid-item:nth-child(9)  { background-image: url(images/cinnamon.png); }
+.grid-item:nth-child(10) { background-image: url(images/choco.png); }
+
+.grid-item:nth-child(1) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.grid-item:nth-child(5) {
+  grid-row: span 3;
+}
+.grid-item:nth-child(9) {
+  grid-column: span 2;
+}
