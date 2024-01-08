@@ -66,6 +66,8 @@ body {
 .wrap {
   width: 100%;
   max-width: 1200px;
+  max-height: 80vh;
+  min-height: 50vh;
   background: var(--color-blue-90);
   display: flex;
   padding: 40px 40px 0;
@@ -78,7 +80,6 @@ body {
 .side {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   justify-content: space-between;
   font-size: 18px;
   width: 230px;
@@ -102,8 +103,10 @@ body {
 
 .content {
   flex-grow: 1;
-  max-height: 70vh;
-  min-height: 300px;
+  /* max-height: 70vh;
+  min-height: 300px; */ /* .content-list 높이를 제어하기 위해 부모에게 높이 설정했었음 > .wrap으로 이동 */
+  display: flex;
+  flex-direction: column;
 }
 .content-header {
   display: flex;
@@ -131,7 +134,7 @@ body {
 }
 .content-list {
   overflow: auto;
-  height: calc(100% - 82px);
+  /* height: calc(100% - 82px); flex item인 경우 overflow만 줘도 됨 대박사건 - .wrap 전체에 최대 높이 설정 */
 }
 .content-list li {
   padding: 30px;
@@ -226,9 +229,6 @@ body {
   .content {
     max-height: unset;
     min-height: unset;
-  }
-  .content-list {
-    height: unset;
   }
 }
 @media (max-width: 768px) {
