@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>html, css - 19일차</title>
+  <link rel="stylesheet" href="../../reset.css">
+</head>
+<body>
+  <section class="wrap">
+    <h1>html, css 19일차 강의</h1>
+    <h2>레이아웃의 핵심 flexbox 되돌아보기</h2>
+    <ol>
+      <li>d.feconf 예제 - 스케줄 스크롤 높이 지정하기 (이전)
+        <ul>
+          <li>.content (.wrap 자식) : max-height: 70vh; min-height: 300px;</li>
+          <li>-> content-list에 원하는 높이를 설정하기 위해 줬었음</li>
+          <li>.content-list : height: calc(100% - 82px); overflow: auto;</li>
+          <li>-> 높이를 지정해서 82px이라는 고정 수치를 줘야만 했음 ...</li>
+        </ul>
+      </li>
+      <li>d.feconf 예제 - 스케줄 스크롤 높이 지정하기 (이후)
+        <ul>
+          <li>.wrap 자식 : max-height: 70vh; min-height: 50vh;</li>
+          <li>-> content-list에 줬던 높이를 전체 높이로 변경하여 관리 용이하도록</li>
+          <li>.content (.wrap 자식) : display:flex; flex-direction: column;</li>
+          <li>-> content-list에 원하는 높이가 아닌 플렉스 컬럼 설정, 이거 플렉스 해야만 적용됨 ~</li>
+          <li>.content-list : overflow: auto;</li>
+          <li>-> 높이를 지정해서 82px이라는 고정 수치를 줘야만 했음 ...</li>
+        </ul>
+      </li>
+    </ol>
+    <h2>스탭 바이 스탭으로 레이아웃 진행하기</h2>
+      <ol>
+        <li>step 1
+          <ul>
+            <li>body 건들지 않기</li>
+          </ul>
+        </li>
+      </ol>    
+  </section>
+</body>
+</html>

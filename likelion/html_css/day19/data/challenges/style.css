@@ -1,0 +1,69 @@
+body {
+  margin: unset;
+}
+img {
+  vertical-align: top;
+  max-width: 100%;
+}
+
+body {
+  background: #ddd;
+}
+.container {
+  height: 100vh;
+  display: flex;
+  padding: 30px;
+  box-sizing: border-box;
+}
+.wrap {
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  padding: 20px;
+  margin: auto;
+  flex-grow: 1; /* width 100%와 같음 */
+  gap: 12px; 
+  box-sizing: border-box;
+  /* height: 80vh; - 패딩을 줬기 때문에 100%가 났네요 ~ container에 100vh를 줬기 때문에 가능함 min은 100% 안됨 */
+  max-width: 960px;
+  height: 100%;
+  max-height: 600px;
+  display: flex;
+}
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  background: #D1EBDA;
+  border-radius: 14px;
+  overflow: hidden;
+  padding: 12px;
+  box-sizing: border-box;
+}
+.sidebar > div {
+  background: #E7FFE5;
+  border-radius: 12px;
+  padding: 20px;
+}
+.sidebar-end {
+  margin-top: auto;
+}
+.contents {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  /* margin-bottom: -20px; */
+  background: #FEE0FF;
+  padding: 12px;
+  border-radius: 14px;
+  gap: 12px;
+}
+.contents > div {
+  background: #fff;
+  padding: 20px;
+  border-radius: 14px;
+}
+.contents-text {
+  overflow: auto;
+}
