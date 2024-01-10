@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>로그인하기</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+
+		<div class="cover">
+			<img class="cover-src" src="images/cover.png">
+		</div>
+
+		<main class="main">
+			<div class="main-inside">
+	
+				<form class="form" action="https://www.youtube.com/veamcamp">
+					<fieldset><!-- 입력 항목의 그룹-->
+						<legend class="form-title">이메일로 로그인하기</legend><!-- 그룹의 제목 -->
+						<div class="form-field"><!-- 인풋요소와 레이블을 좀 더 효율적으로 레이아웃하기 위한 그룹 div --> 
+							<label class="form-label" for="username">이메일 주소</label><!-- 입력 항목의 이름표,  클릭시  인풋 포커스-->
+							<div class="form-input"><!-- 인풋요소를 좀 더 효율적으로 레이아웃하기 위한 div --> 
+								<input id="username" placeholder="잘 입력 해봐유" type="text">
+							</div>
+						</div>
+						<div class="form-field">
+							<label class="form-label" for="password">비밀번호</label>
+							<div class="form-input">
+								<input id="password" placeholder="California?" type="password">
+							</div>
+						</div>
+						<button class="button type_block" type="submit">로그인하기</button><!--form action의 주소로 폼 내용 제출하기-->
+					</fieldset>
+				</form>
+
+				<div class="split">
+					또는 소셜 로그인
+				</div>
+
+				<a class="socialButton type_google" href="">
+					<strong>구글</strong>로 로그인
+				</a>
+				<a class="socialButton type_facebook" href="">
+					<strong>페이스북</strong>으로 로그인
+				</a>
+
+			</div>
+		</main>
+
+
+		text-decoration: unset;
+	</body>
+</html>
