@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>html, css - 21일차</title>
+  <link rel="stylesheet" href="../../reset.css">
+</head>
+<body>
+  <section class="wrap">
+    <h1>html, css 21일차 강의</h1>
+    <h2>회의실 그리드 예제</h2>
+    <ol>
+      <li>width, flex-basis 한번에 작성한다면?
+        <ul>
+          <li>flex-basis가 우선!</li>
+        </ul>
+      </li>
+      <li>피그마에서 svg 저장하기
+        <ul>
+          <li>피그마 원하는 영역에서 우클릭 - svg 코드 복사</li>
+          <li>image.svg 파일을 만들어 해당 코드 삽입</li>
+        </ul>
+      </li>
+      <li>메뉴 활성화 시 이상한 모양 만들기
+        <ul>
+          <li>width, hegith 2배로 (48px)</li>
+          <li>border-radius: 50%</li>
+          <li>box-shadow: 24px 24px 0 0 #fff</li>
+          <li>그런데 사실 이미지로 넣는게 작업속도가 빠름 ㅎ</li>
+          <li>1. 각 가상요소에 transform: translate 주기</li>
+          <li>2. 가상요소에 margin: -24px 0; (너비만큼)</li>
+        </ul>
+      </li>
+      <li>탭 활성화에 따라 색상이 변하는 이미지
+        <ul>
+          <li>1. 이미지 스프라이트 - 탭 클릭시 이미지 다운로드하면 로딩에 따라 느리게 반영될 수 있기 때문에 한장씩 하지 않음</li>
+          <li>2. css로 이미지 컬러 컨트롤 하기 - html i 요소의 가상요소로 이미지</li>
+          <li>i : italic이지만 icon처럼 사용함</li>
+          <li>svg 이미지 : svg 코드 자체의 fill을 currentColor로 변경하면 유지보수 개짱킹왕짱인줄 알았으나 안됨 ㅎ</li>
+          <li>인라인 svg : svg 이미지 저장이 아닌 코드로 html에 삽입하면, currentColor 사용 가능</li>
+          <li>svg 코드가 길어서 가독성이 떨어짐 > 다른 파일에서 불러오거나 리액트로 관리할 수 있음</li>
+          <li>object data="./wow.svg" - svg 파일 연결, css 파일을 이미지 파일내에서 import하여 연결</li>
+        </ul>
+      </li>
+      <li>main 콘텐츠 작성 - 탭 콘텐츠 구현
+        <ul>
+          <li>main > .page > .left + .right</li>
+        </ul>
+      </li>
+      <li>position: sticky
+        <ul>
+          <li>paper-board-header</li>
+          <li>기본 - relative</li>
+          <li>부모 요소가 스크롤에 맞닿으면, fixed 됨</li>
+        </ul>
+      </li>
+    </ol>
+  </section>
+</body>
+</html>
