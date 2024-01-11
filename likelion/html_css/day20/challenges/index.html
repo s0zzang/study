@@ -194,7 +194,93 @@
             </div>
           </div>
           <hr class="page-handler">
-          <div class="page-aside">aside</div>
+          <div class="page-aside">
+            <div class="panel">
+              <div class="slider">
+                <div class="slider-main">
+                  <div class="slider-contents">
+                    <div class="slider-item">
+                      <img src="images/slide.jpg" alt="">
+                    </div>
+                    <div class="slider-item">
+                      <img src="images/slide.jpg" alt="">
+                    </div>
+                    <div class="slider-item">
+                      <img src="images/slide.jpg" alt="">
+                    </div>
+                  </div>
+
+                  <button class="slider-btn type_prev" type="button">이전</button>
+                  <button class="slider-btn type_next" type="button">다음</button>
+                </div>
+                <div class="slider-pager">
+                  <button class="slider-pager-item is_act" type="button">1</button>
+                  <button class="slider-pager-item" type="button">2</button>
+                  <button class="slider-pager-item" type="button">3</button>
+                </div>
+              </div>
+              <form action="" class="form">
+                <fieldset>
+                  <legend class="ir">회의실 예약</legend>
+
+                  <div class="form-field">
+                    <label class="form-field-title" for="">어떤 용도로 이용할 예정이신가요?</label>
+                    <div class="input">
+                      <select name="" id="">
+                        <option value="디자이너와의 티타임">디자이너와의 티타임</option>
+                        <option value="원명님과 던파 한판">원명님과 던파 한판</option>
+                        <option value="가희님과 신전 떡볶이 먹방">가희님과 신전 떡볶이 먹방</option>
+                        <option value="민캠프 수강하기">민캠프 수강하기</option>
+                        <option value="지성님과 헤드셋 테크 리뷰">지성님과 헤드셋 테크 리뷰</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-field">
+                    <label class="form-field-title" for="">회의의 규모는 어떠한가요?</label>
+                    <ul class="l_row">
+                      <li class="l_col l_col_4_12">
+                        <label class="radio">
+                          <input name="size" type="radio">
+                          <span class="radio-card">2 ~ 8인</span>
+                        </label>
+                      </li>
+                      <li class="l_col l_col_4_12">
+                        <label class="radio">
+                          <input name="size" type="radio">
+                          <span class="radio-card">9 ~ 20인</span>
+                        </label>
+                      </li>
+                      <li class="l_col l_col_4_12">
+                        <label class="radio">
+                          <input disabled name="size" type="radio">
+                          <span class="radio-card">21 ~ 100인</span>
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="form-field">
+                    <label class="form-field-title" for="name">예약자의 성함을 알려주쇼</label>
+                    <div class="input">
+                      <input type="text" id="name" placeholder="이름을 작성해주세요">
+                    </div>
+                  </div>
+
+                  <div class="form-field">
+                    <label class="form-field-title" for="description">회의 주제 알려주세요</label>
+                    <div class="input">
+                      <textarea id="description" placeholder="주제에 대한 짧은 요약~"></textarea>
+                    </div>
+                  </div>
+
+                  <div class="form-footer">
+                    <button class="button type_large" type="submit">예약 완료하기</button>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
         </div>
       </main>
     </div>
