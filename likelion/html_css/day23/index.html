@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>html, css - 23일차</title>
+  <link rel="stylesheet" href="../../reset.css">
+</head>
+<body>
+  <section class="wrap">
+    <h1>html, css 23일차 강의</h1>
+    <h2>모달창 만들기</h2>
+    <ol>
+      <li>모달 레이아웃
+        <ul>
+          <li>.modal</li>
+          <li>.modal-inside : 가운데 정렬</li>
+          <li>.window : 여기가 변경됨 (확장 가능성 고려)</li>
+        </ul>
+      </li>
+      <li>모달 자체 스크롤바 생기기
+        <ul>
+          <li>모달 min-height: 100vh; 인 경우 스크롤 바가 모달 자체에 생기지 않음 .. !</li>
+          <li>이거 해보기 !!</li>
+        </ul>
+      </li>
+      <li>모달 on/off
+        <ul>
+          <li>off - opacity: 0, pointer-events: none</li>
+          <li>visibility가 아닌 pointer-events를 사용한 이유 : 보여도 없는 것처럼 취급할 수 있음</li>
+          <li>tab키로 도달은 가능함</li>
+          <li>visibility: hidden; : tab키로 접근 불가</li>
+          <li>inert : 해당 요소 비활성화 상태로 만들어 - 모달창 제외 컨테이너한테 주면 좋을 듯 ?</li>
+        </ul>
+      </li>
+      <li>모달 크기 커져서 스크롤바 생길때 안덜컹거리기
+        <ul>
+          <li>modal > .modal-resize 하나 더 만들어서 100vw 줌</li>
+          <li>별도 적용 예제 참고하기</li>
+        </ul>
+      </li>
+      <li>body도 스크롤, 모달도 스크롤이 있을 때 - 이중 스크롤
+        <ul>
+          <li>스크롤 체이닝</li>
+          <li>overflow: auto 준 애한테 overscroll-behavior: none</li>
+          <li>가로 스크롤한텐 안주는게 좋음</li>
+          <li>사용자는 오히려 오류처럼 느낄 수 있음</li>
+        </ul>
+      </li>
+      <li>body는 스크롤, 모달은 스크롤 없을 때 (위에 안주고 이것만줘도 됨)
+        <ul>
+          <li>body에 overflow: hidden;</li>
+          <li>body:has(.is_active)</li>
+          <li>대박 이거 자스로 안해도됨 !! 대박 사건 분명 ... 탑으로 이동했던거같은데 ... 탑으로 이동 안됨</li>
+        </ul>
+      </li>
+      <li>스크롤바 미리 주고 안보이게 처리하기
+        <ul>
+          <li>.modal::-webkit-scrollbar { w20 h20 }</li>
+          <li>.modal::-webkit-scrollbar:enabled { wunset }</li>
+          <li>enabled : 사용할 수 있을 때 !!! 스크롤이 생길 때 !!!</li>
+        </ul>
+      </li>
+    </ol>
+  </section>
+</body>
+</html>
