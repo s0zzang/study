@@ -13,69 +13,74 @@
       <div class="app-inner">
         <haader class="app-header">
           <h1>
-            안녕하세요 종찬님, <br>
+            안녕하세요 소정님, <br>
             <span class="app-header-count">24개</span>의 질문이 도착 하였습니다.
           </h1>
         </haader>
         <main class="app-main">
           <ul class="list">
-            <li>
+            <li data-modal-trigger="modal">
               <div class="list-header">
-                <img class="list-cover" src="images/list-cover-01.jpg" alt="">
-                <div class="list-write">
-                  <p class="list-write-name">짬뽕이</p>
-                  <p class="list-write-time">12시간 전</p>
+                <div class="writer">
+                  <img class="writer-cover" src="images/list-cover-01.jpg" alt="">
+                  <div class="writer-aside">
+                    <p class="writer-name">짬뽕이</p>
+                    <p class="writer-time">12시간 전</p>
+                  </div>
                 </div>
               </div>
               <div class="list-main">
                 <p class="list-subject">CSS는 왜 이렇게 흥미로운가요?</p>
                 <div class="list-sub">
-                  <span class="bookmark is_act">즐겨찾기</span>
+                  <span class="bookmark">즐겨찾기</span>
                   <p>13개의 답변</p>
                 </div>
-              </div>
-              
+              </div>              
             </li>
-            <li>
+            <li data-modal-trigger="modal">
               <div class="list-header">
-                <img class="list-cover" src="images/list-cover-01.jpg" alt="">
-                <div class="list-write">
-                  <p class="list-write-name">짬뽕이</p>
-                  <p class="list-write-time">12시간 전</p>
+                <div class="writer">
+                  <img class="writer-cover" src="images/list-cover-01.jpg" alt="">
+                  <div class="writer-aside">
+                    <p class="writer-name">짬뽕이</p>
+                    <p class="writer-time">12시간 전</p>
+                  </div>
                 </div>
               </div>
               <div class="list-main">
                 <p class="list-subject">CSS는 왜 이렇게 흥미로운가요?</p>
                 <div class="list-sub">
-                  <span class="bookmark is_act">즐겨찾기</span>
+                  <span class="bookmark">즐겨찾기</span>
                   <p>13개의 답변</p>
                 </div>
-              </div>
-              
+              </div>              
             </li>
-            <li>
+            <li data-modal-trigger="modal">
               <div class="list-header">
-                <img class="list-cover" src="images/list-cover-01.jpg" alt="">
-                <div class="list-write">
-                  <p class="list-write-name">짬뽕이</p>
-                  <p class="list-write-time">12시간 전</p>
+                <div class="writer">
+                  <img class="writer-cover" src="images/list-cover-01.jpg" alt="">
+                  <div class="writer-aside">
+                    <p class="writer-name">짬뽕이</p>
+                    <p class="writer-time">12시간 전</p>
+                  </div>
                 </div>
               </div>
               <div class="list-main">
                 <p class="list-subject">CSS는 왜 이렇게 흥미로운가요?</p>
                 <div class="list-sub">
-                  <span class="bookmark is_act">즐겨찾기</span>
+                  <span class="bookmark">즐겨찾기</span>
                   <p>13개의 답변</p>
                 </div>
-              </div>
-              
+              </div>              
             </li>
-            <li>
+            <li data-modal-trigger="modal">
               <div class="list-header">
-                <img class="list-cover" src="images/list-cover-01.jpg" alt="">
-                <div class="list-write">
-                  <p class="list-write-name">짬뽕이</p>
-                  <p class="list-write-time">12시간 전</p>
+                <div class="writer">
+                  <img class="writer-cover" src="images/list-cover-01.jpg" alt="">
+                  <div class="writer-aside">
+                    <p class="writer-name">짬뽕이</p>
+                    <p class="writer-time">12시간 전</p>
+                  </div>
                 </div>
               </div>
               <div class="list-main">
@@ -84,28 +89,69 @@
                   <span class="bookmark is_act">즐겨찾기</span>
                   <p>13개의 답변</p>
                 </div>
-              </div>
-              
+              </div>              
             </li>
-            <li>
+            <li data-modal-trigger="modal">
               <div class="list-header">
-                <img class="list-cover" src="images/list-cover-01.jpg" alt="">
-                <div class="list-write">
-                  <p class="list-write-name">짬뽕이</p>
-                  <p class="list-write-time">12시간 전</p>
+                <div class="writer">
+                  <img class="writer-cover" src="images/list-cover-01.jpg" alt="">
+                  <div class="writer-aside">
+                    <p class="writer-name">짬뽕이</p>
+                    <p class="writer-time">12시간 전</p>
+                  </div>
                 </div>
               </div>
               <div class="list-main">
                 <p class="list-subject">CSS는 왜 이렇게 흥미로운가요?</p>
                 <div class="list-sub">
-                  <span class="bookmark is_act">즐겨찾기</span>
+                  <span class="bookmark">즐겨찾기</span>
                   <p>13개의 답변</p>
                 </div>
-              </div>
-              
+              </div>              
             </li>
           </ul>
+          <div class="app-main-btn">
+            <button class="btn type_more">질문 더 불러오기</button>
+          </div>
         </main>
+      </div>
+    </div>
+
+    <div class="modal is_active" data-modal-target="modal">
+      <div class="modal-inner">
+        <header class="modal-header">
+          <h2 class="modal-title">CSS는 왜 이렇게 흥미로운가요?</h2>
+          <button class="modal-close" data-modal-close><i class="ir">닫기</i></button>
+        </header>
+        <div class="modal-main">
+          <div class="post">
+            <div class="post-header">
+              <div class="writer">
+                <img class="writer-cover" src="images/list-cover-01.jpg" alt="">
+                <div class="writer-aside">
+                  <p class="writer-name">짬뽕이</p>
+                  <p class="writer-time">12시간 전</p>
+                </div>
+              </div>
+            </div>
+            <p class="post-contents">contents</p>
+            <div class="post-slider">
+              <img class="slider-cover" src="images/slider-img.jpg" alt="고양이">
+            </div>
+          </div>
+          <div class="comment">
+            <div class="writer type_comment">
+              <img class="writer-cover" src="images/list-cover-01.jpg" alt="">
+              <div class="writer-aside">
+                <p class="writer-name">짬뽕이</p>
+                <p class="writer-time">12시간 전</p>
+                
+              </div>
+              <div class="dd">sdf</div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">footer</div>
       </div>
     </div>
 
