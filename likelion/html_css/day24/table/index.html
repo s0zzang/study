@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>table 사용해보기</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 1600px;
+      margin: 0 auto;
+      border: 2px solid #ddd;
+    }
+    caption {
+      font-size: 20px;
+      font-weight: 600;
+      text-align: left;
+      margin: 10px 0 20px;
+    }
+    table td,
+    table th {
+      border-bottom: 1px solid #ddd;
+      padding: 15px;
+    }
+    table th {
+      text-align: left;
+      border-right: 1px solid #ddd;
+    }
+    table col:nth-child(1),
+    table col:nth-child(2){
+      background: #fdf4ec;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <caption>마블 능력치</caption>
+    <colgroup>
+      <col>
+      <col>
+      <col>
+      <col>
+      <col>
+      <col>
+      <col>
+    </colgroup>
+    <thead>
+      <tr>
+        <th colspan="2" rowspan="2"></th>
+        <th scope="colgroup" colspan="3">전투기술</th>
+        <th scope="colgroup" colspan="2">지능 및 기술</th>
+      </tr>
+      <tr>
+        <th scope="col">근접전</th>
+        <th scope="col">장거리전</th>
+        <th scope="col">방어력</th>
+        <th scope="col">과학 지식</th>
+        <th scope="col">전략적 사고</th>
+      </tr>
+    </thead>
+    <tr>
+      <th scope="rowgroup" rowspan="3">지구 출신</th>
+      <th scope="row">아이언맨</th>
+      <td>85</td>
+      <td>95</td>
+      <td>90</td>
+      <td>100</td>
+      <td>95</td>
+    </tr>
+    <tr>
+      <th scope="row">캡틴 아메리카</th>
+      <td>95</td>
+      <td>80</td>
+      <td>95</td>
+      <td>60</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <th scope="row">헐크</th>
+      <td>100</td>
+      <td>60</td>
+      <td>100</td>
+      <td>90</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <th scope="rowgroup" rowspan="2">외계 출신</th>
+      <th scope="row">토르</th>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>80</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <th scope="row">타노스</th>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+    </tr>
+  </table>
+</body>
+</html>
