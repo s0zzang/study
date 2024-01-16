@@ -1,0 +1,17 @@
+article {
+    display: flex;
+    flex-direction: column;
+}
+.question {
+    display: none;
+}
+.result {
+    display: none;
+}
+
+img {
+    aspect-ratio: 1/1;
+    width: 300px;
+    margin: 0 auto;
+    object-fit: cover;
+}

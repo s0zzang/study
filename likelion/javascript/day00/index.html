@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>javascript - 코드라이언 강의 수강</title>
+  <link rel="stylesheet" href="../../reset.css">
+</head>
+<body>
+  <section class="wrap">
+    <h1>javascript 코드라이언 강의 수강</h1>
+    <h2>javaScript로 만드는 [로또 번호 추첨기]</h2>
+    <ol>
+      <li>여러 개의 값 담기
+        <ul>
+          <li>배열 활용</li>
+          <li>var lotto = [];</li>
+        </ul>
+      </li>
+      <li>번호 무작위로 추첨하기
+        <ul>
+          <li>Math.random() * 45 + 1</li>
+          <li>* 45 : 0 이상 45미만</li>
+          <li>+ 1 : 1 이상 46미만</li>
+        </ul>
+      </li>
+      <li>번호 중복되지 않게 하기
+        <ul>
+          <li>if ( lotto.indexOf(num) == -1 ) { lotto.push(num) }</li>
+          <li>특정 문자열, 숫자가 배열에 있는지 확인해주는 indexOf 활용</li>
+          <li>-1 : lotto 배열에 num 없음</li>
+          <li>중복되지 않은 num만 lotto 배열에 push됨</li>
+        </ul>
+      </li>
+      <li>중복되지 않은 숫자가 총 6개 될때까지 반복하기
+        <ul>
+          <li>while : 특정 조건까지 계속 반복</li>
+          <li>while (조건) {반복하려는 코드}</li>
+          <li>while (lotto.length &lt; 6)</li>
+          <li>왜 7이 아닌, 6이냐 ? 배열의 인덱스는 0부터 시작하기 때문 !</li>
+        </ul>
+      </li>
+      <li>로또 번호를 오름차순으로 정렬하기
+        <ul>
+          <li>.sort() : 배열 값 정렬</li>
+          <li>사전순 정렬 : [1,11,2,22,3,33]</li>
+          <li>오름차순 정렬 : .sort((a,b) => a-b)</li>
+          <li>내림차순 정렬 : .sort((a,b) => b-a)</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h2>자소서 글자수 계산기</h2>
+    <ol>
+      <li>DOM 활용
+        <ul>
+          <li>화면을 구성하는 모든 것에 접근하고 변경할 수 있음</li>
+        </ul>
+      </li>
+      <li>textarea 내용물 가져오기
+        <ul>
+          <li>document.getElementById('jasoseol').value</li>
+        </ul>
+      </li>
+      <li>문자열 길이 확인하기
+        <ul>
+          <li>content.length</li>
+          <li>공백 포함 글자수 파악 가능</li>
+        </ul>
+      </li>
+      <li>키보드 누를 때마다 글자수 세기
+        <ul>
+          <li>이벤트 핸들링 : 이벤트가 발생하면, 어떤 일을 해라</li>
+          <li>textarea 이벤트=이벤트핸들링 : onkeydown="counter()"</li>
+        </ul>
+      </li>
+      <li>200자 넘으면 글자 안써지게 하기
+        <ul>
+          <li>넘으면 : 조건문</li>
+          <li>if( content.length > 200 )</li>
+          <li>substring(0,5) : 0이상 5미만의 글자를 잘라서 보여줌 - 띄어쓰기 포함</li>
+          <li>substring(0, 200)</li>
+          <li>document.getElementById('jasoseol').value = content</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h2>스타크래프트 만들기</h2>
+    <ol>
+      <li>익명함수
+        <ul>
+          <li>함수 정의 없이 바로 실행 가능함</li>
+          <li>$('#click').click( function(){ ... } )</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h2>기념일 계산기 만들기</h2>
+    <ol>
+      <li>객체
+        <ul>
+          <li>content.length, console.log -> 모두 객체 !</li>
+        </ul>
+      </li>
+      <li>Date 객체
+        <ul>
+          <li>new Date()</li>
+          <li>now.getFullYear() : 현재 년도</li>
+          <li>now.getMonth() : 현재 월 - 0 (1월)</li>
+          <li>now.getDate() : 현재 일</li>
+          <li>now.getTime() : 현재 시간, 1970/1/1/0:0 기준으로 흐른 시간을 표시</li>
+        </ul>
+      </li>
+      <li>며칠째 사귀고 있는지 기능 구현
+        <ul>
+          <li>만난 밀리초 = 오늘.getTime - 사귄날.getTime()</li>
+          <li>밀리초 / (1000 * 60 * 60 * 24) + 1</li>
+          <li>정수로 Math.floor()</li>
+        </ul>
+      </li>
+      <li>기념일까지 며칠 남았는지 기능
+        <ul>
+          <li>기념일 밀리초 = 기념일.getTime() - 오늘.getTime()</li>
+        </ul>
+      </li>
+      <li>1000일까지 얼마나?
+        <ul>
+          <li>var ms = 1000일의 밀리초 = 사귄날.getTime() + 999일.gettime()</li>
+          <li>thousand = new Date(ms)</li>
+          <li>thousand.getFullYear()</li>
+          <li>var thousand = new Date(start.getTime() + 999 * (1000 * 60 * 60 * 24));</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h2>배포하기</h2>
+    <ol>
+      <li>netlify
+        <ul>
+          <li>트래픽이 몰리지 않는 이상 무료</li>
+          <li>gitgub 계정 연동하여 사용하기</li>
+          <li>new site from git - github - install - 비번 입력 - 저장소 선택 - deploy 사이트</li>
+          <li>change site name 가능</li>
+        </ul>
+      </li>
+    </ol>
+  </section>
+
+  <script>
+    var lotto = [];
+    while(lotto.length < 6){
+      var num = parseInt( Math.random() * 45 + 1 );
+      if(lotto.indexOf(num) == -1){
+          lotto.push(num)
+      }
+    }
+    lotto.sort( (a,b) => a-b )
+    
+    for(let i=0; i<lotto.length; i++){
+      document.write(`<span class="ball${i+1}">${lotto[i]}</span>`)
+    }
+  </script>
+</body>
+</html>
