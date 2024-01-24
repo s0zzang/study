@@ -1,281 +1,418 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>javascript - day4</title>
-  <link rel="stylesheet" href="../../reset.css">
-</head>
-<body>
-  <section class="wrap">
-    <h1>javascript day4</h1>
-    <section>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>javascript - day4</title>
+    <link rel="stylesheet" href="../../reset.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>javascript day4</h1>
+      <section>
         <h2>복습</h2>
         <ol>
-            <li>메서드 방식
-                <ul>
-                    <li>1) normal function method</li>
-                    <li>2) arrow function method</li>
-                    <li>3) concise method (축약형) : 가장 많이 쓰임</li>
-                </ul>
-            </li>
+          <li>
+            메서드 방식
+            <ul>
+              <li>1) normal function method</li>
+              <li>2) arrow function method</li>
+              <li>3) concise method (축약형) : 가장 많이 쓰임</li>
+            </ul>
+          </li>
         </ol>
-    </section>
-    <section>
+      </section>
+      <section>
         <h2>형 변환</h2>
         <ol>
-            <li>자바스크립트의 8가지 자료형을 강제로 변환시킬 수 있음
-                <ul>
-                    <li>전달받은 값을 의도를 가지고 명시적 변환을 해주는 경우도 형 변환에 해당됨</li>
-                    <li>암시적 형변환을 명시적 형변환처럼 사용하는 것이 목표다</li>
-                </ul>
-            </li>
-            <li>문자형으로 변환
-                <ul>
-                    <li>명시적 형변환 : <code>String(1)</code></li>
-                    <li>암시적 형변환 : <code>123 + '' = '123'</code></li>
-                </ul>
-            </li>
-            <li>숫자형으로 변환
-                <ul>
-                    <li>수학과 관련된 함수, 표현식에서 자동으로 일어남</li>
-                    <li>명시적 형변환 : <code>Number('1')</code></li>
-                    <li><code>'6' / '2' = 3 (number)</code> : 자동으로 명시적 형변환 됨 (문자열이 자동으로 숫자형으로 변환)</li>
-                    <li>명시적 형변환 예시 : input에서 작성한 value는 무조건 문자열로 넘어와서 명시적 형변환 필요</li>
-                    <li><code>NaN</code> : 숫자 이외의 글자가 들어있는 문자열을 숫자형으로 변환하면 반환값</li>
-                    <li>Number() 방식을 더 권장하긴 하나, 시니어덜은 길게 쓰는거 무.족.권 싫어함 = 둘다 알아라</li>
-                </ul>
-                <ul>
-                    <li><code>Number(undefined)</code> : NaN (⭐️)</li>
-                    <li><code>Number(null)</code> : 0 - 숫자로 계산이 가능함 (⭐️)</li>
-                    <li>> <code>null + 10 = 10</code> null을 숫자로 자동 변환함</li>
-                    <li><code>Number(true)</code> : 1</li>
-                    <li><code>Number(false)</code> : 0</li>
-                    <li><code>Number('')</code> : 0</li>
-                    <li><code>'    1  ' + 1</code> : '    1  1' (문자로 형변환되어 결합됨)</li>
-                    <li><code>'    1  ' - 1</code> : 0 (문자가 숫자로 형변환되어 빼기 적용됨)</li>
-                    <li><code>Number('    1  ')</code> : 1 (문자열의 처음과 끝 공백이 제거)</li>
-                    <li><code>Number(' 2     0')</code> : NaN (2와 0사이의 공백으로 인해)</li>
-                </ul>
-                <ul>
-                    <li>암시적 형변환</li>
-                    <li><code>'122' * 1 = 122</code></li>
-                    <li><code>'122' / 1 = 122</code></li>
-                    <li><code>+'122' = 122</code></li>
-                </ul>
-                <ul>
-                    <li>numeric string 형변환 예시</li>
-                    <li><code>parseInt('109.3px') : 109</code></li>
-                    <li><code>parseFloat('109.3px') : 109.3</code></li>
-                    <li><code>parseInt('45s6')</code> : 45</li>
-                    <li>> parseInt, parseFloat 주의점 : 문자로 시작하면 안됨, 중간에 문자가 들어가도 삭제됨</li>
-                    <li>> 외우기 어려우니까 콘솔창에서 확인하자 ~</li>
-                </ul>
-            </li>
-            <li>불린형으로 변환
-                <ul>
-                    <li>논리 연산 수행할 때 발생 (>, ==), 조건문에서 암시적 형변환 상당히 일어남쓰</li>
-                    <li>명시적 형변환 : <code>Boolean(0)</code></li>
-                    <li><code>falsy한 값</code> : 0, '', null, undefined, NaN</li>
-                    <li><code>truthy한 값</code> : 그 외의 값 (' ', '0')</li>
-                </ul>
-                <ul>
-                    <li>암시적 형변환</li>
-                    <li><code>!!123 : true</code></li>
-                    <li><code>!!'' : false</code></li>
-                </ul>
-            </li>
-            <li>객체 > 원시형으로 변환하기 : 어려버</li>
+          <li>
+            자바스크립트의 8가지 자료형을 강제로 변환시킬 수 있음
+            <ul>
+              <li>
+                전달받은 값을 의도를 가지고 명시적 변환을 해주는 경우도 형
+                변환에 해당됨
+              </li>
+              <li>암시적 형변환을 명시적 형변환처럼 사용하는 것이 목표다</li>
+            </ul>
+          </li>
+          <li>
+            문자형으로 변환
+            <ul>
+              <li>명시적 형변환 : <code>String(1)</code></li>
+              <li>암시적 형변환 : <code>123 + '' = '123'</code></li>
+            </ul>
+          </li>
+          <li>
+            숫자형으로 변환
+            <ul>
+              <li>수학과 관련된 함수, 표현식에서 자동으로 일어남</li>
+              <li>명시적 형변환 : <code>Number('1')</code></li>
+              <li>
+                <code>'6' / '2' = 3 (number)</code> : 자동으로 명시적 형변환 됨
+                (문자열이 자동으로 숫자형으로 변환)
+              </li>
+              <li>
+                명시적 형변환 예시 : input에서 작성한 value는 무조건 문자열로
+                넘어와서 명시적 형변환 필요
+              </li>
+              <li>
+                <code>NaN</code> : 숫자 이외의 글자가 들어있는 문자열을
+                숫자형으로 변환하면 반환값
+              </li>
+              <li>
+                Number() 방식을 더 권장하긴 하나, 시니어덜은 길게 쓰는거
+                무.족.권 싫어함 = 둘다 알아라
+              </li>
+            </ul>
+            <ul>
+              <li><code>Number(undefined)</code> : NaN (⭐️)</li>
+              <li>
+                <code>Number(null)</code> : 0 - 숫자로 계산이 가능함 (⭐️)
+              </li>
+              <li>> <code>null + 10 = 10</code> null을 숫자로 자동 변환함</li>
+              <li><code>Number(true)</code> : 1</li>
+              <li><code>Number(false)</code> : 0</li>
+              <li><code>Number('')</code> : 0</li>
+              <li>
+                <code>' 1 ' + 1</code> : ' 1 1' (문자로 형변환되어 결합됨)
+              </li>
+              <li>
+                <code>' 1 ' - 1</code> : 0 (문자가 숫자로 형변환되어 빼기
+                적용됨)
+              </li>
+              <li>
+                <code>Number(' 1 ')</code> : 1 (문자열의 처음과 끝 공백이 제거)
+              </li>
+              <li>
+                <code>Number(' 2 0')</code> : NaN (2와 0사이의 공백으로 인해)
+              </li>
+            </ul>
+            <ul>
+              <li>암시적 형변환</li>
+              <li><code>'122' * 1 = 122</code></li>
+              <li><code>'122' / 1 = 122</code></li>
+              <li><code>+'122' = 122</code></li>
+            </ul>
+            <ul>
+              <li>numeric string 형변환 예시</li>
+              <li><code>parseInt('109.3px') : 109</code></li>
+              <li><code>parseFloat('109.3px') : 109.3</code></li>
+              <li><code>parseInt('45s6')</code> : 45</li>
+              <li>
+                > parseInt, parseFloat 주의점 : 문자로 시작하면 안됨, 중간에
+                문자가 들어가도 삭제됨
+              </li>
+              <li>> 외우기 어려우니까 콘솔창에서 확인하자 ~</li>
+            </ul>
+          </li>
+          <li>
+            불린형으로 변환
+            <ul>
+              <li>
+                논리 연산 수행할 때 발생 (>, ==), 조건문에서 암시적 형변환
+                상당히 일어남쓰
+              </li>
+              <li>명시적 형변환 : <code>Boolean(0)</code></li>
+              <li><code>falsy한 값</code> : 0, '', null, undefined, NaN</li>
+              <li><code>truthy한 값</code> : 그 외의 값 (' ', '0')</li>
+            </ul>
+            <ul>
+              <li>암시적 형변환</li>
+              <li><code>!!123 : true</code></li>
+              <li><code>!!'' : false</code></li>
+            </ul>
+          </li>
+          <li>객체 > 원시형으로 변환하기 : 어려버</li>
         </ol>
-    </section>
-    <section>
+      </section>
+      <section>
         <h2>연산자</h2>
         <ol>
-            <li>용어 정리
-                <ul>
-                    <li>피연산자 : 연산자가 연산을 수행하는 대상, 인수라고 하기도 함</li>
-                    <li>단항 (unary) : 연산되는 대상이 하나 <code>let unary = +a;</code></li>
-                    <li>이항 (binary) : 연산되는 대상이 두개 <code>let binary = a + b</code></li>
-                    <li>삼항 연산자 (⭐️) <code>let ternary = a > 10 ? '큼요' : '작음요'</code></li>
-                </ul>
-            </li>
-            <li>나머지 연산자 %
-                <ul>
-                    <li><code>5 % 2</code> : 1</li>
-                </ul>
-            </li>
-            <li>거듭제곱 연산자 **
-                <ul>
-                    <li>아스테리스크라고 읽음</li>
-                    <li><code>5 ** 2</code> : 25</li>
-                    <li><code>Math.pow(5,2)</code></li>
-                </ul>
-            </li>
-            <li>이항 연산자 +
-                <ul>
-                    <li>피연산자가 모두 숫자형이라면 덧셈 실행</li>
-                    <li>피연산자 중 한 개라도 문자열이면 접합됨 <code>'1' + 2 = '12'</code></li>
-                    <li><code>alert(2 + 2 + '1' )</code> : '41'</li>
-                    <li>문자형이 숫자형으로 형변환 : <code>6 - '2' = 4</code> <code>'6' / '2' = 3</code></li>
-                </ul>
-            </li>
-            <li>단항 연산자 +
-                <ul>
-                    <li>피연산자가 숫자형으로 변환</li>
-                    <li><code>Number()</code>와 동일한 결과</li>
-                    <li><code>alert( +true )</code></li>
-                </ul>
-            </li>
-            <li>연산자 우선순위
-                <ul>
-                    <li>단항 덧셈(+) > 단항 부정(-) > 지수(**) > 곱셈/나눗셈 > 덧셈/뺄셈 > 할당</li>
-                </ul>
-            </li>
-            <li>할당 연산자
-                <ul>
-                    <li>우선순위가 3으로 낮음 : 표현식에서 계산이 먼저 이뤄지고 할당되는 이유</li>
-                    <li>값을 반환함</li>
-                    <li><code>let a = 1;</code></li>
-                    <li><code>let b = 2;</code></li>
-                    <li><code>let c = 3 - (a = b + 1)</code></li>
-                    <li><code>console.log(a)</code> : 3</li>
-                    <li><code>console.log(c)</code> : 0</li>
-                    <li>할당 연산 체이닝 : 가독성 떨어져서 지양 <code>a = b = c = 2 + 2</code></li>
-                </ul>
-            </li>
-            <li>복합 할당 연산자
-                <ul>
-                    <li>변수에 연산자를 적용하고 결과를 같은 변수에 저장</li>
-                    <li><code>n = n + 5</code> === <code>n += 5</code></li>
-                </ul>
-            </li>
-            <li>증가/감소 연산자
-                <ul>
-                    <li>1씩 증가 : <code>++</code></li>
-                    <li>1씩 감소 : <code>--</code></li>
-                    <li>변수에만 사용 가능(숫자 사용 불가능)</li>
-                </ul>
-                <ul>
-                    <li>전위형(선증가) : <code>++counter</code> - 식을 사용한 바로 그 순간에, 반환값 2 (실제로 증가된 값 반환)</li>
-                    <li>후위형(후증가) : <code>counter++</code> - 식을 사용한 바로 그 순간에, 반환값 1 (증가가되긴 했지만, 증가 이전 값 반환)</li>
-                    <li>증가한 값을 바로 사용하지 않으면 둘다 +1로 결과가 같음</li>
-                </ul>
-                <ul>
-                    <li>선증가 <code>2 * ++counter</code> : 4</li>
-                    <li>후증가 <code>2 * counter++</code> : 2</li>
-                </ul>
-            </li>
-            <li>spread syntax 전개 구문
-                <ul>
-                    <li><code>const first = [1,2,3]</code></li>
-                    <li><code>const second = [4,5,6]</code></li>
-                    <li><code>const result = [...first, ...second]</code> : [1, 2, 3, 4, 5, 6]</li>
-                </ul>
-            </li>
+          <li>
+            용어 정리
+            <ul>
+              <li>
+                피연산자 : 연산자가 연산을 수행하는 대상, 인수라고 하기도 함
+              </li>
+              <li>
+                단항 (unary) : 연산되는 대상이 하나 <code>let unary = +a;</code>
+              </li>
+              <li>
+                이항 (binary) : 연산되는 대상이 두개
+                <code>let binary = a + b</code>
+              </li>
+              <li>
+                삼항 연산자 (⭐️)
+                <code>let ternary = a > 10 ? '큼요' : '작음요'</code>
+              </li>
+            </ul>
+          </li>
+          <li>
+            나머지 연산자 %
+            <ul>
+              <li><code>5 % 2</code> : 1</li>
+            </ul>
+          </li>
+          <li>
+            거듭제곱 연산자 **
+            <ul>
+              <li>아스테리스크라고 읽음</li>
+              <li><code>5 ** 2</code> : 25</li>
+              <li><code>Math.pow(5,2)</code></li>
+            </ul>
+          </li>
+          <li>
+            이항 연산자 +
+            <ul>
+              <li>피연산자가 모두 숫자형이라면 덧셈 실행</li>
+              <li>
+                피연산자 중 한 개라도 문자열이면 접합됨
+                <code>'1' + 2 = '12'</code>
+              </li>
+              <li><code>alert(2 + 2 + '1' )</code> : '41'</li>
+              <li>
+                문자형이 숫자형으로 형변환 : <code>6 - '2' = 4</code>
+                <code>'6' / '2' = 3</code>
+              </li>
+            </ul>
+          </li>
+          <li>
+            단항 연산자 +
+            <ul>
+              <li>피연산자가 숫자형으로 변환</li>
+              <li><code>Number()</code>와 동일한 결과</li>
+              <li><code>alert( +true )</code></li>
+            </ul>
+          </li>
+          <li>
+            연산자 우선순위
+            <ul>
+              <li>
+                단항 덧셈(+) > 단항 부정(-) > 지수(**) > 곱셈/나눗셈 > 덧셈/뺄셈
+                > 할당
+              </li>
+            </ul>
+          </li>
+          <li>
+            할당 연산자
+            <ul>
+              <li>
+                우선순위가 3으로 낮음 : 표현식에서 계산이 먼저 이뤄지고 할당되는
+                이유
+              </li>
+              <li>값을 반환함</li>
+              <li><code>let a = 1;</code></li>
+              <li><code>let b = 2;</code></li>
+              <li><code>let c = 3 - (a = b + 1)</code></li>
+              <li><code>console.log(a)</code> : 3</li>
+              <li><code>console.log(c)</code> : 0</li>
+              <li>
+                할당 연산 체이닝 : 가독성 떨어져서 지양
+                <code>a = b = c = 2 + 2</code>
+              </li>
+            </ul>
+          </li>
+          <li>
+            복합 할당 연산자
+            <ul>
+              <li>변수에 연산자를 적용하고 결과를 같은 변수에 저장</li>
+              <li><code>n = n + 5</code> === <code>n += 5</code></li>
+            </ul>
+          </li>
+          <li>
+            증가/감소 연산자
+            <ul>
+              <li>1씩 증가 : <code>++</code></li>
+              <li>1씩 감소 : <code>--</code></li>
+              <li>변수에만 사용 가능(숫자 사용 불가능)</li>
+            </ul>
+            <ul>
+              <li>
+                전위형(선증가) : <code>++counter</code> - 식을 사용한 바로 그
+                순간에, 반환값 2 (실제로 증가된 값 반환)
+              </li>
+              <li>
+                후위형(후증가) : <code>counter++</code> - 식을 사용한 바로 그
+                순간에, 반환값 1 (증가가되긴 했지만, 증가 이전 값 반환)
+              </li>
+              <li>증가한 값을 바로 사용하지 않으면 둘다 +1로 결과가 같음</li>
+            </ul>
+            <ul>
+              <li>선증가 <code>2 * ++counter</code> : 4</li>
+              <li>후증가 <code>2 * counter++</code> : 2</li>
+            </ul>
+          </li>
+          <li>
+            spread syntax 전개 구문
+            <ul>
+              <li><code>const first = [1,2,3]</code></li>
+              <li><code>const second = [4,5,6]</code></li>
+              <li>
+                <code>const result = [...first, ...second]</code> : [1, 2, 3, 4,
+                5, 6]
+              </li>
+            </ul>
+          </li>
         </ol>
-    </section>
-    <section>
+      </section>
+      <section>
         <h2>비교 연산자</h2>
         <ol>
-            <li>비교 연산자는 불린형을 반환함 (연산'식' : 반환값 있음)</li>
-            <li>문자열 비교
-                <ul>
-                    <li>비교 기준 : 사전 편집순(사실은 유니코드 순)</li>
-                    <li>소문자 > 대문자 (유니코드 순이기 때문에)</li>
-                    <li>유니코드 : 문자의 표준화</li>
-                </ul>
-            </li>
-            <li>다른 형을 가진 값 간 비교
-                <ul>
-                    <li>비교하려는 값의 자료형이 다르면, '숫자형'으로 자동 형변환됨 (일치연산자 제외)</li>
-                    <li><code>'2' > 1</code> true</li>
-                    <li><code>'01' == 1</code> true</li>
-                    <li><code>0 == '0' : true</code>동등 비교할땐, '0'을 숫자 0으로 변환</li>
-                </ul>
-            </li>
-            <li>동등 연산자(==) vs 일치 연산자(===)
-                <ul>
-                    <li><code>0 == false</code> : true</li>
-                    <li><code>0 == '0'</code> : true</li>
-                    <li>동등 연산자는 숫자형이 아닌 피연산자를 숫자형으로 변환하기 때문에 자료형까지 비교하지 못함</li>
-                    <li><code>!=</code> : 동등하지 않다 </li>
-                </ul>
-                <ul>
-                    <li>일치 연산자 : 엄격한 관리자 스타일 ESTJ</li>
-                    <li>일치 연산자로 비교하면, 숫자형으로 형변환 없이 값을 비교하기 때문에 자료형까지 비교 가능</li>
-                    <li><code>0 === false</code> : false</li>
-                    <li><code>!==</code> : 일치하지 않다 </li>
-                    <li>비교할땐, 동등보단 일치 연산자 사용해야 에러 발생 가능성이 낮아짐</li>
-                </ul>
-            </li>
-            <li>null, undefined 비교하기
-                <ul>
-                    <li><code>null === undefined</code> : false (자료형이 다르므로)</li>
-                    <li><code>null == undefined</code> : true (각별한 커플이라서~ ㅋㅋ;)</li>
-                    <li>null 🖤 undefined</li>
-                </ul>
-                <ul>
-                    <li>null과 0 비교하기</li>
-                    <li><code>null > 0</code> : false</li>
-                    <li><code>null == 0</code> : false</li>
-                    <li><code>null >= 0</code> : true</li>
-                    <li>?? 동등 연산자(==)와 비교 연산자 (>)의 동작 방식이 다르기 때문에 위의 결과 발생 (두둥)</li>
-                    <li>> 동등 연산자(==) : 피연산자가 undefined나 null일때 형변환 안함</li>
-                    <li>> 동등 연산자로 null과 undefined 비교 : 무조건 true 반환 (각별한 커플 ;ㅋ)</li>
-                    <li>> 동등 연산자로 null이나 undefined 외의 다른 값과 비교 : 무조건 false 반환</li>
-                    <li>비교 연산자(>) : 피연산자가 null이라면 숫자형인 0으로 변환되어 비교</li>
-                </ul>
-                <ul>
-                    <li><code>undefined < 0</code> : false</li>
-                    <li><code>undefined > 0</code> : false</li>
-                    <li><code>undefined == 0</code> : false</li>
-                    <li>비교 연산자(>,<) : undefined가 NaN으로 변환되기 때문에 항상 false</li>
-                    <li>동등 연산자(==) : undefined는 undeinfed, null이 아닌 경우 항상 false</li>
-                    <li><code>if( typeof === 'undefined'){ ... }</code> : 타입 가드</li>
-                </ul>
-                <ul>
-                    <li><code>'a' / 1 === NaN</code> : false</li>
-                    <li>NaN 비교 방법 : <code>isNaN()</code></li>
-                </ul>
-            </li>
+          <li>비교 연산자는 불린형을 반환함 (연산'식' : 반환값 있음)</li>
+          <li>
+            문자열 비교
+            <ul>
+              <li>비교 기준 : 사전 편집순(사실은 유니코드 순)</li>
+              <li>소문자 > 대문자 (유니코드 순이기 때문에)</li>
+              <li>유니코드 : 문자의 표준화</li>
+            </ul>
+          </li>
+          <li>
+            다른 형을 가진 값 간 비교
+            <ul>
+              <li>
+                비교하려는 값의 자료형이 다르면, '숫자형'으로 자동 형변환됨
+                (일치연산자 제외)
+              </li>
+              <li><code>'2' > 1</code> true</li>
+              <li><code>'01' == 1</code> true</li>
+              <li>
+                <code>0 == '0' : true</code>동등 비교할땐, '0'을 숫자 0으로 변환
+              </li>
+            </ul>
+          </li>
+          <li>
+            동등 연산자(==) vs 일치 연산자(===)
+            <ul>
+              <li><code>0 == false</code> : true</li>
+              <li><code>0 == '0'</code> : true</li>
+              <li>
+                동등 연산자는 숫자형이 아닌 피연산자를 숫자형으로 변환하기
+                때문에 자료형까지 비교하지 못함
+              </li>
+              <li><code>!=</code> : 동등하지 않다</li>
+            </ul>
+            <ul>
+              <li>일치 연산자 : 엄격한 관리자 스타일 ESTJ</li>
+              <li>
+                일치 연산자로 비교하면, 숫자형으로 형변환 없이 값을 비교하기
+                때문에 자료형까지 비교 가능
+              </li>
+              <li><code>0 === false</code> : false</li>
+              <li><code>!==</code> : 일치하지 않다</li>
+              <li>
+                비교할땐, 동등보단 일치 연산자 사용해야 에러 발생 가능성이
+                낮아짐
+              </li>
+            </ul>
+          </li>
+          <li>
+            null, undefined 비교하기
+            <ul>
+              <li>
+                <code>null === undefined</code> : false (자료형이 다르므로)
+              </li>
+              <li>
+                <code>null == undefined</code> : true (각별한 커플이라서~ ㅋㅋ;)
+              </li>
+              <li>null 🖤 undefined</li>
+            </ul>
+            <ul>
+              <li>null과 0 비교하기</li>
+              <li><code>null > 0</code> : false</li>
+              <li><code>null == 0</code> : false</li>
+              <li><code>null >= 0</code> : true</li>
+              <li>
+                ?? 동등 연산자(==)와 비교 연산자 (>)의 동작 방식이 다르기 때문에
+                위의 결과 발생 (두둥)
+              </li>
+              <li>
+                > 동등 연산자(==) : 피연산자가 undefined나 null일때 형변환 안함
+              </li>
+              <li>
+                > 동등 연산자로 null과 undefined 비교 : 무조건 true 반환 (각별한
+                커플 ;ㅋ)
+              </li>
+              <li>
+                > 동등 연산자로 null이나 undefined 외의 다른 값과 비교 : 무조건
+                false 반환
+              </li>
+              <li>
+                비교 연산자(>) : 피연산자가 null이라면 숫자형인 0으로 변환되어
+                비교
+              </li>
+            </ul>
+            <ul>
+              <li><code>undefined < 0</code> : false</li>
+              <li><code>undefined > 0</code> : false</li>
+              <li><code>undefined == 0</code> : false</li>
+              <li>
+                비교 연산자(>,<) : undefined가 NaN으로 변환되기 때문에 항상
+                false
+              </li>
+              <li>
+                동등 연산자(==) : undefined는 undeinfed, null이 아닌 경우 항상
+                false
+              </li>
+              <li>
+                <code>if( typeof === 'undefined'){ ... }</code> : 타입 가드
+              </li>
+            </ul>
+            <ul>
+              <li><code>'a' / 1 === NaN</code> : false</li>
+              <li>NaN 비교 방법 : <code>isNaN()</code></li>
+            </ul>
+          </li>
         </ol>
-    </section>
-    <section>
+      </section>
+      <section>
         <h2>if와 '?'를 사용한 조건 처리</h2>
         <ol>
-            <li>불린형으로의 변환
-                <ul>
-                    <li><code>if (…)</code> 문은 괄호 안의 표현식을 평가하고 그 결과를 불린값으로 변환</li>
-                    <li>falsy와 truthy 구분 필요</li>
-                </ul>
-            </li>
-            <li>'else'절
-                <ul>
-                    <li>조건이 거짓일 때 실행됨</li>
-                    <li>'else'절 입력은 선택사항</li>
-                </ul>
-            </li>
-            <li>'else if'로 복수 조건 처리</li>
-            <li>조건부 연산자 '?'
-                <ul>
-                    <li>피연산자가 3개라서 삼항 연산자라고 부르기도 함</li>
-                    <li><code>let result = condition ? value1 : value2</code></li>
-                </ul>
-            </li>
-            <li>다중 '?'
-                <ul>
-                    <li>물음표 연산자를 여러개 연결하여 사용</li>
-                </ul>
-            </li>
-            <li>부적절한 '?'
-                <ul>
-                    <li>삼항식 : 값을 반환 받으려고 사용함 (조건식만을 위한 삼항식은 옳지 않을 수 있음</li>
-                    <li>함수 역시 리턴문이 없다면, undefined 반환</li>
-                    <li>alert() : 반환값은 무조건 undefined</li>
-                </ul>
-            </li>
+          <li>
+            불린형으로의 변환
+            <ul>
+              <li>
+                <code>if (…)</code> 문은 괄호 안의 표현식을 평가하고 그 결과를
+                불린값으로 변환
+              </li>
+              <li>falsy와 truthy 구분 필요</li>
+            </ul>
+          </li>
+          <li>
+            'else'절
+            <ul>
+              <li>조건이 거짓일 때 실행됨</li>
+              <li>'else'절 입력은 선택사항</li>
+            </ul>
+          </li>
+          <li>'else if'로 복수 조건 처리</li>
+          <li>
+            조건부 연산자 '?'
+            <ul>
+              <li>피연산자가 3개라서 삼항 연산자라고 부르기도 함</li>
+              <li><code>let result = condition ? value1 : value2</code></li>
+            </ul>
+          </li>
+          <li>
+            다중 '?'
+            <ul>
+              <li>물음표 연산자를 여러개 연결하여 사용</li>
+            </ul>
+          </li>
+          <li>
+            부적절한 '?'
+            <ul>
+              <li>
+                삼항식 : 값을 반환 받으려고 사용함 (조건식만을 위한 삼항식은
+                옳지 않을 수 있음
+              </li>
+              <li>함수 역시 리턴문이 없다면, undefined 반환</li>
+              <li>alert() : 반환값은 무조건 undefined</li>
+            </ul>
+          </li>
         </ol>
-    </section>
-</body>
+      </section>
+    </div>
+  </body>
 </html>

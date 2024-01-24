@@ -1,339 +1,515 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>javascript - 1일차</title>
-  <link rel="stylesheet" href="../../reset.css">
-</head>
-<body>
-  <section class="wrap">
-    <h1>javascript 1일차</h1>
-    <section>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>javascript - 1일차</title>
+    <link rel="stylesheet" href="../../reset.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>javascript 1일차</h1>
+      <section>
         <h2>자스 강의 설명</h2>
         <ol>
-            <li>과제는 일주일에 하나씩</li>
-            <li>모던 자바스크립트 튜토리얼 기반으로 진행됨
-                <ul>
-                    <li>같이 읽으면서 공부할 예정</li>
-                    <li>공식 문서를 읽는 방법을 익히기 위해서</li>
-                </ul>
-            </li>
-            <li>수업 방식
-                <ul>
-                    <li>가이드 문서 읽음</li>
-                    <li>실습 코드 진행</li>
-                </ul>
-            </li>
+          <li>과제는 일주일에 하나씩</li>
+          <li>
+            모던 자바스크립트 튜토리얼 기반으로 진행됨
+            <ul>
+              <li>같이 읽으면서 공부할 예정</li>
+              <li>공식 문서를 읽는 방법을 익히기 위해서</li>
+            </ul>
+          </li>
+          <li>
+            수업 방식
+            <ul>
+              <li>가이드 문서 읽음</li>
+              <li>실습 코드 진행</li>
+            </ul>
+          </li>
         </ol>
-    </section>
-    <section>
+      </section>
+      <section>
         <h2>자바스크립트의 역사</h2>
         <ol>
-            <li>웹 창시자
-                <ul>
-                    <li>팀버너스리</li>
-                    <li>기초니까 알아두기</li>
-                    <li>(아직도 살아계심 대박 ~)</li>
-                </ul>
-            </li>
-            <li>세계 최초의 상용화 브라우저
-                <ul>
-                    <li>netscape 회사의 (like 구글의)</li>
-                    <li>navigator 브라우저 (크롬 같은)</li>
-                </ul>
-            </li>
-            <li>자바스크립트의 탄생
-                <ul>
-                    <li>Mocha → LiveScript → JavaScript 순으로 이름이 변경</li>
-                    <li>일주일만에 만들어짐 ㅎㅎ ㅋㅋ</li>
-                    <li>자바 인기가 많아서 이름 바꿈 ㅋㅋ</li>
-                </ul>
-            </li>
-            <li>MS 등장
-                <ul>
-                    <li>우린 윈도우 깔면 자동으로 익스플로러 사용할수있어~</li>
-                    <li>우리만의 Jscript를 새로만들어서 쓸꼬야 ~</li>
-                    <li>개발자 : ?? (빡침) - Jscript도 작업하고 JavaScript도 작업해야됨 ;;</li>
-                    <li>표준 등장 짜잔 ! : ECMA</li>
-                </ul>
-            </li>
-            <li>JS : ECMA-262 표준 등록
-                <ul>
-                    <li>자바스크립트 이름 못써서 ECMAScript가 되었음</li>
-                </ul>
-            </li>
-            <li>Adobe Flash의 죽음
-                <ul>
-                    <li>깨꼬닥</li>
-                    <li>어도비 플래시 혐오자 스티브 잡스 등장</li>
-                    <li>아이폰 등장했더니 영상 보려면 플래시도 다운로드, 영상 다운로드도 다운로드해야해서 아이폰 완전 바빠</li>
-                    <li>"플래시를 지원해서 애플 제품의 신뢰도를 떨어뜨리고 싶지 않다"</li>
-                    <li>얘를 대체할 수 있었던게 JS !</li>
-                </ul>
-            </li>
-            <li>ES 버전
-                <ul>
-                    <li>2016 이후 매년 6월 버전 업그레이드</li>
-                    <li>ES4 없음 : 나왔는데 사용되지 못함 - 이전까지 자스는 사실 완성되지 않았었음 -> 실제로 언어스럽게 만들어짐</li>
-                    <li>하지만 ES4를 도입하니, 기존 자스로 만든 프로그램이 작동하지 않음 - 싸워서 결국 도입되지 않았삼</li>
-                    <li>ES5 : 이전 버전 모두 호환될 수 있게 등장쓰 (우리가 체감하는 자스는 거의 이 버전 이후)</li>
-                    <li>ES6+ 이후 문법 위주로 진행 : 왜? 표준이니까</li>
-                </ul>
-            </li>
-            <li>공식문서
-                <ul>
-                    <li>https://tc39.es/ecma262/ < 이거 넘 어려버</li>
-                    <li>모질라 재단의 mdn(공식문서 아님) 문서 참고하는 사람이 많음</li>
-                    <li>모질라 : netscape 망하고 합심해서 만든 회사</li>
-                </ul>
-            </li>
-            <li>TC39
-                <ul>
-                    <li>자스를 발전시키는 위원회</li>
-                    <li>adobe, apple, facebook, google 등이 모여서 새로운 기능 회의함 (우리나라 네카라쿠배 느낌~)</li>
-                    <li>회의록 <a href="https://github.com/tc39" target="_blank">깃헙</a>으로 확인 가능</li>
-                    <li>0단계 ~ 4단계, 단계 넘어갈 때마다 전원 찬성해야만 넘어가서 나오는데 몇년 걸림</li>
-                    <li>새로운 기술이 나오면 가장 빨리 도입하는 브라우저 : 크롬</li>
-                    <li>3단계에서 거의 확정된 내용을 확인해서 개빨리 브라우저 업데이트함</li>
-                </ul>
-            </li>
+          <li>
+            웹 창시자
+            <ul>
+              <li>팀버너스리</li>
+              <li>기초니까 알아두기</li>
+              <li>(아직도 살아계심 대박 ~)</li>
+            </ul>
+          </li>
+          <li>
+            세계 최초의 상용화 브라우저
+            <ul>
+              <li>netscape 회사의 (like 구글의)</li>
+              <li>navigator 브라우저 (크롬 같은)</li>
+            </ul>
+          </li>
+          <li>
+            자바스크립트의 탄생
+            <ul>
+              <li>Mocha → LiveScript → JavaScript 순으로 이름이 변경</li>
+              <li>일주일만에 만들어짐 ㅎㅎ ㅋㅋ</li>
+              <li>자바 인기가 많아서 이름 바꿈 ㅋㅋ</li>
+            </ul>
+          </li>
+          <li>
+            MS 등장
+            <ul>
+              <li>우린 윈도우 깔면 자동으로 익스플로러 사용할수있어~</li>
+              <li>우리만의 Jscript를 새로만들어서 쓸꼬야 ~</li>
+              <li>
+                개발자 : ?? (빡침) - Jscript도 작업하고 JavaScript도 작업해야됨
+                ;;
+              </li>
+              <li>표준 등장 짜잔 ! : ECMA</li>
+            </ul>
+          </li>
+          <li>
+            JS : ECMA-262 표준 등록
+            <ul>
+              <li>자바스크립트 이름 못써서 ECMAScript가 되었음</li>
+            </ul>
+          </li>
+          <li>
+            Adobe Flash의 죽음
+            <ul>
+              <li>깨꼬닥</li>
+              <li>어도비 플래시 혐오자 스티브 잡스 등장</li>
+              <li>
+                아이폰 등장했더니 영상 보려면 플래시도 다운로드, 영상 다운로드도
+                다운로드해야해서 아이폰 완전 바빠
+              </li>
+              <li>
+                "플래시를 지원해서 애플 제품의 신뢰도를 떨어뜨리고 싶지 않다"
+              </li>
+              <li>얘를 대체할 수 있었던게 JS !</li>
+            </ul>
+          </li>
+          <li>
+            ES 버전
+            <ul>
+              <li>2016 이후 매년 6월 버전 업그레이드</li>
+              <li>
+                ES4 없음 : 나왔는데 사용되지 못함 - 이전까지 자스는 사실
+                완성되지 않았었음 -> 실제로 언어스럽게 만들어짐
+              </li>
+              <li>
+                하지만 ES4를 도입하니, 기존 자스로 만든 프로그램이 작동하지 않음
+                - 싸워서 결국 도입되지 않았삼
+              </li>
+              <li>
+                ES5 : 이전 버전 모두 호환될 수 있게 등장쓰 (우리가 체감하는
+                자스는 거의 이 버전 이후)
+              </li>
+              <li>ES6+ 이후 문법 위주로 진행 : 왜? 표준이니까</li>
+            </ul>
+          </li>
+          <li>
+            공식문서
+            <ul>
+              <li>https://tc39.es/ecma262/ < 이거 넘 어려버</li>
+              <li>
+                모질라 재단의 mdn(공식문서 아님) 문서 참고하는 사람이 많음
+              </li>
+              <li>모질라 : netscape 망하고 합심해서 만든 회사</li>
+            </ul>
+          </li>
+          <li>
+            TC39
+            <ul>
+              <li>자스를 발전시키는 위원회</li>
+              <li>
+                adobe, apple, facebook, google 등이 모여서 새로운 기능 회의함
+                (우리나라 네카라쿠배 느낌~)
+              </li>
+              <li>
+                회의록
+                <a href="https://github.com/tc39" target="_blank">깃헙</a>으로
+                확인 가능
+              </li>
+              <li>
+                0단계 ~ 4단계, 단계 넘어갈 때마다 전원 찬성해야만 넘어가서
+                나오는데 몇년 걸림
+              </li>
+              <li>새로운 기술이 나오면 가장 빨리 도입하는 브라우저 : 크롬</li>
+              <li>
+                3단계에서 거의 확정된 내용을 확인해서 개빨리 브라우저 업데이트함
+              </li>
+            </ul>
+          </li>
         </ol>
-    </section>
-    <section>
+      </section>
+      <section>
         <h2>자바스크립트의 환경</h2>
         <ol>
-            <li>브라우저 환경
-                <ul>
-                    <li>브라우저에서 살고 있는 자스</li>
-                    <li>브라우저에는 '자바스크립트 가상 머신'이라고 불리는 엔진이 내장되어 있음</li>
-                    <li> => 브라우저만 있다면 별다른 설치 없이 자스 사용 가능</li>
-                    <li>엔진의 코드 네임 : V8 (크롬,오페라) / SpiderMonkey (파폭)</li>
-                </ul>
-            </li>
-            <li>노드 환경
-                <ul>
-                    <li>컴퓨터 환경</li>
-                    <li>자스로 서버를 돌릴 수 없을까? 브라우저에만 의존하지 않고? 해서 나온 node</li>
-                    <li>브라우저가 아닌, 컴퓨터에 설치하여 사용함</li>
-                </ul>
-            </li>
-            <li>환경에 따라 사용 방법이 달라지니 구분 필요
-                <ul>
-                    <li>브라우저 js와 노드 js의 문법이 다름</li>
-                    <li>vite(번들러)와 같은 도구의 환경설정을 다루려면 node가 꼭 필요함</li>
-                </ul>
-            </li>
-            <li>환경 세팅
-                <ul>
-                    <li>package 설치 : npm init -y</li>
-                    <li>package.json : 중괄호 놔두고 다 지우기</li>
-                    <li>라이브 서버 package 설치 : npm install live-server</li>
-                    <li>라이브 서버 package 제거 : npm remove live-server</li>
-                    <li>옵션 : i (install 약자)</li>
-                    <li>옵션 : -D (devDependencies 약자)</li>
-                    <li>devDependencies : 클라이언트(사용자)에게 필요 없는 도구이기 때문에, dev 옵션을 걸어</li>
-                    <li>그냥 디펜던시 예시 : gsap, react, jQuery</li>
-                </ul>
-                <ul>
-                    <li>1️⃣ html,css,js -- 2️⃣ build, bundle (압축) --> 3️⃣ 서버 업로드 (사용자 접근 가능)</li>
-                    <li>이때 개발종속(devDependencies)라면 빌드에 포함이 되지 않기 때문에 용량 크게 압축 가능</li>
-                    <li>Dependencies : 빌드시 용량이 높아짐 > 트래픽 사용량 증가</li>
-                    <li>설치해도 디펜던시에 추가 안된다면 수정중이라 그런것 ! 파일끄거나 저장된 상태에서 재설치 고</li>
-                </ul>
-                <ul>
-                    <li>bundler : 압축해주는 도구 - 내가 직접 css, img 하나씩 압축하기 넘 귀찮음</li>
-                    <li>bundler 종류 : 웹팩, vite 등</li>
-                    <li>컴포넌트, 모듈 별로 분류함 (캡쳐참고)</li>
-                    <li>따라서 파일이 많아지니 압축이 꼭 필요함</li>
-                </ul>
-                <ul>
-                    <li>vs 라이브서버 안쓰고 왜 npm으로 라이브서버를 또 깔아?</li>
-                    <li>vs 확장자 라이브서버를 설치하지 않은 사람은 그 화면을 볼 수 없음</li>
-                    <li>내가 사용하고 있는 환경을 설명서(장부)에 기록해두어 다른 사람이 참고할 수 있도록</li>
-                    <li>따라서, 남의 파일 깃에서 클론한다면, npm i 먼저 해야함 !!! (패키지 제이슨 모든 내용 한번에 일괄 설치됨)</li>
-                    <li>내가 설치한 패키지는 모두 디펜던시로 기록이 남음</li>
-                    <li>npm i : 남이 작성한 파일을 가져올 때 패키지 일괄 설치함 (devDependencies이기 때문에 빌드가 되지 않아서 개발 환경에선 내가 다시 설치해야 하는 것)</li>
-                </ul>
-                <ul>
-                    <li>npx live-server client(폴더명) : 패키지를 설치해서 라이브 서버 열었음</li>
-                    <li>^C : control + C 서버 끄기</li>
-                    <li>vs live-server : localhost 뭐시기 ~ 이건 vs liveserver 옵션값</li>
-                    <li>옵션 설정 : npx live-server client --host=localhost --port=5500 --no-browser</li>
-                    <li>no-browser 옵션 : 이 옵션 때문에 아무것도 안떠서 터미널에 뜬 주소 컨트롤 누르고 클릭해야 함</li>
-                    <li>왜 브라우저 안띄우냐? 서버 여러개 작업하면 개많이 뜰 수 있음</li>
-                    <li>옵션은 npm에서 확인 가능</li>
-                </ul>
-            </li>
-            <li>npx
-                <ul>
-                    <li>노드 패키지 실행 (익스큐션)</li>
-                    <li>npm 설치로 책을 빌렸어도 펼치려면 npx가 필요함</li>
-                    <li>협업을 위해 이 방법이 더 권장됨</li>
-                </ul>
-                <ul>
-                    <li>npx를 사용하지 않아도 실행시킬 수 있는 방법 : 도서관에서 빌리지 않고 아예 사버림</li>
-                    <li>npm i -g live-server : -g = global</li>
-                    <li>-g : global - 빌리는게 아니라 내 컴퓨터에 강제로 설치</li>
-                    <li>하지만 좋은 방법은 아님 - 디펀던시에 표시되지 않기 때문에 다른 사람 컴퓨터에 설치가 안된 경우 알 수가 없음</li>
-                    <li>진짜 누구나 다 ~~ 설치한다면, 전역으로 설치</li>
-                </ul>
-            </li>
-            <li>json 세팅하기
-                <ul>
-                    <li>json은 쌍따옴표만 사용 가능함 !</li>
-                    <li>npx 명령어 제외한 live-server 실행 명령어를 script - dev에 작성</li>
-                    <li>npm run dev : dev에 입력한거 알아서 자동 실행됨</li>
-                    <li>dev 자리에 start, stop, test 등이 올 수 있는데 이 3개는 run 생략 가능</li>
-                    <li>run : npx 역할을 함</li>
-                    <li>하나의 스크립트에는 하나의 값(라이브서버)만 지정 가능하고 여러개 작성하려면 쉼표</li>
-                    <li>하지만 쉼표로 끝나면 안됨 아래 바로 다른 스크립트를 작성해야함</li>
-                    <li>npm-run-all : 패키지들의 일괄 실행을 위한 패키지</li>
-                    <li>수업땐 무조건 npm run dev !</li>
-                </ul>
-            </li>
-            <li>node로 실행하기
-                <ul>
-                    <li>server/index.js</li>
-                    <li>node server/index.js</li>
-                    <li>근데 왜 이걸 노드로 열어야 하는디?</li>
-                    <li>vite : 서버 환경 구성 할 때 내가 작성해야함 - 사실 구문이 거의 비슷해 ~</li>
-                    <li>나중에 보다 깊은 설정은 npm보단 노드로 실행하는 것이 더 편할 수 있음</li>
-                </ul>
-            </li>
-            <li>package-lock.json
-                <ul>
-                    <li>패키지 백업용, 히스토리</li>
-                    <li>계속 자동으로 백업됨</li>
-                </ul>
-            </li>
-            <li>큰그림 그리기
-                <ul>
-                    <li>node : 내 컴퓨터에 설치함. 설치하면 노드 세상의 모든 도구(다양한 개발자들이 만든 패키지)를 사용할 수 있게 됨</li>
-                    <li>node의 모든 도구(패키지) : npm을 통해 아무나 패키지를 올리고 사용할 수 있음</li>
-                    <li>패키지 도서관에서 내 컴퓨터로 빌려오기(install) : 장부에 적어서 빌려줌</li>
-                    <li>-> 이때 장부 : Dependencies = 기록용</li>
-                </ul>
-            </li>
+          <li>
+            브라우저 환경
+            <ul>
+              <li>브라우저에서 살고 있는 자스</li>
+              <li>
+                브라우저에는 '자바스크립트 가상 머신'이라고 불리는 엔진이
+                내장되어 있음
+              </li>
+              <li>=> 브라우저만 있다면 별다른 설치 없이 자스 사용 가능</li>
+              <li>엔진의 코드 네임 : V8 (크롬,오페라) / SpiderMonkey (파폭)</li>
+            </ul>
+          </li>
+          <li>
+            노드 환경
+            <ul>
+              <li>컴퓨터 환경</li>
+              <li>
+                자스로 서버를 돌릴 수 없을까? 브라우저에만 의존하지 않고? 해서
+                나온 node
+              </li>
+              <li>브라우저가 아닌, 컴퓨터에 설치하여 사용함</li>
+            </ul>
+          </li>
+          <li>
+            환경에 따라 사용 방법이 달라지니 구분 필요
+            <ul>
+              <li>브라우저 js와 노드 js의 문법이 다름</li>
+              <li>
+                vite(번들러)와 같은 도구의 환경설정을 다루려면 node가 꼭 필요함
+              </li>
+            </ul>
+          </li>
+          <li>
+            환경 세팅
+            <ul>
+              <li>package 설치 : npm init -y</li>
+              <li>package.json : 중괄호 놔두고 다 지우기</li>
+              <li>라이브 서버 package 설치 : npm install live-server</li>
+              <li>라이브 서버 package 제거 : npm remove live-server</li>
+              <li>옵션 : i (install 약자)</li>
+              <li>옵션 : -D (devDependencies 약자)</li>
+              <li>
+                devDependencies : 클라이언트(사용자)에게 필요 없는 도구이기
+                때문에, dev 옵션을 걸어
+              </li>
+              <li>그냥 디펜던시 예시 : gsap, react, jQuery</li>
+            </ul>
+            <ul>
+              <li>
+                1️⃣ html,css,js -- 2️⃣ build, bundle (압축) --> 3️⃣ 서버 업로드
+                (사용자 접근 가능)
+              </li>
+              <li>
+                이때 개발종속(devDependencies)라면 빌드에 포함이 되지 않기
+                때문에 용량 크게 압축 가능
+              </li>
+              <li>Dependencies : 빌드시 용량이 높아짐 > 트래픽 사용량 증가</li>
+              <li>
+                설치해도 디펜던시에 추가 안된다면 수정중이라 그런것 ! 파일끄거나
+                저장된 상태에서 재설치 고
+              </li>
+            </ul>
+            <ul>
+              <li>
+                bundler : 압축해주는 도구 - 내가 직접 css, img 하나씩 압축하기
+                넘 귀찮음
+              </li>
+              <li>bundler 종류 : 웹팩, vite 등</li>
+              <li>컴포넌트, 모듈 별로 분류함 (캡쳐참고)</li>
+              <li>따라서 파일이 많아지니 압축이 꼭 필요함</li>
+            </ul>
+            <ul>
+              <li>vs 라이브서버 안쓰고 왜 npm으로 라이브서버를 또 깔아?</li>
+              <li>
+                vs 확장자 라이브서버를 설치하지 않은 사람은 그 화면을 볼 수 없음
+              </li>
+              <li>
+                내가 사용하고 있는 환경을 설명서(장부)에 기록해두어 다른 사람이
+                참고할 수 있도록
+              </li>
+              <li>
+                따라서, 남의 파일 깃에서 클론한다면, npm i 먼저 해야함 !!!
+                (패키지 제이슨 모든 내용 한번에 일괄 설치됨)
+              </li>
+              <li>내가 설치한 패키지는 모두 디펜던시로 기록이 남음</li>
+              <li>
+                npm i : 남이 작성한 파일을 가져올 때 패키지 일괄 설치함
+                (devDependencies이기 때문에 빌드가 되지 않아서 개발 환경에선
+                내가 다시 설치해야 하는 것)
+              </li>
+            </ul>
+            <ul>
+              <li>
+                npx live-server client(폴더명) : 패키지를 설치해서 라이브 서버
+                열었음
+              </li>
+              <li>^C : control + C 서버 끄기</li>
+              <li>
+                vs live-server : localhost 뭐시기 ~ 이건 vs liveserver 옵션값
+              </li>
+              <li>
+                옵션 설정 : npx live-server client --host=localhost --port=5500
+                --no-browser
+              </li>
+              <li>
+                no-browser 옵션 : 이 옵션 때문에 아무것도 안떠서 터미널에 뜬
+                주소 컨트롤 누르고 클릭해야 함
+              </li>
+              <li>
+                왜 브라우저 안띄우냐? 서버 여러개 작업하면 개많이 뜰 수 있음
+              </li>
+              <li>옵션은 npm에서 확인 가능</li>
+            </ul>
+          </li>
+          <li>
+            npx
+            <ul>
+              <li>노드 패키지 실행 (익스큐션)</li>
+              <li>npm 설치로 책을 빌렸어도 펼치려면 npx가 필요함</li>
+              <li>협업을 위해 이 방법이 더 권장됨</li>
+            </ul>
+            <ul>
+              <li>
+                npx를 사용하지 않아도 실행시킬 수 있는 방법 : 도서관에서 빌리지
+                않고 아예 사버림
+              </li>
+              <li>npm i -g live-server : -g = global</li>
+              <li>-g : global - 빌리는게 아니라 내 컴퓨터에 강제로 설치</li>
+              <li>
+                하지만 좋은 방법은 아님 - 디펀던시에 표시되지 않기 때문에 다른
+                사람 컴퓨터에 설치가 안된 경우 알 수가 없음
+              </li>
+              <li>진짜 누구나 다 ~~ 설치한다면, 전역으로 설치</li>
+            </ul>
+          </li>
+          <li>
+            json 세팅하기
+            <ul>
+              <li>json은 쌍따옴표만 사용 가능함 !</li>
+              <li>
+                npx 명령어 제외한 live-server 실행 명령어를 script - dev에 작성
+              </li>
+              <li>npm run dev : dev에 입력한거 알아서 자동 실행됨</li>
+              <li>
+                dev 자리에 start, stop, test 등이 올 수 있는데 이 3개는 run 생략
+                가능
+              </li>
+              <li>run : npx 역할을 함</li>
+              <li>
+                하나의 스크립트에는 하나의 값(라이브서버)만 지정 가능하고 여러개
+                작성하려면 쉼표
+              </li>
+              <li>
+                하지만 쉼표로 끝나면 안됨 아래 바로 다른 스크립트를 작성해야함
+              </li>
+              <li>npm-run-all : 패키지들의 일괄 실행을 위한 패키지</li>
+              <li>수업땐 무조건 npm run dev !</li>
+            </ul>
+          </li>
+          <li>
+            node로 실행하기
+            <ul>
+              <li>server/index.js</li>
+              <li>node server/index.js</li>
+              <li>근데 왜 이걸 노드로 열어야 하는디?</li>
+              <li>
+                vite : 서버 환경 구성 할 때 내가 작성해야함 - 사실 구문이 거의
+                비슷해 ~
+              </li>
+              <li>
+                나중에 보다 깊은 설정은 npm보단 노드로 실행하는 것이 더 편할 수
+                있음
+              </li>
+            </ul>
+          </li>
+          <li>
+            package-lock.json
+            <ul>
+              <li>패키지 백업용, 히스토리</li>
+              <li>계속 자동으로 백업됨</li>
+            </ul>
+          </li>
+          <li>
+            큰그림 그리기
+            <ul>
+              <li>
+                node : 내 컴퓨터에 설치함. 설치하면 노드 세상의 모든 도구(다양한
+                개발자들이 만든 패키지)를 사용할 수 있게 됨
+              </li>
+              <li>
+                node의 모든 도구(패키지) : npm을 통해 아무나 패키지를 올리고
+                사용할 수 있음
+              </li>
+              <li>
+                패키지 도서관에서 내 컴퓨터로 빌려오기(install) : 장부에 적어서
+                빌려줌
+              </li>
+              <li>-> 이때 장부 : Dependencies = 기록용</li>
+            </ul>
+          </li>
         </ol>
-    </section>
-    <section>
+      </section>
+      <section>
         <h2>ESlint와 prettier</h2>
         <ol>
-            <li>ESlint
-                <ul>
-                    <li>lint : 옷에 붙은 보풀을 제거 - linting 보풀 제거</li>
-                    <li>ESlint : ES를 깔끔하게 처리해주는 것</li>
-                    <li>나의 잘못, 실수를 vs코드 자체에서 경고로 알려줌 (콘솔까지 가지 않아도)</li>
-                    <li>개발자 경험을 향상시키는데 상당히 중요함</li>
-                    <li>live-server와 동일하게 타 사용자를 위해 장부에 ESlint를 꼭 작성해야함</li>
-                    <li>모든 팀원의 원활한 협업을 위해 </li>
-                </ul>
-            </li>
-            <li>ESlint 설치 방법
-                <ul>
-                    <li>vscode eslint 설치 후 터미널 과정 진행</li>
-                    <li>npm init @eslint/config</li>
-                    <li>1. 문법 검사만 (2. 문법&문제점) 3. 문법이랑 문제점 다 찾아서 코드 스타일 강제 변경</li>
-                    <li>3번은 프리티어와 충돌이 발생함</li>
-                    <li>자스 일반 모듈 선택</li>
-                    <li>브라우저, 노드 스페이스바로 2개 선택</li>
-                    <li>config파일 형식은? .js (config 등 환경설정 파일은 보통 .으로 파일명이 시작함 = 숨김파일)</li>
-                    <li>설치 지금 하고, 뭘로 설치해? npm</li>
-                </ul>
-                <ul>
-                    <li>설치 완료하면, .eslintrc.js 파일 생성됨</li>
-                    <li>만약, 선택 잘못했다면 파일 삭제하고 다시 만들면 됨 !</li>
-                    <li>이거 외울필요 없고, ESlint 공식문서에 내용이 나와있음</li>
-                    <li>설정하면 해당 프로젝트에만 적용되고, 프젝 할때마다 번거롭더라도 깔아야함</li>
-                    <li>error lens 확장자 함께 사용하면 에러 문구까지 뜸</li>
-                </ul>
-                <ul>
-                    <li>"extends": "eslint:recommended", // eslint가 추천한 항목을 자동 설치</li>
-                    <li>설치할 수 있는 항목이 정말 많다보니, 대화형식으로 다운로드, 그리고 추천항목 자동설치함</li>
-                </ul>
-            </li>
-            <li>ESlint 실행
-                <ul>
-                    <li>npx eslint ./client/main.js </li>
-                    <li>화면에 나오는데 뭐하러 eslint를 실행해?</li>
-                    <li>실행을 하지 않아도 화면에 나오는 건 vs의 확장자 eslint 덕분</li>
-                    <li>그래서 vs eslint도 같이 깔고 써 ~</li>
-                </ul>
-            </li>
-            <li>특정 오류 수정
-                <ul>
-                    <li>/* eslint no-undef:off */</li>
-                    <li>주석 (//은 안됨) 안에 오류 메시지를 끌 애 작성</li>
-                    <li>off = 0, warn = 1, 경고 = 2</li>
-                    <li>/* eslint no-undef:warn */ : 주의로 변경</li>
-                    <li>/* eslint-disable */ : 해당 파일의 모든 경고 사용안함</li>
-                </ul>
-                <ul>
-                    <li>변수 사용 안했어 오류는 끄는 것이 편함</li>
-                    <li>모든 파일에 대한 오류 설정은 eslintrc.js에서 일괄 수정</li>
-                    <li>"rules": { "no-unused-vars": "off" }</li>
-                </ul>
-            </li>
-            <li>Prettier
-                <ul>
-                    <li>eslint : 오류 찾기</li>
-                    <li>prettier : 코드 스타일 강제</li>
-                    <li>보통 세트로 다님</li>
-                </ul>
-            </li>
-            <li>Prettier 설치 및 환경구성 파일 작성
-                <ul>
-                    <li>npm i -D prettier</li>
-                    <li>.prettierrc.js에 노션 내용 참고하여 작성</li>
-                </ul>
-            </li>
-            <li>Prettier 실행
-                <ul>
-                    <li>ESlint와 동일하게 매번 명령어를 작성해야함</li>
-                    <li>그래서 vs 확장자 prettier를 함께 설치하면 저장할때마다 실행됨</li>
-                </ul>
-            </li>
+          <li>
+            ESlint
+            <ul>
+              <li>lint : 옷에 붙은 보풀을 제거 - linting 보풀 제거</li>
+              <li>ESlint : ES를 깔끔하게 처리해주는 것</li>
+              <li>
+                나의 잘못, 실수를 vs코드 자체에서 경고로 알려줌 (콘솔까지 가지
+                않아도)
+              </li>
+              <li>개발자 경험을 향상시키는데 상당히 중요함</li>
+              <li>
+                live-server와 동일하게 타 사용자를 위해 장부에 ESlint를 꼭
+                작성해야함
+              </li>
+              <li>모든 팀원의 원활한 협업을 위해</li>
+            </ul>
+          </li>
+          <li>
+            ESlint 설치 방법
+            <ul>
+              <li>vscode eslint 설치 후 터미널 과정 진행</li>
+              <li>npm init @eslint/config</li>
+              <li>
+                1. 문법 검사만 (2. 문법&문제점) 3. 문법이랑 문제점 다 찾아서
+                코드 스타일 강제 변경
+              </li>
+              <li>3번은 프리티어와 충돌이 발생함</li>
+              <li>자스 일반 모듈 선택</li>
+              <li>브라우저, 노드 스페이스바로 2개 선택</li>
+              <li>
+                config파일 형식은? .js (config 등 환경설정 파일은 보통 .으로
+                파일명이 시작함 = 숨김파일)
+              </li>
+              <li>설치 지금 하고, 뭘로 설치해? npm</li>
+            </ul>
+            <ul>
+              <li>설치 완료하면, .eslintrc.js 파일 생성됨</li>
+              <li>만약, 선택 잘못했다면 파일 삭제하고 다시 만들면 됨 !</li>
+              <li>이거 외울필요 없고, ESlint 공식문서에 내용이 나와있음</li>
+              <li>
+                설정하면 해당 프로젝트에만 적용되고, 프젝 할때마다 번거롭더라도
+                깔아야함
+              </li>
+              <li>error lens 확장자 함께 사용하면 에러 문구까지 뜸</li>
+            </ul>
+            <ul>
+              <li>
+                "extends": "eslint:recommended", // eslint가 추천한 항목을 자동
+                설치
+              </li>
+              <li>
+                설치할 수 있는 항목이 정말 많다보니, 대화형식으로 다운로드,
+                그리고 추천항목 자동설치함
+              </li>
+            </ul>
+          </li>
+          <li>
+            ESlint 실행
+            <ul>
+              <li>npx eslint ./client/main.js</li>
+              <li>화면에 나오는데 뭐하러 eslint를 실행해?</li>
+              <li>
+                실행을 하지 않아도 화면에 나오는 건 vs의 확장자 eslint 덕분
+              </li>
+              <li>그래서 vs eslint도 같이 깔고 써 ~</li>
+            </ul>
+          </li>
+          <li>
+            특정 오류 수정
+            <ul>
+              <li>/* eslint no-undef:off */</li>
+              <li>주석 (//은 안됨) 안에 오류 메시지를 끌 애 작성</li>
+              <li>off = 0, warn = 1, 경고 = 2</li>
+              <li>/* eslint no-undef:warn */ : 주의로 변경</li>
+              <li>/* eslint-disable */ : 해당 파일의 모든 경고 사용안함</li>
+            </ul>
+            <ul>
+              <li>변수 사용 안했어 오류는 끄는 것이 편함</li>
+              <li>모든 파일에 대한 오류 설정은 eslintrc.js에서 일괄 수정</li>
+              <li>"rules": { "no-unused-vars": "off" }</li>
+            </ul>
+          </li>
+          <li>
+            Prettier
+            <ul>
+              <li>eslint : 오류 찾기</li>
+              <li>prettier : 코드 스타일 강제</li>
+              <li>보통 세트로 다님</li>
+            </ul>
+          </li>
+          <li>
+            Prettier 설치 및 환경구성 파일 작성
+            <ul>
+              <li>npm i -D prettier</li>
+              <li>.prettierrc.js에 노션 내용 참고하여 작성</li>
+            </ul>
+          </li>
+          <li>
+            Prettier 실행
+            <ul>
+              <li>ESlint와 동일하게 매번 명령어를 작성해야함</li>
+              <li>
+                그래서 vs 확장자 prettier를 함께 설치하면 저장할때마다 실행됨
+              </li>
+            </ul>
+          </li>
         </ol>
-    </section>
-    <section>
+      </section>
+      <section>
         <h2>README</h2>
         <ol>
-            <li>용도 : 제 3자가 이해할 수 있는 파일의 설명서
-                <ul>
-                    <li>항상 리드미 파일을 같이 올려야 함</li>
-                </ul>
-            </li>
+          <li>
+            용도 : 제 3자가 이해할 수 있는 파일의 설명서
+            <ul>
+              <li>항상 리드미 파일을 같이 올려야 함</li>
+            </ul>
+          </li>
         </ol>
-    </section>
-    <section>
-        <h2><a href="https://ko.javascript.info/intro" target="_blank">자바스크립트란?</a></h2>
+      </section>
+      <section>
+        <h2>
+          <a href="https://ko.javascript.info/intro" target="_blank"
+            >자바스크립트란?</a
+          >
+        </h2>
         <ol>
-            <li>자바스크립트 엔진
-                <ul>
-                    <li>웹 브라우저 안에 자바스크립트 엔진이 들어있음</li>
-                    <li>사용자가 웹 브라우저만 있다면!! 자스를 언제든 실행할 수 있음</li>
-                    <li>html,css를 JS가 객체로 만들어서 작동함 .. 이럴수가</li>
-                </ul>
-            </li>
-            <li>모던 자바스크립트
-                <ul>
-                    <li>구버전 / 신버전(모던)</li>
-                    <li>구버전 : 3버전 이하</li>
-                    <li>모던 : 5버전 이후</li>
-                </ul>
-            </li>
-            <li>동일 출처 정책
-                <ul>
-                    <li>tab간 호환 안됨</li>
-                    <li>사용자의 개인 정보를 지키기 위해</li>
-                    <li>같은 도메인은 가능</li>
-                    <li>like 컴퓨터 보안 잠금장치</li>
-                    <li>내 방(example.com)에서 다른 방(another-site.com)에 가려면 그 방 열쇠가 필요함</li>
-                </ul>
-            </li>
+          <li>
+            자바스크립트 엔진
+            <ul>
+              <li>웹 브라우저 안에 자바스크립트 엔진이 들어있음</li>
+              <li>
+                사용자가 웹 브라우저만 있다면!! 자스를 언제든 실행할 수 있음
+              </li>
+              <li>html,css를 JS가 객체로 만들어서 작동함 .. 이럴수가</li>
+            </ul>
+          </li>
+          <li>
+            모던 자바스크립트
+            <ul>
+              <li>구버전 / 신버전(모던)</li>
+              <li>구버전 : 3버전 이하</li>
+              <li>모던 : 5버전 이후</li>
+            </ul>
+          </li>
+          <li>
+            동일 출처 정책
+            <ul>
+              <li>tab간 호환 안됨</li>
+              <li>사용자의 개인 정보를 지키기 위해</li>
+              <li>같은 도메인은 가능</li>
+              <li>like 컴퓨터 보안 잠금장치</li>
+              <li>
+                내 방(example.com)에서 다른 방(another-site.com)에 가려면 그 방
+                열쇠가 필요함
+              </li>
+            </ul>
+          </li>
         </ol>
-    </section>
-</body>
+      </section>
+    </div>
+  </body>
 </html>
