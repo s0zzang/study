@@ -322,19 +322,43 @@
             ?. : 옵셔널 체이닝
             <ul>
               <li>
+                연산자 아님. 함수()나 대괄호[]와 함께 동작하는 특별한 문법
+                구조체
+              </li>
+              <li>
                 앞의 평가 대상이 undefined나 null이면 평가를 중단하고 undefined
                 반환
               </li>
               <li>주로 객체의 속성에 안전하게 접근하기 위해서 사용함</li>
-              <li>null, undefined를 막는 방패</li>
+              <li>프로퍼티가 없는 중첩 객체를 에러 없이 안전하게 접근 가능</li>
+            </ul>
+            <ul>
+              <li>
+                <code>obj?.prop</code> : obj가 존재하면 obj.prop을 반환, 그렇지
+                않으면 undefined 반환
+              </li>
               <li>
                 예시) prompt 입력값을 toLowerCase() 하려고 하는데 입력값이
                 없어서 null이 반환되는 경우 사용
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <code>obj?.method()</code> : obj가 존재하면 obj.method()을 호출,
+                그렇지 않으면 undefined 반환
               </li>
               <li><code>const userName = prompt('누구쇼?');</code></li>
               <li>
                 <code>if( userName?.toLowerCase() === 'admin' ){ ... }</code>
               </li>
+              <li><img src="ex01.png" alt="" /></li>
+            </ul>
+            <ul>
+              <li>
+                <code>obj?.[prop]</code> : obj가 존재하면 obj.[prop]을 호출,
+                그렇지 않으면 undefined 반환
+              </li>
+              <li><img src="ex02.png" alt="" /></li>
             </ul>
           </li>
         </ol>
@@ -354,6 +378,38 @@
               <li>무한루프 탈출 필승법 : 최대한 빨리 닫기 버튼 ㄱ</li>
               <li><code>while (i < 3) { i++; }</code> : i는 3</li>
             </ul>
+          </li>
+        </ol>
+      </section>
+      <section>
+        <h2>문제를 풀어봅시다 ~ !</h2>
+        <ol>
+          <li>
+            <code>console.log(undefined && true)</code
+            ><span style="color: #fff">undefined</span>
+          </li>
+
+          <li>
+            <code>console.log(alert(0) || true)</code
+            ><span style="color: #fff">alert(0)뜨고 true</span>
+          </li>
+          <li>
+            <code>console.log(null === null && undefined != null)</code
+            ><span style="color: #fff"
+              >true && false = false (===, != 우선순위 9, && 우선순위 5)</span
+            >
+          </li>
+          <li>
+            <code>let x = null</code> <code>let y = 5;</code> <br />
+            <code>console.log(x === null && y !== undefined)</code>
+            <span style="color: #fff">true && true = true</span>
+          </li>
+          <li>
+            <code>let a = ' '</code> <code>let b = null</code> <br />
+            <code
+              >if(!a || !b){ console.log('이거') } else{ console.log('저거')
+              }</code
+            ><span style="color: #fff">false || true = true = 이거</span>
           </li>
         </ol>
       </section>
