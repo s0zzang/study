@@ -141,6 +141,10 @@
               <li>함수선언문 vs 함수표현식 : 취존 !</li>
               <li>범쌤 방식 : 유틸 - 함수선언 / 값, 콜백함수 - 표현식/arrow</li>
             </ul>
+            <ul>
+              <li>함수선언문 : 문이라서 세미콜론 없어도 됨</li>
+              <li>함수표현식 : 식이라서 세미콜론 필수</li>
+            </ul>
           </li>
           <li>
             즉시 실행 함수 (표현)식 : IIFE
@@ -149,10 +153,12 @@
               <li>함수 만들자마자 실행시켜</li>
               <li>바로 실행시킨 후 실행 못하기 때문에 함수 이름 필요 없음</li>
               <li>var의 블록 스코프를 이기기위해 사용했던 과거의 유물</li>
+              <li>필요 없는 전역 변수의 생성을 막음</li>
               <li>
                 모듈 등장으로 IIFE 함수 사용 빈도는 줄었지만, 클로저에서 아직
                 많이 사용됨
               </li>
+              <li>실무에선 변수 초기화할 때 사용하기도 함</li>
             </ul>
             <ul>
               <li>캡슐화(incapsulation)</li>
@@ -180,13 +186,22 @@
               <li>for, map, reduce 등 성능 차이 없음</li>
             </ul>
             <ul>
+              <li>유사 배열 ?</li>
+              <li>배열처럼 생겼지만 배열의 메서드는 사용할 수 없음</li>
+              <li>
+                <code>Symbol(Symbol.iterator): values()</code> 이게 있다면
+                iterable ! > <code>for .. of</code> 사용 가능
+              </li>
+              <li>예시) function의 arguments</li>
+            </ul>
+            <ul>
               <li>유사 배열 -> 배열</li>
               <li>1) <code>Array.from(arguments)</code> IE 사용 불가</li>
               <li>
                 2) <code>Array.prototype.slice.call(arguments)</code> slice에
                 인수를 전달하지 않으면 배열을 반환
               </li>
-              <li>3) <code>[...arguments]</code> 전개구문 (젤 편함)</li>
+              <li>3) <code>[...arguments]</code> 전개 구문 (젤 편함)</li>
             </ul>
             <ul>
               <li>배열 메서드 : reduce</li>
@@ -244,48 +259,114 @@
             본문이 한 줄인 경우
             <ul>
               <li>
-                {중괄호} 생략 가능 + return문 생략해도 한줄의 함수 본문의 값을
+                {중괄호} 생략 + return문 생략 > 한 줄짜리 함수 본문의 값을
                 리턴함
               </li>
               <li><code>let double = n => n * 2</code></li>
-              <li>본문이 한줄이라면(콜백함수 등)에서 유용하게 사용</li>
+              <li>본문이 한 줄이라면(콜백함수 등)에서 유용하게 사용</li>
+              <li>
+                리턴값이 한 줄 객체라면?
+                <code
+                  >const createUser = (name,age) => ({name:name, age:age})</code
+                >
+                <br />
+                객체 리터럴을 함수 본문으로 인식하기 때문에 (그룹핑) 필요 <br />
+                리턴값 : 객체
+              </li>
             </ul>
           </li>
           <li>
             본문이 여러 줄인 경우
             <ul>
-              <li>{중괄호} + return문 작성</li>
-            </ul>
-          </li>
-          <li>
-            return
-            <ul>
-              <li>본문이 한 줄이고 중괄호가 없어야 해당 값을 리턴함</li>
-              <li>
-                본문이 한 줄이라도 중괄호가 있다면 리턴되지 않음 > return 작성
-                필요
-              </li>
+              <li>{ return '리턴해라' } 작성</li>
+              <li>return문 작성 안하면 undefined 반환</li>
             </ul>
           </li>
           <li>
             주의점
             <ul>
-              <li>arguments(잘안씀) 사용 불가 > rest parameter 사용</li>
-              <li>rest parameter(...agrs) : 배열, 함수의 매개변수에서 사용</li>
-              <li>spread syntax : ...arr</li>
+              <li>1) arguments 사용 불가</li>
               <li>
-                (a, ...rest) > args : 첫번째 파라미터 제외한 모든 인수 반환
+                rest parameter(...agrs) 사용하면 됨 <br />
+                : 함수가 호출될 때 전달된 인수들 중 일부를 배열로서 받을 수 있음
               </li>
-            </ul>
-            <ul>
               <li>
-                한줄, 중괄호없이 객체 리턴 불가하여 괄호로 그룹핑 필요 : 객체
-                리터럴을 함수 본문으로 인식하기 때문에
+                <code>(a, ...rest)</code> rest : 첫번째 파라미터 제외한 모든
+                인수 반환
+              </li>
+              <li>
+                <code>function sum(...numbers) { ... }</code>
+                <code>sum(1,50,64,84521)</code>
+              </li>
+              <li>
+                spread syntax : 유사배열을 배열로, 객체를 다른 주소 값을 가진
+                객체로 만드는 방법
               </li>
               <li>
                 <code
-                  >const createUser = (name,age) => ({name:name, age:age})</code
+                  >const arr1 = [1, 2, 3]; const arr2 = [...arr1, 4, 5];</code
                 >
+              </li>
+            </ul>
+            <ul>
+              <li>2) this가 바인딩되지 않음</li>
+              <li>
+                this는 호출한 대상을 반환하는데, 화살표 함수는 this가 바인딩
+                되어 있지 않음 <br />> 화살표 함수 내 this는 렉시컬 스코프(상위
+                context)의 this값 = 전역 객체 반환 <br />
+                > 메서드 내에서 사용된 화살표 함수 : 렉시컬 스코프의 this값 =
+                객체 반환
+              </li>
+              <li>
+                환경 구성 : 전역/함수 (객체의 중괄호는 환경을 구성하지 않음)
+              </li>
+            </ul>
+            <ul>
+              <li>갑자기 this 정리하기</li>
+              <li>
+                1) 메서드 축약형
+                <code>const user = { totalGrades(){console.log(this)} }</code>
+                this : user
+              </li>
+              <li>
+                2) 일반 함수
+                <code
+                  >const user = { totalGrades: function(){console.log(this)}
+                  }</code
+                >
+                this : user
+              </li>
+              <li>
+                3) 화살표 함수
+                <code
+                  >const user = { totalGrades = () => {console.log(this)}
+                  }</code
+                >
+                this : window
+              </li>
+            </ul>
+            <ul>
+              <li>메서드 내에서 함수를 또 선언한다면 ?</li>
+              <li>
+                1) 메서드 내 일반 함수
+                <code
+                  >this.grades.forEach(function (item)
+                  {console.log(this.total)});</code
+                >
+                <br />
+                > this.total = window.total <br />
+                > 일반 함수를 호출한 대상이 없음. 스스로 호출되어 실행됨 = 호출
+                대상 = window
+              </li>
+              <li>
+                2) 메서드 내 화살표 함수
+                <code
+                  >this.grades.forEach((item) => (this.total += item));</code
+                >
+                <br />
+                > this.total = user.total <br />
+                > 화살표 함수는 this가 바인딩되어 있지 않아, 렉시컬
+                스코프(상위)에서 this를 탐색함. 렉시컬 스코프 = user
               </li>
             </ul>
           </li>
@@ -306,35 +387,29 @@
                 등)
               </li>
               <li>
-                new 키워드를 붙일 수 있는 일반/생성자 함수 구분법 : 생성자
-                함수는 파스칼 케이스
+                new 키워드를 붙일 수 있는 일반/생성자 함수 구분법 <br />
+                > 일반 함수 - 카멜 케이스 <br />
+                > 생성자 함수 - 파스칼 케이스
               </li>
             </ul>
             <ul>
               <li>
                 <code>arrow function</code>은 생성자 함수로 사용될 수 없음
                 <br />
-                : prototype: constructor가 없기 때문에
+                > prototype: constructor가 없기 때문에
               </li>
-              <li>prototype: constructor가 없음 : 함수 자체가 가벼움</li>
+              <li>prototype: constructor가 없어서 함수 자체가 가벼움</li>
             </ul>
             <ul>
               <li>
-                <code>arrow function</code> : 일반 함수를 만들기 위한 구문
-                (constructor 없음)
+                일반 함수용 : <code>arrow function</code> (constructor 없음)
+                <br />
+                > <code>const Button = () => {}</code>
               </li>
-              <li><code>const Button = () => {}</code></li>
-              <li>class : 생성자 함수를 만들기 위한 구문</li>
-              <li><code>class Button2 {}</code></li>
-            </ul>
-            <ul>
-              <li>this 바인딩하지 않기 때문에 더 상위 context this를 찾음</li>
-              <li>상위 context : 전역</li>
               <li>
-                객체를 감싸는 중괄호는 환경을 구성하지 않음 => 전역 실행 환경이
-                적용됨
+                생성자 함수용 : <code>class</code> <br />
+                > <code>class Button2 {}</code>
               </li>
-              <li>환경 : 전역, 함수</li>
             </ul>
           </li>
         </ol>
