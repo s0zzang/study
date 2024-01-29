@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>javascript - day7</title>
+    <link rel="stylesheet" href="../../reset.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>javascript day7</h1>
+      <section>
+        <h2>객체</h2>
+        <ol>
+          <li>
+            표기법
+            <ul>
+              <li>점 표기법 : 변수 사용 불가</li>
+              <li>대괄호 표기법 : 변수 사용</li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+      <section>
+        <h2>함수 표현식</h2>
+        <ol>
+          <li>
+            함수는 특별한 종류의 값으로 취급됨 (⭐️)
+            <ul>
+              <li>
+                특별한 동작을 하는 구조만으로 취급 X => 동작을 나타내는 값 !
+              </li>
+              <li>함수를 표현식으로? : 변수를 선언하여 함수를 할당</li>
+              <li>
+                값으로 취급이 가능하기 때문에, 변수에 함수 할당이 가능함 <br />
+                (할당, 복사, 선언 가능)
+              </li>
+              <li>값으로 취급되면, 일급으로 취급됨</li>
+            </ul>
+            <ul>
+              <li>값이기 때문에 실행하지 않고 넘길 수 있음</li>
+              <li><code>function sayHi(){ return 'hi~' }</code></li>
+              <li>
+                <code>const a = sayHi()</code> a = 'hi~'<br />
+                : 함수를 실행()해서 리턴값이 담김
+              </li>
+              <li>
+                <code>const b = sayHi</code> b =
+                <code>ƒ sayHi(){ return 'hi~' }</code><br />
+                : 함수를 실행하지 않아서 함수 본문이 담겼음 <br />
+                : <code>b()</code> : 'hi~'가 반환 (⭐️)
+              </li>
+              <li>
+                이 개념은 콜백, 클로저에서 중요한 베이스기 때문에 꼭꼭 이해 필요
+              </li>
+            </ul>
+          </li>
+          <li>
+            콜백 함수
+            <ul>
+              <li>나중에 함수 안에서 호출하여 실행되는 함수</li>
+              <li>
+                <code>
+                  function ask(question, yes, no) { confirm(question) ? yes() :
+                  no() }
+                </code>
+              </li>
+              <li>
+                <code>yes</code> 매개 변수에는 함수 본문이 담김 =>
+                <code>yes()</code>로 실행 가능
+              </li>
+              <li>
+                <code>ask("동의하십니까?", showOk, showCancel);</code> <br />
+                : showOk, showCancle = 지금 실행되지 않고 나중에 question 결과에
+                따라 실행됨 = 콜백 함수
+              </li>
+            </ul>
+            <ul>
+              <li>showOk, showCancle 이라는 함수 이름이 사용되고 있지 않음</li>
+              <li>
+                <code
+                  >ask("동의하십니까?", function(){ showOk 본문 }, function(){
+                  showCancle 본문 })</code
+                >
+                이렇게 생략하여 익명 함수로 사용 가능
+              </li>
+              <li>익명 함수 : ask 바깥에서 접근 불가</li>
+            </ul>
+            <ul>
+              <li>콜백 함수의 다른 예시</li>
+              <li><code>배열.forEach( 콜백함수 ){ ... }</code></li>
+            </ul>
+          </li>
+          <li>
+            함수 표현식 vs 함수 선언문
+            <ul>
+              <li>1) 문법 차이</li>
+              <li>
+                함수 선언문 : <code>function sum(a, b){ return a + b }</code>
+              </li>
+              <li>
+                함수 표현식 :
+                <code>let sum = function (a, b){ return a + b }</code>
+              </li>
+              <li>
+                함수 선언문은 값을 반환하지 않는 반면, 식인 함수 표현식은 값을
+                반환하여 변수 할당 가능
+              </li>
+              <li>
+                함수 표현식은 익명 함수이지만, 할당된 변수 이름으로 호출이
+                가능함
+              </li>
+            </ul>
+            <ul>
+              <li>2) 함수 생성 시기의 차이</li>
+              <li>
+                함수 선언문 : 함수 선언문이 정의되기 전에도 호출 가능 <br />
+                (범쌤: 좋은 방법은 아님~) <br />
+                : 스크립트 실행 전, 전역 함수 선언문을 찾고 함수를 생성함 = 함수
+                호이스팅
+              </li>
+              <li>
+                함수 표현식 : 런타임에 함수를 생성함 <br />
+                : 변수 선언만 스크립트 실행 전에 호이스팅되고, 할당문은 호이스팅
+                되지 않아서 런타임에 함수가 생성됨
+              </li>
+            </ul>
+            <ul>
+              <li>3) 스코프</li>
+              <li>
+                함수 선언문 : 함수가 선언된 코드 블록 안에서만 유효, 블록 내에선
+                어디서든 활용 가능
+              </li>
+              <li>
+                함수 표현식 : 변수를 코드 블록 밖에서 미리 선언 후 코드 블록
+                안에서 함수를 할당하여 사용
+              </li>
+            </ul>
+            <ul>
+              <li>함수선언문 vs 함수표현식 : 취존 !</li>
+              <li>범쌤 방식 : 유틸 - 함수선언 / 값, 콜백함수 - 표현식/arrow</li>
+            </ul>
+          </li>
+          <li>
+            즉시 실행 함수 (표현)식 : IIFE
+            <ul>
+              <li><code>(function( ){ })()</code></li>
+              <li>함수 만들자마자 실행시켜</li>
+              <li>바로 실행시킨 후 실행 못하기 때문에 함수 이름 필요 없음</li>
+              <li>var의 블록 스코프를 이기기위해 사용했던 과거의 유물</li>
+              <li>
+                모듈 등장으로 IIFE 함수 사용 빈도는 줄었지만, 클로저에서 아직
+                많이 사용됨
+              </li>
+            </ul>
+            <ul>
+              <li>캡슐화(incapsulation)</li>
+              <li>IIFE를 괄호로 감싸는 것을 캡슐화라고 하기도 함</li>
+              <li>변수를 보호하기 위해 사용할 수 있음</li>
+            </ul>
+          </li>
+          <li>
+            모듈?
+            <ul>
+              <li>각 파일에서 import, export 사용</li>
+              <li>스크립트를 전부 파일로 분리 => 파일 짱많음</li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+      <section>
+        <h2>배열</h2>
+        <ol>
+          <li>
+            배열 메서드 (⭐️) 미리보기
+            <ul>
+              <li>배열 메서드 : 리액트를 얼마나 잘 이해할지 달려있삼</li>
+              <li>리액트에서 배열로만 리스트 렌더링이 가능하기 때문에</li>
+              <li>for, map, reduce 등 성능 차이 없음</li>
+            </ul>
+            <ul>
+              <li>유사 배열 -> 배열</li>
+              <li>1) <code>Array.from(arguments)</code> IE 사용 불가</li>
+              <li>
+                2) <code>Array.prototype.slice.call(arguments)</code> slice에
+                인수를 전달하지 않으면 배열을 반환
+              </li>
+              <li>3) <code>[...arguments]</code> 전개구문 (젤 편함)</li>
+            </ul>
+            <ul>
+              <li>배열 메서드 : reduce</li>
+              <li>
+                <code>reduce(function(누적값, 현재값){...}, 초기값)</code>
+              </li>
+              <li>
+                <code
+                  >let result = arr.reduce((acc, cur) => { return acc +
+                  cur})</code
+                >
+              </li>
+              <li>
+                누적을 받을 acc(누적값)이 존재하기 때문에 따로 변수를 만들지
+                않아도 됨
+              </li>
+              <li>
+                <code>reduce</code> 값 반환함, 초기값을 원하는 타입으로 설정하여
+                모든 타입 반환 가능 (배열, 객체, 문자, 숫자)
+              </li>
+            </ul>
+            <ul>
+              <li>forEach : 값 반환 안함</li>
+              <li>
+                <code>arr.forEach( f: (value, index, array){ ... } )</code>
+              </li>
+              <li>map : 배열 반환</li>
+              <li>
+                <code>const map = arr.map( a => a*2 )</code>
+              </li>
+              <li>filter : 배열 반환</li>
+              <li><code>const filter = arr.filter( a => a>50 )</code></li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+      <section>
+        <h2>화살표 함수</h2>
+        <ol>
+          <li>
+            인수가 하나밖에 없는 경우, 매개변수 감싸는 괄호 생략 가능
+            <ul>
+              <li><code>let double = n => n * 2</code></li>
+            </ul>
+          </li>
+          <li>
+            매개변수 없는 경우
+            <ul>
+              <li>괄호를 비워두거나, 관례적으로 _ 활용</li>
+              <li><code>let double = () => console.log('xx')</code></li>
+              <li><code>let double = _ => console.log('xx')</code></li>
+            </ul>
+          </li>
+          <li>
+            본문이 한 줄인 경우
+            <ul>
+              <li>
+                {중괄호} 생략 가능 + return문 생략해도 한줄의 함수 본문의 값을
+                리턴함
+              </li>
+              <li><code>let double = n => n * 2</code></li>
+              <li>본문이 한줄이라면(콜백함수 등)에서 유용하게 사용</li>
+            </ul>
+          </li>
+          <li>
+            본문이 여러 줄인 경우
+            <ul>
+              <li>{중괄호} + return문 작성</li>
+            </ul>
+          </li>
+          <li>
+            return
+            <ul>
+              <li>본문이 한 줄이고 중괄호가 없어야 해당 값을 리턴함</li>
+              <li>
+                본문이 한 줄이라도 중괄호가 있다면 리턴되지 않음 > return 작성
+                필요
+              </li>
+            </ul>
+          </li>
+          <li>
+            주의점
+            <ul>
+              <li>arguments(잘안씀) 사용 불가 > rest parameter 사용</li>
+              <li>rest parameter(...agrs) : 배열, 함수의 매개변수에서 사용</li>
+              <li>spread syntax : ...arr</li>
+              <li>
+                (a, ...rest) > args : 첫번째 파라미터 제외한 모든 인수 반환
+              </li>
+            </ul>
+            <ul>
+              <li>
+                한줄, 중괄호없이 객체 리턴 불가하여 괄호로 그룹핑 필요 : 객체
+                리터럴을 함수 본문으로 인식하기 때문에
+              </li>
+              <li>
+                <code
+                  >const createUser = (name,age) => ({name:name, age:age})</code
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            갑자기 시작된 함수 양면의 얼굴 (일반함수 / 생성자함수)
+            <ul>
+              <li><code>function button(){}</code></li>
+              <li>
+                일반함수 : <code>const a = button()</code> a = undeifned - 함수
+                지향 프로그래밍
+              </li>
+              <li>
+                생성자함수 : <code>const b = new button()</code> b = button {} -
+                객체 지향 프로그래밍
+              </li>
+              <li>
+                new 키워드를 붙이면 전부 객체가 생성됨 (new Nuber, new String
+                등)
+              </li>
+              <li>
+                new 키워드를 붙일 수 있는 일반/생성자 함수 구분법 : 생성자
+                함수는 파스칼 케이스
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <code>arrow function</code>은 생성자 함수로 사용될 수 없음
+                <br />
+                : prototype: constructor가 없기 때문에
+              </li>
+              <li>prototype: constructor가 없음 : 함수 자체가 가벼움</li>
+            </ul>
+            <ul>
+              <li>
+                <code>arrow function</code> : 일반 함수를 만들기 위한 구문
+                (constructor 없음)
+              </li>
+              <li><code>const Button = () => {}</code></li>
+              <li>class : 생성자 함수를 만들기 위한 구문</li>
+              <li><code>class Button2 {}</code></li>
+            </ul>
+            <ul>
+              <li>this 바인딩하지 않기 때문에 더 상위 context this를 찾음</li>
+              <li>상위 context : 전역</li>
+              <li>
+                객체를 감싸는 중괄호는 환경을 구성하지 않음 => 전역 실행 환경이
+                적용됨
+              </li>
+              <li>환경 : 전역, 함수</li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+    </div>
+  </body>
+</html>
