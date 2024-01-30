@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>javascript - day8</title>
+    <link rel="stylesheet" href="../../reset.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>javascript day8</h1>
+      <section>
+        <h2>배열</h2>
+        <ol>
+          <li>
+            Array(5)
+            <ul>
+              <li>length가 5인 빈 배열 반환됨</li>
+              <li>배열이 아닌 애를 배열로 만들어서 문제 풀 때 사용함</li>
+              <li>
+                <code>Array(3).fill(null)</code> :
+                <code>[null, null ,null]</code>
+              </li>
+              <li>이렇게 배열을 만들면 배열 메서드 사용 가능</li>
+            </ul>
+            <ul>
+              <li>예시</li>
+              <li>
+                <code
+                  >Array(powCount).fill(numeric).reduce((acc) => acc *
+                  numeric)</code
+                >
+              </li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+      <section>
+        <h2>재귀와 스택</h2>
+        <ol>
+          <li>훨씬 더 중요한 내용이 많기 때문에 건너뜀</li>
+          <li>
+            재귀 사용 이유
+            <ul>
+              <li>어떤 문제를 해결하기 위해 내가 필요해 ..! 오 ~</li>
+              <li>
+                <code>function a (){ retrun 1 }</code> <code>const x = 10</code>
+              </li>
+              <li><code>x * a()</code> 1) 함수 실행 2) x * 1</li>
+            </ul>
+          </li>
+          <li>
+            pow 함수를 재귀함수로 변경 해보자고 (어려움쓰)
+            <ul>
+              <li><code>return x * pow(x, n - 1);</code></li>
+              <li>1) pow 함수 실행 2) 곱하기</li>
+              <li>
+                함수는 호출될 때 마다 하나의 실행 컨텍스트 생성함 <br />
+                > 또 다른 실행 환경 형성된 것
+              </li>
+              <li>
+                함수 안에 새로운 실행 환경이 형성되면, 함수 밖의 실행 환경은
+                멈춰 ! ✋
+              </li>
+              <li>
+                중지된 함수와 연관된 실행 컨텍스트는 "실행 컨텍스트 스택" 자료
+                구조에 저장 됨
+              </li>
+            </ul>
+            <ul>
+              <li><code>return x * pow(x, n - 1);</code></li>
+              <li>
+                pow(2,3) 계산하다가 pow(2,3-1) 함수 호출되어 새로운 실행환경이
+                만들어짐. <br />
+                > 외부의 pow(2,3)은 멈춰 ✋
+              </li>
+              <li>
+                pow(2,2) 계산하다가 pow(2,2-1) 함수 호출되어 새로운 실행환경이
+                만들어짐. <br />
+                > 외부의 pow(2,2)은 멈춰 ✋
+              </li>
+              <li>pow(2,1) 계산하려니까 x가 1이라서 2를 return함</li>
+              <li>pow(2,2)를 이제 실행하러 가보자 ~! => x * 2 = 4</li>
+              <li>pow(2,3)를 이제 실행하러 가보자 ~! => x * 4 = 8</li>
+              <li>Last in First out : 마지막에 들어온 작업이 제일 먼저 나감</li>
+            </ul>
+            <ul>
+              <li>call stack은 환경보다 더 넓은 개념</li>
+              <li>
+                call stack에 실행 컨텍스트를 쌓아서 순서대로 일처리를 함 <br />
+                (pow함수에선 함수 context를 쌓은 것)
+              </li>
+              <li>
+                n개만큼 환경이 쌓임 => 성능 저하 <br />
+                => 하지만 유지보수, 코드 가독성에 측면에선 재귀 함수가 적합함
+              </li>
+              <li>관련 stack, que는 배열에서 나옴</li>
+            </ul>
+            <ul>
+              <li>개발자 도구에서 코드의 실행 흐름을 제어하며 관찰하기</li>
+              <li>개발자도구 - souces 캡쳐화면 참고</li>
+            </ul>
+            <ul>
+              <li>
+                자바스크립트에 대한 이해가 높아야 재귀 함수를 만들 수 있을 것 ~
+              </li>
+              <li>
+                지금 단계에선 재귀 필요하다면 검색해서 잘만든거 가져와서 써라잉
+              </li>
+              <li>
+                콘솔에서 어떻게 작동하는지 꼭 확인할 것
+                <img src="img01.png" alt="" />
+              </li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+      <section>
+        <h2>객체</h2>
+        <ol>
+          <li>
+            객체요?
+            <ul>
+              <li>다양한 데이터를 담을 수 있음</li>
+              <li>
+                중괄호 안에는 ‘키(key): 값(value)’ 쌍으로 구성된
+                프로퍼티(property) 를 여러 개 넣을 수 있음
+              </li>
+              <li>키 : 문자형, 심볼 가능 (변수인 경우 대괄호 표기법 참고)</li>
+              <li>값 : 모든 자료형 가능</li>
+            </ul>
+          </li>
+          <li>
+            함수도 사실 객체
+            <ul>
+              <li>함수이기 이전에 객체이기 때문에 프로퍼티 지정 가능</li>
+              <li><code>function a (){}</code> <code>a.value = 10</code></li>
+            </ul>
+          </li>
+          <li>
+            리터럴과 프로퍼티
+            <ul>
+              <li>프로퍼티 추가 <code>user.age = 30</code></li>
+              <li>프로퍼티 삭제 <code>delete user.age</code></li>
+            </ul>
+            <ul>
+              <li>
+                불가능한 프로퍼티 이름 :
+                <code>likes-birds, like birds</code>
+              </li>
+              <li>
+                가능한 프로퍼티 이름 :
+                <code>'likes-birds', 'like birds'</code>
+              </li>
+            </ul>
+            <ul>
+              <li>상수인 객체 수정하기 : 가능</li>
+              <li>변경이 불가능한 것은 객체 자체</li>
+              <li>상수의 프로퍼티를 변경하는 것은 가능</li>
+              <li>프로퍼티까지 변경 못하게 하려면 동결시키면 가능</li>
+            </ul>
+          </li>
+          <li>
+            대괄호 표기법 (⭐️)
+            <ul>
+              <li>점 표기법 : '유효한 변수 식별자'인 경우에 사용</li>
+              <li>
+                대괄호 표기법 : '유효한 변수 식별자'가 아닌 경우에 사용 <br />>
+                배열 인덱스도 포함됨
+              </li>
+            </ul>
+            <ul>
+              <li>
+                변수의 키 값 접근할 때도 대괄호 표기법 사용 <br />
+                1) <code>let key = "likes birds";</code>
+                <code>user[key] = true;</code> <br />
+                2)
+                <code
+                  >const removeProperty = (obj, key) => (obj[key] = null)</code
+                >
+              </li>
+            </ul>
+            <ul>
+              <li>계산된 프로퍼티</li>
+              <li>
+                변수를 키로 동적으로 받아와서 사용하거나 결합 가능 <br />
+                1) <code>[fruit]: 5</code> <br />
+                2) <code>[fruit + 'Computers']: 5</code>
+              </li>
+              <li>함수 안에서 객체를 만들어야 할 때 많이 사용</li>
+            </ul>
+          </li>
+          <li>
+            단축 프로퍼티
+            <ul>
+              <li>진짜 짱많이 씀</li>
+              <li>키와 밸류의 이름이 같다면 하나만 작성하면 됨</li>
+              <li>함수 안에서 객체를 다시 정의할 때 주로 사용함</li>
+            </ul>
+          </li>
+          <li>
+            프로퍼티 이름의 제약사항
+            <ul>
+              <li>예약어를 써도 됨, 하지만 안쓰는게 좋겠죠?</li>
+            </ul>
+          </li>
+          <li>
+            ‘in’ 연산자로 프로퍼티 존재 여부 확인하기
+            <ul>
+              <li>
+                프로토타입의 프로퍼티까지 모두 반환되기 때문에 hasOwnProperty
+                빌려써야 함
+              </li>
+            </ul>
+          </li>
+          <li>
+            ‘for…in’ 반복문
+            <ul>
+              <li>객체 정렬 방식 : 객체는 순서가 중요하지 않음</li>
+              <li>따라서 순서가 중요하다면 배열 사용</li>
+            </ul>
+          </li>
+          <li>
+            순수 객체
+            <ul>
+              <li>순수 객체 : 일반 객체 (일반 객체 X : Array, Date, Error)</li>
+              <li>순수 함수 : 함수는 1가지 일만 담당</li>
+            </ul>
+          </li>
+          <li>
+            없는 키값에 접근
+            <ul>
+              <li>에러가 아닌 undefined를 반환</li>
+              <li>
+                없다면 조건 처리 필요함
+                <code>if(!authUser.asdfasdf) 에러 처리</code>
+              </li>
+              <li>메서드가 없으면 에러남</li>
+            </ul>
+          </li>
+          <li>
+            구조 분해 할당 (⭐️⭐️⭐️⭐️⭐️)
+            <ul>
+              <li>배열 구조 분해 할당</li>
+              <li><code>const [a, b, c, d] = [10, 100, 1000, 10000]</code></li>
+              <li>
+                > 순서 : 절대 못바꿈 (배열에서 순서가 매우 중요하기 때문에)
+              </li>
+              <li>> 변수 이름 : 변경 가능</li>
+              <li>
+                배열이 몇개인지 모를 땐 ?
+                <code>const [n1, , ...rest] = [10, 20, 30, 40, 50, 60]</code>
+              </li>
+              <li>
+                > <code>, ,</code> <code>,_,</code> : 원래는 20의 자리인데, 20
+                제외하고 나머지를 rest로 받음
+              </li>
+              <li>
+                유사 배열에도 사용 가능 <br />
+                ㄴ
+                <code
+                  >const [first, second] =
+                  document.querySelectorAll('span')</code
+                >
+              </li>
+            </ul>
+            <ul>
+              <li>객체 구조 분해 할당 (⭐️)</li>
+              <li>
+                <code
+                  >const { 박지성, 김보미, 이경민, 전희선 } = salaries;</code
+                >
+              </li>
+              <li>> 순서 : 상관 없음</li>
+              <li>
+                > 변수 이름 : 변경 가능 (키값:변경할변수명 - 키값을 변수명으로
+                찾기 때문에) <br />
+                ㄴ
+                <code
+                  >const { 김보미: 김, 박지성: 박, 이경민: 이, 전희선: 전 } =
+                  salaries;</code
+                >
+              </li>
+              <li>
+                없으면 기본값 설정 가능 <br />
+                ㄴ
+                <code
+                  >const {김보미:김=3000, 박지성:박, 이경민:이, 전희선:전,
+                  도가현 = 20} = salaries</code
+                >
+              </li>
+              <li>
+                보통 함수 매개변수를 객체로 받고 함수 안에서 가공처리할 때 많이
+                사용함
+              </li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+      <section>
+        <h2>참조에 의한 객체 복사</h2>
+        <ol>
+          <li>
+            제일 뽀인트
+            <ul>
+              <li>
+                참조 복사 | 얕은 복사 | 깊은 복사
+                <img src="img02.png" alt="" />
+              </li>
+            </ul>
+          </li>
+          <li>
+            참조 복사가 뭔디요
+            <ul>
+              <li>객체 vs 원시타입</li>
+              <li>원시값 : 값 그대로 복사 - 값이 저장/할당되어 복사됨</li>
+              <li>
+                객체 : 참조에 의해 복사 - 객체가 저장되어 있는 메모리 주소인
+                참조값이 저장됨
+              </li>
+            </ul>
+            <ul>
+              <li>참조 복사</li>
+              <li>
+                <code>let user = { name: 'sozzang' }</code>
+                <code>let admin = user</code>
+              </li>
+              <li>admin -> { name: 'sozzang' } <- user</li>
+              <li>
+                <code>user.name = 'merong'</code> 바꾸면
+                <code>admin.name</code>도 변경됨 <br />
+                ㄴ (동일한 메모리 주소)를 가리키는 화살표가 복사된 것이기 때문에
+              </li>
+              <li><code>user === admin</code> : 동등, 일치 모두 같음</li>
+            </ul>
+            <ul>
+              <li>원시타입의 복사</li>
+              <li>
+                <code>let user = 'sozzang'</code>
+                <code>let admin = user</code>
+              </li>
+              <li>admin -> 'sozzang', user -> 'sozzang'</li>
+              <li><code>admin: 'merong'</code> 변경해도 user는 값 그대로</li>
+            </ul>
+          </li>
+          <li>
+            얕은 복사
+            <ul>
+              <li>
+                객체는 참조에 의한 복사로, 원본이 수정되면 모든 변수에 할당한
+                객체도 수정됨
+              </li>
+              <li>
+                각자의 메모리 주소를 가진 독립적인 객체로 복사해보자 (like
+                원시형)
+              </li>
+            </ul>
+            <ul>
+              <li>1) for .. in문</li>
+              <li>
+                빈 객체를 만들어서 원본 객체의 모든 프로퍼티를 순회하여 복사
+              </li>
+              <li>
+                <code>let user = { name: "John", age: 30 };</code>
+                <code>let clone = {}</code> <br />
+                <code>for (let key in user) { clone[key] = user[key]; }</code>
+              </li>
+            </ul>
+            <ul>
+              <li>2) Object.assign()</li>
+              <li>
+                <code>let user = { name: "John" };</code><br />
+                <code>let permissions1 = { canView: true };</code><br />
+                <code>let permissions2 = { canEdit: true };</code><br />
+                <code>Object.assign(user, permissions1, permissions2);</code>
+              </li>
+              <li>
+                중복된 프로퍼티가 있는 경우, 뒤에 있는 객체의 값을 덮어쓰기함
+                <br />
+                ㄴ permissions2 우선순위 > permissions1 우선순위
+              </li>
+              <li>
+                새로운 빈 객체를 만들어서 assign <br />
+                ㄴ <code>let clone = Object.assign({}, user); </code> <br />
+                ㄴ 이 방법을 더 많이 사용함
+              </li>
+            </ul>
+            <ul>
+              <li>3) 전개 연산자(...)</li>
+              <li><code>const spreadObj = { ...messenger };</code></li>
+              <li>젤 많이 씀요 ~</li>
+              <li>2depth라면, 얕은 복사 2번하면 중첩 객체까지 복사 가능함</li>
+              <li>
+                얕은 복사 2번 성능 > cloneDeep함수 : 함수는 실행 환경을 만드니까
+              </li>
+            </ul>
+            <ul>
+              <li>객체 합성 (mix in)</li>
+              <li>
+                1)
+                <code>Object.assign(user, permissions1, permissions2)</code>
+              </li>
+              <li>
+                2)
+                <code>const spreadCssMap = { ...cssMapA, ...cssMapB }</code>
+              </li>
+            </ul>
+          </li>
+          <li>
+            깊은 복사 : 중첩 객체 복사
+            <ul>
+              <li>
+                얕은 복사를 하면, 중첩 객체는 참조에 의한 복사가 됨 (으이그~)
+              </li>
+              <li>
+                <code
+                  >let user = { name: "John", sizes: { height: 182, width: 50 }
+                  };</code
+                >
+              </li>
+              <li>1) lodash의 메서드인 _.cloneDeep(obj)을 사용</li>
+              <li>2) 내가 만든다면? 재귀함수로 Object.assign() 고고씽</li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+    </div>
+  </body>
+</html>

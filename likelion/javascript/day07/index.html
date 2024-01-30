@@ -326,23 +326,27 @@
               <li>
                 1) 메서드 축약형
                 <code>const user = { totalGrades(){console.log(this)} }</code>
-                this : user
+                <br />
+                > this : user <br />
+                > constructor 없음
               </li>
               <li>
                 2) 일반 함수
                 <code
                   >const user = { totalGrades: function(){console.log(this)}
                   }</code
-                >
-                this : user
+                ><br />
+                > this : user <br />
+                > constructor 있음
               </li>
               <li>
                 3) 화살표 함수
                 <code
                   >const user = { totalGrades = () => {console.log(this)}
                   }</code
-                >
-                this : window
+                ><br />
+                > this : window <br />
+                > constructor 없음
               </li>
             </ul>
             <ul>
